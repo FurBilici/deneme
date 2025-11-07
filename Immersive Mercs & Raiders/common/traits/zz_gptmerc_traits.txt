@@ -1,0 +1,29 @@
+﻿
+# Standard Values
+@pos_compat_high = 12
+@pos_compat_medium = 6
+@pos_compat_low = 3
+
+@neg_compat_high = -12
+@neg_compat_medium = -6
+@neg_compat_low = -3
+
+
+
+gptmerc_absent = {
+
+	monthly_lifestyle_xp_gain_mult = 0.2
+	
+	shown_in_ruler_designer = no
+	
+ 	incapacitating = yes
+	can_have_children = no
+	flag = can_not_marry
+
+ 	disables_combat_leadership = yes
+
+	desc = {
+		desc = trait_gptmerc_absent_desc
+	}
+}
+

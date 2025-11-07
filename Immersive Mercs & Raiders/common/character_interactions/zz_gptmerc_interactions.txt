@@ -1,0 +1,380 @@
+﻿
+gpt_chevauchee = {
+	icon = chevauchee
+	category = interaction_category_hostile
+ 	common_interaction = yes
+	interface_priority = 101
+
+	desc = gpt_chevauchee_desc
+
+	cooldown = { years = 1 }
+	cooldown_against_recipient = { years = 5 }
+
+	is_shown = {
+		NOT = { scope:recipient = scope:actor }
+		
+		scope:actor = {
+			is_ai = no
+			is_landed = yes
+			highest_held_title_tier >= 2
+			OR = {
+				government_has_flag = government_is_feudal
+				government_has_flag = government_is_clan
+				government_has_flag = government_is_administrative
+			}
+		 #	OR = {
+		 #		any_character_to_title_neighboring_and_across_water_county = { exists = holder holder = { this = scope:recipient } }
+		 #		any_character_to_title_neighboring_and_across_water_duchy = { exists = holder holder = { this = scope:recipient } }
+		 #		any_character_to_title_neighboring_and_across_water_kingdom = { exists = holder holder = { this = scope:recipient } }
+		 #		any_character_to_title_neighboring_and_across_water_empire = { exists = holder holder = { this = scope:recipient } }
+		 #	}
+		 	NOT = { has_truce = scope:recipient }
+		}
+		scope:recipient = {
+			is_landed = yes
+			highest_held_title_tier >= 2
+			NOT = { is_vassal_or_below_of = scope:actor }
+			NOT = { is_allied_to = scope:actor }
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		scope:actor = {
+			is_available_healthy_adult = yes
+			is_imprisoned = no
+			is_at_war = no
+			employs_court_position = master_of_raids_court_position
+		}
+		custom_tooltip = {
+			scope:actor = {
+				any_courtier = {
+					count >= 3
+				 	can_be_knight_trigger = { ARMY_OWNER = scope:actor }
+					is_healthy = yes
+					is_travelling = no
+					NOT = { has_court_position = master_of_raids_court_position }
+					NOT = { is_child_of = scope:actor }
+				}
+			}
+			text = GPT_RAID_FEW_KNIGHTS
+		}
+		custom_tooltip = {
+			scope:actor = {
+				current_military_strength > scope:recipient.fifty_percent_of_current_military_strength
+			}
+			text = GPT_RAID_ARMY_TOO_SMALL
+		}
+		custom_tooltip = {
+			scope:actor = {
+				NOT = { max_military_strength > scope:recipient.triple_max_military_strength }
+			}
+			text = GPT_RAID_ARMY_TOO_LARGE
+		}
+		custom_tooltip = {
+			scope:actor = {
+				capital_province = {
+					squared_distance = {
+						target = scope:recipient.capital_province
+						value <= squared_distance_medium #250 map-pixels. Roughly one Ireland away (top to bottom).
+					}
+				}
+			}
+			text = GPT_RAID_TOO_DISTANT
+		}
+	}
+
+	send_option = {
+		is_shown = {
+			exists = scope:recipient
+		}
+		flag = gpt_r_gold
+		localization = GPT_RAID_GOLD
+	}
+	send_option = {
+		is_shown = {
+			exists = scope:recipient
+		}
+		flag = gpt_r_prestige
+		localization = GPT_RAID_PRESTIGE
+	}
+	send_option = {
+		is_shown = {
+			exists = scope:recipient
+		}
+		flag = gpt_r_dread
+		localization = GPT_RAID_DREAD
+	}
+
+	send_options_exclusive = yes
+
+	on_accept = {
+		clear_saved_scope = gptmerc_heir
+		clear_saved_scope = gptmerc_confirmed_heir
+		clear_saved_scope = gptmerc_mraid
+		clear_saved_scope = gptmerc_knight_1
+		clear_saved_scope = gptmerc_knight_2
+		clear_saved_scope = gptmerc_knight_3
+		clear_saved_scope = gpt_merc_selected_knight
+		clear_saved_scope = gpt_merc_follower_knight_1
+		clear_saved_scope = gpt_merc_follower_knight_2
+		clear_saved_scope = gptmerc_target
+		scope:actor = {
+			add_character_flag = { flag = gptmerc_ongoing_raid_flag days = 370 }
+			every_court_position_holder = {
+				type = master_of_raids_court_position
+				save_scope_as = gptmerc_mraid
+			}
+			ordered_child = {
+				limit = {
+					is_healthy = yes
+					is_travelling = no
+					is_courtier_of = scope:actor
+					NOT = { this = scope:gptmerc_mraid }
+					OR = {
+						can_be_knight_trigger = { ARMY_OWNER = scope:actor }
+						has_trait = education_martial_1
+						has_trait = education_martial_2
+						has_trait = education_martial_3
+						has_trait = education_martial_4
+						has_trait = education_martial_5
+					}
+				}
+				order_by = {
+					value = 0
+					add = ai_boldness
+					add = {
+						value = prowess
+						multiply = 10
+					}
+					add = {
+						value = martial
+						multiply = 10
+					}
+				}
+				save_scope_as = gptmerc_heir
+			}
+			ordered_courtier = {
+				limit = {
+					can_be_knight_trigger = { ARMY_OWNER = scope:actor }
+					is_healthy = yes
+					is_travelling = no
+					NOT = { has_court_position = master_of_raids_court_position }
+					NOT = { is_child_of = scope:actor }
+				}
+				order_by = {
+					value = 0
+					add = ai_boldness
+					add = {
+						value = age
+						multiply = 5
+					}
+					add = {
+						value = prowess
+						multiply = 10
+					}
+					add = {
+						value = martial
+						multiply = 10
+					}
+				}
+				save_scope_as = gptmerc_knight_1
+			}
+			ordered_courtier = {
+				limit = {
+					can_be_knight_trigger = { ARMY_OWNER = scope:actor }
+					is_healthy = yes
+					is_travelling = no
+					NOT = { has_court_position = master_of_raids_court_position }
+					NOT = { is_child_of = scope:actor }
+					NOT = { this = scope:gptmerc_knight_1 }
+				}
+				order_by = {
+					value = 0
+					add = ai_boldness
+					add = {
+						value = age
+						multiply = 5
+					}
+					add = {
+						value = prowess
+						multiply = 10
+					}
+					add = {
+						value = martial
+						multiply = 10
+					}
+				}
+				save_scope_as = gptmerc_knight_2
+			}
+			ordered_courtier = {
+				limit = {
+					can_be_knight_trigger = { ARMY_OWNER = scope:actor }
+					is_healthy = yes
+					is_travelling = no
+					NOT = { has_court_position = master_of_raids_court_position }
+					NOT = { is_child_of = scope:actor }
+					NOT = { this = scope:gptmerc_knight_1 }
+					NOT = { this = scope:gptmerc_knight_2 }
+				}
+				order_by = {
+					value = 0
+					add = ai_boldness
+					add = {
+						value = age
+						multiply = 5
+					}
+					add = {
+						value = prowess
+						multiply = 10
+					}
+					add = {
+						value = martial
+						multiply = 10
+					}
+				}
+				save_scope_as = gptmerc_knight_3
+			}
+		}
+		scope:recipient = {
+			save_scope_as = gptmerc_target
+			if = {
+				limit = {
+					calc_true_if = {
+						amount >= 4
+						has_raised_armies = yes
+						any_character_war = {
+							count >= 2
+						}
+						any_character_war = {
+							count >= 3
+						}
+						has_targeting_faction = yes
+						any_targeting_faction = {
+							faction_power >= faction_power_threshold
+						}
+						any_targeting_faction = {
+							count >= 3
+						}
+						any_powerful_vassal = {
+							percent >= 0.5
+							opinion = {
+								target = scope:recipient
+								value < 0
+							}
+						}
+						any_held_county = {
+							percent >= 0.5
+							county_opinion_target = {
+								target = scope:recipient
+								value < 0
+							}
+						}
+					}
+				}
+				custom_tooltip = gpt_recipient_raid_info_tt_3
+				custom_tooltip = gpt_recipient_raid_info_easy_tt
+			}
+			else_if = {
+				limit = {
+					calc_true_if = {
+						amount >= 2
+						has_raised_armies = yes
+						any_character_war = {
+							count >= 2
+						}
+						any_character_war = {
+							count >= 3
+						}
+						has_targeting_faction = yes
+						any_targeting_faction = {
+							faction_power >= faction_power_threshold
+						}
+						any_targeting_faction = {
+							count >= 3
+						}
+						any_powerful_vassal = {
+							percent >= 0.5
+							opinion = {
+								target = scope:recipient
+								value < 0
+							}
+						}
+						any_held_county = {
+							percent >= 0.5
+							county_opinion_target = {
+								target = scope:recipient
+								value < 0
+							}
+						}
+					}
+				}
+				custom_tooltip = gpt_recipient_raid_info_tt_2
+				custom_tooltip = gpt_recipient_raid_info_hard_tt
+				add_character_flag = { flag = gptmerc_hard_flag days = 5 }
+			}
+			else = { 
+				custom_tooltip = gpt_recipient_raid_info_tt_1 
+				custom_tooltip = gpt_recipient_raid_info_very_hard_tt
+				add_character_flag = { flag = gptmerc_very_hard_flag days = 5 }
+			}
+		}
+		scope:actor = {
+			if = {
+				limit = {
+					ai_compassion > 20
+				}
+				custom_tooltip = gpt_compassionate_raid_tt
+				add_character_flag = { flag = gptmerc_compassion_flag days = 400 }
+			}
+			else_if = {
+				limit = {
+					ai_compassion >= -20
+					ai_compassion <= 20
+				}
+				custom_tooltip = gpt_pragmatic_raid_tt
+				add_character_flag = { flag = gptmerc_pragmatic_flag days = 400 }
+			}
+			else_if = {
+				limit = {
+					ai_compassion < -20
+				}
+				custom_tooltip = gpt_ruthless_raid_tt
+				add_character_flag = { flag = gptmerc_ruthless_flag days = 400 }
+			}
+			else = { }
+		}
+		if = {
+			limit = { always = scope:gpt_r_gold }
+			scope:actor = {
+				add_character_flag = { flag = gpt_r_gold_flag days = 400 }
+				custom_tooltip = gpt_r_gold_tt
+			}
+		}
+		if = {
+			limit = { always = scope:gpt_r_prestige }
+			scope:actor = {
+				add_character_flag = { flag = gpt_r_prestige_flag days = 400 }
+				custom_tooltip = gpt_r_prestige_tt
+			}
+		}
+		if = {
+			limit = { always = scope:gpt_r_dread }
+			scope:actor = {
+				add_character_flag = { flag = gpt_r_dread_flag days = 400 }
+				custom_tooltip = gpt_r_dread_tt
+			}
+		}
+		scope:actor = {
+			trigger_event = gpt_chevauchee_events.0001
+		}
+	}
+
+	cost = {
+	}
+	
+	ai_will_do = {
+		base = 0 #The AI should never do this!
+	}
+
+	auto_accept = yes
+}

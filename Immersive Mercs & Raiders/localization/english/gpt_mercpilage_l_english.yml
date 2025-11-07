@@ -1,0 +1,640 @@
+﻿l_english:
+
+## -------------------------------------------------
+
+ master_of_raids_court_position:0 "Master of Raids"
+ master_of_raids_court_position_desc:1 "The $master_of_raids_court_position$ is responsible for planning and executing small-scale raids on neighboring realms. This position also entails the authority to promote raids within the liege's own borders to intimidate internal dissidents."
+ master_of_raids_task_1: "Counter Raid"
+ master_of_raids_task_1_desc: "Your $master_of_raids_court_position$ will search, prepare and counter hostile raiding parties"
+ master_of_raids_task_2: "Brigand Disguise"
+ master_of_raids_task_2_desc: "Your $master_of_raids_court_position$ will improve the stealth of small-scale raids by posing as brigands"
+ master_of_raids_task_3: "Scorched Earth"
+ master_of_raids_task_3_desc: "Your $master_of_raids_court_position$ will employ destructive tactics to intimidate enemies and rivals"
+
+ court_position_reaver_trait:0 "[GetTrait('reaver.GetName( ROOT.Char )]"
+ gpt_master_of_raids_employer_custom_effect_description: "Increases the effectiveness of Chevauchées (based on [aptitude|E])"
+
+ GPT_RAID_PRESTIGE: "[prestige_i] My honor has been challenged!"
+ GPT_RAID_PIETY: "[piety_i] Divine will is guiding me!"
+ GPT_RAID_GOLD: "[gold_i] I claim what is rightfully mine!"
+ GPT_RAID_DREAD: "[dread_i] Anyone dare question me!?"
+
+ gpt_r_gold_tt: "#bold A successful raid will reward additional [gold|E]#!"
+ gpt_r_prestige_tt: "#bold A successful raid will reward additional [prestige|E]#!"
+ gpt_r_piety_tt: "#bold A successful raid will reward additional [piety|E]#!"
+ gpt_r_dread_tt: "#bold A successful raid will reward additional [dread|E]#!"
+
+ gpt_chevauchee: "Chevauchée #weak (Raid)#!"
+ gpt_chevauchee_desc: "Launch a devastating raid deep into [recipient.GetName]'s territory, weakening [recipient.GetHerHis] economic and military capacity by pillaging resources, destroying infrastructure, and terrorizing the populace."
+
+ gpt_merc_raided_1: "Strategic Incursion"
+ gpt_merc_raided_1_desc: "A neighboring ruler recently executed a chevauchée against this character's realm, strategically targeting military and economic infrastructure."
+ gpt_merc_raided_2: "Calculated Plunder"
+ gpt_merc_raided_2_desc: "Employing chevauchée tactics, a neighboring ruler recently raided this character's realm, with a calculated focus on wealthy cities and villages."
+ gpt_merc_raided_3: "Trail of Devastation"
+ gpt_merc_raided_3_desc: "A neighboring ruler's recent raid using chevauchée tactics across this character's realm left a significant trail of death and destruction."
+
+ GPT_RAID_ARMY_TOO_SMALL: "Your current army is insufficient to pose a credible threat to [recipient.GetName]"
+ GPT_RAID_ARMY_TOO_LARGE: "Your forces are overwhelming; [recipient.GetName] would be an insignificant target"
+ GPT_RAID_FEW_KNIGHTS: "You need #bold #V 3#!#! healthy [knights|E] that are NOT your children, vassal or the $master_of_raids_court_position$"
+ GPT_RAID_TOO_DISTANT: "[recipient.GetName]'s domains are too distant from your realm"
+
+ trait_gptmerc_absent:0 "Absent #weak (Chevauchée)#!"
+ trait_gptmerc_absent_desc:0 "This character is currently absent from the court"
+
+ gptmerc_chevauchee_death: "Died in a skirmish"
+
+
+## -------------------------------------------------
+
+gpt_recently_looted_county:0 "Recently Looted"
+
+gpt_negotiate_merc:0 "Negotiate"
+
+gpt_negotiate_merc_desc:0 "Bargain with [recipient.GetName] for a chance to get back part of the [gold|E] already paid. The outcome of the negotiation will be slightly influenced by [recipient.GetFirstName]'s personality."
+gpt_compassionate_raid_tt:0 "Restrained by your benevolent nature, raiding efforts will focus solely on #V infrastructure damage#!. While this may yield less pillage, it will also mitigate negative repercussions."
+gpt_pragmatic_raid_tt:0 "Reflecting your pragmatic nature, the raiding party will #V avoid targeting innocent civilians#!. This approach offers a balance between pillage and potential repercussions."
+gpt_ruthless_raid_tt:0 "In line with your ruthless nature, #V no restrictions will be placed on devastation and civilian casualties#!. This may lead to greater pillage at the cost of worsened repercussions."
+gpt_recipient_raid_info_tt_1:0 "[recipient.GetName]'s garrisons are largely prepared, #N increasing the risks#! for your raiding party."
+gpt_recipient_raid_info_tt_2:0 "[recipient.GetName]'s garrisons readiness is dubious, #V posing average risks#! for your raiding party."
+gpt_recipient_raid_info_tt_3:0 "[recipient.GetName]'s garrisons are in a chaotic state, #P decreasing the risks#! for your raiding party."
+gpt_recipient_raid_info_easy_tt:0 "Your advisors have concluded that [recipient.GetFirstName] is deeply troubled by internal and external enemies, and is facing multiple threats simultaneously."
+gpt_recipient_raid_info_hard_tt:0 "Your advisors believe that [recipient.GetFirstName] is somewhat vulnerable, considering recent reports indicating that some garrisons are abandoned, while others remain well-ordered."
+gpt_recipient_raid_info_very_hard_tt:0 "Your advisors recommend awaiting a more opportune moment, such as when [recipient.GetFirstName] is at war, weakened, or facing internal challenges from dangerous factions."
+GPT_CONFRONT_GIFT:0 "Offer your good words"
+gpt_gold_negotiate_tt:0 "Flattering someone, even if not sincerely, proactively fosters harmony and eliminates the potential for rivalry."
+gpt_hook_negotiate_tt:0 "Requesting reciprocation for a previous favor provides a substantial advantage in the negotiation."
+
+gpt_sucess_negotiate_tt:0 "[saved_mercenary.GetFirstName] will return approximately half of the [gold|E] paid."
+gpt_failure_negotiate_tt:0 "Despite the heated exchange, all your alternative proposals were ignored."
+gpt_tied_negotiate_tt:0 "#V 10 Years#! must pass before you can bargain with [saved_mercenary.GetName] again."
+
+gpt_sucessful_negotiation_toast_title:0 "Successful Negotiation!"
+gpt_failed_negotiation_toast_title:0 "Failed Negotiation!"
+gpt_tied_negotiation_toast_title:0 "Backed off from Negotiation!"
+
+#-----------------------
+
+gpt_sucess_merc_confrontation_tt:0 "Captain [saved_mercenary.GetFirstName] formally accepts accountability for [saved_mercenary.GetHerHis] men's wrongdoings."
+gpt_failure_merc_confrontation_tt:0 "Despite the heated exchange, your demands are ignored by [saved_mercenary.GetFirstName]. Your subjects held you responsible."
+
+gpt_sucessful_merc_confrontation_toast_title:0 "Successful Confrontation!"
+gpt_failed_merc_confrontation_toast_title:0 "Failed Confrontation!"
+gpt_tied_merc_confrontation_toast_title:0 "Backed off from Confrontation!"
+
+
+##################################################
+
+l_english:
+ ####################################
+ # Chevauchee Event Chain - Main
+ ####################################
+
+ ### Event 0001: Planning ###
+ gptmerc_chevauchee_main_title: "Planning a Chevauchée"
+ gptmerc_chevauchee_gold_desc: "My Master of Raids, [gptmerc_mraid.GetTitledFirstName], approaches me with a bold proposition. [gptmerc_mraid.GetSheHe|U] suggests launching a Chevauchée – a swift, mounted raid – deep into the lands of [gptmerc_target.GetTitledFirstName]. The primary goal: plunder. [gptmerc_mraid.GetSheHe|U] believes we can extract significant wealth by targeting vulnerable settlements and supply lines.\n\n[gptmerc_mraid.GetSheHe|U] has already identified three capable knights for the task: [gptmerc_knight_1.GetTitledFirstName], [gptmerc_knight_2.GetTitledFirstName], and [gptmerc_knight_3.GetTitledFirstName]."
+ gptmerc_chevauchee_prestige_desc: "My Master of Raids, [gptmerc_mraid.GetTitledFirstName], presents an opportunity for glory. [gptmerc_mraid.GetSheHe|U] proposes a Chevauchée, a lightning raid targeting the heartlands of [gptmerc_target.GetTitledFirstName]. While spoils are expected, the main objective is to strike a blow that will enhance our renown and demonstrate our martial prowess far and wide.\n\nThree knights stand ready to lead the charge: [gptmerc_knight_1.GetTitledFirstName], [gptmerc_knight_2.GetTitledFirstName], and [gptmerc_knight_3.GetTitledFirstName]."
+ gptmerc_chevauchee_dread_desc: "My Master of Raids, [gptmerc_mraid.GetTitledFirstName], speaks in hushed, grim tones of a potential Chevauchée against [gptmerc_target.GetTitledFirstName]. This mounted raid would not primarily seek riches or fame, but terror. By burning and pillaging with calculated cruelty, we can sow dread amongst our neighbours and remind them of the consequences of defiance.\n\nThe knights selected for this grim task are [gptmerc_knight_1.GetTitledFirstName], [gptmerc_knight_2.GetTitledFirstName], and [gptmerc_knight_3.GetTitledFirstName]."
+ gptmerc_chevauchee_main_option_1: "Assemble the potential raiding party."
+
+ ### Event 0002: Bold Child ###
+ gptmerc_chevauchee_bold_child_title: "A Bold Request"
+ gptmerc_chevauchee_bold_child_desc: "As discussions of the Chevauchée proceed, my young kid, [gptmerc_heir.GetFirstName], steps forward with surprising boldness. Eyes wide with a mixture of excitement and determination, [gptmerc_heir.GetSheHe] asks — nay, demands — to join the raid.\n\n\"Let me ride!\" [gptmerc_heir.GetSheHe] exclaims, puffing out [gptmerc_heir.GetHerHis] chest. \"I am not afraid! I want to fight!\"\n\nMy Master of Raids, [gptmerc_mraid.GetFirstName], watches with a stern expression, perhaps evaluating the child's mettle, or perhaps thinking of the risks. It is a dangerous venture, but the experience could forge [gptmerc_heir.GetHerHis] character... or break it."
+ gptmerc_chevauchee_bold_child_option_1: "[gptmerc_heir.GetFirstName] shall ride. Let [gptmerc_heir.GetHerHim] prove [gptmerc_heir.GetHerHis] worth!"
+ gptmerc_chevauchee_bold_child_option_2: "It is too dangerous. [gptmerc_heir.GetSheHe|U] stays here."
+
+ ### Event 0003: Select Knight ###
+ gptmerc_chevauchee_select_knight_title: "Choosing the Vanguard"
+ gptmerc_chevauchee_select_knight_desc: "The raiding party requires a leader, someone to command the knights and make tactical decisions during the Chevauchée. My Master of Raids has presented the three candidates, each a proven warrior in their own right.\n\n[gptmerc_knight_1.GetFirstName] grips [gptmerc_knight_1.GetHerHis] weapon with quiet confidence, [gptmerc_knight_2.GetFirstName] stands resolute behind [gptmerc_knight_2.GetHerHis] shield, and [gptmerc_knight_3.GetFirstName] hefts [gptmerc_knight_3.GetHerHis] axe with a fierce glint in [gptmerc_knight_3.GetHerHis] eye.\n\nWhom shall I entrust with leading this dangerous venture?"
+ gptmerc_chevauchee_knight_option_1: "[gptmerc_knight_1.GetFirstName] seems the most capable for this task."
+ gptmerc_chevauchee_knight_option_2: "I trust [gptmerc_knight_2.GetFirstName] to lead the charge."
+ gptmerc_chevauchee_knight_option_3: "[gptmerc_knight_3.GetFirstName]'s ferocity is exactly what we need."
+
+ ### Event 0004: Confirmation ###
+ gptmerc_chevauchee_confirmation_title: "Ready to Ride"
+ gptmerc_chevauchee_confirmation_desc: "The raiding party is assembled. At its head stands [gpt_merc_selected_knight.GetTitledFirstName], chosen to lead the Chevauchée. Flanked by [gpt_merc_follower_knight_1.GetTitledFirstName] and [gpt_merc_follower_knight_2.GetTitledFirstName]. They await my final command!\n\nHorses snort impatiently, leather creaks, and the air thrums with anticipation. My Master of Raids, [gptmerc_mraid.GetFirstName], gives a sharp nod, indicating all is prepared. The success of this venture now rests on their skill, courage, and perhaps a measure of luck."
+ gptmerc_chevauchee_confirmation_2_desc: "The raiding party is assembled. At its head stands [gpt_merc_selected_knight.GetTitledFirstName], chosen to lead the Chevauchée. Flanked by [gpt_merc_follower_knight_1.GetTitledFirstName] and [gpt_merc_follower_knight_2.GetTitledFirstName], accompanied by my eager child, [gptmerc_confirmed_heir.GetFirstName]. They await my final command!\n\nHorses snort impatiently, leather creaks, and the air thrums with anticipation. My Master of Raids, [gptmerc_mraid.GetFirstName], gives a sharp nod, indicating all is prepared. The success of this venture now rests on their skill, courage, and perhaps a measure of luck."
+ gptmerc_chevauchee_confirmation_option_1: "Let the fires be lit! Ride forth!"
+ gptmerc_chevauchee_confirmation_option_2: "On second thought, perhaps this venture is too risky."
+
+ # Custom Tooltips for Event 0004
+ gptmerc_confirmation_tt: "The raiding party will depart for approximately #EMP one year#!. Their success will depend on their combined skills, boldness, and the competence of my Master of Raids. Participants will be #EMP unavailable#! and #LITERALLY 'Absent'#!."
+ gptmerc_success_tt: "Circumstances suggest a #HIGH reasonable#! chance of success."
+ gptmerc_failure_tt: "The odds seem challenging; #LOW failure#! is a possibility."
+ gptmerc_desistance_tt: "Calling off the Chevauchée now will result in a loss of #EMP Prestige#! due to wasted preparations and shaken confidence."
+
+ ### Event 0005: Success ###
+ gptmerc_chevauchee_success_title: "Victory and Spoils!"
+ gptmerc_chevauchee_success_desc: "Dusty, weary, but laden with spoils and tales of fire and fury, the Chevauchée party returns! [gpt_merc_selected_knight.GetTitledFirstName] reports that the raid into [gptmerc_target.GetTitledFirstName]'s lands was a resounding success. Villages were sacked, defenders scattered, and a clear message was sent.\n\n The bounty they bring back – gold, renown, and fear – speaks for itself. Our enemies will not soon forget this."
+ gptmerc_chevauchee_success_end_option: "A most profitable venture!"
+
+ # Custom Tooltips for Event 0005 (and 0006)
+ gptmerc_cruel_opinion_1: "Our neighbours view this with #V mild disapproval#!" # Compassionate
+ gptmerc_cruel_opinion_2: "Our neighbours view this with #N significant disapproval#!" # Pragmatic/Default
+ gptmerc_cruel_opinion_3: "Our neighbours view this with #bold #N strong condemnation#!#!" # Ruthless
+ gptmerc_dead_heir_tt: "[gptmerc_confirmed_heir.GetName] was seriously injured and died short after a skirmish..."
+ gptmerc_dead_skin_tt: "[gpt_merc_selected_knight.GetName] died fighting bravely during a disadvantageous skirmish..."
+ gptmerc_dead_kin1_tt: "[gpt_merc_follower_knight_1.GetName] was captured during a skirmish and tortured to death..."
+ gptmerc_dead_kin2_tt: "[gpt_merc_follower_knight_2.GetName] disappeared during a skirmish and was found dead..."
+
+ ### Event 0006: Failure ###
+ gptmerc_chevauchee_failure_title: "A Bitter Return"
+ gptmerc_chevauchee_failure_desc: "The Chevauchée party returns, but not in triumph. They straggle back defeated, their expressions grim, their numbers possibly thinned. [gpt_merc_selected_knight.GetTitledFirstName] reports failure – perhaps due to ambushes, unexpectedly strong resistance, or simply ill fortune.\n\n They bring back little but dust and disappointment. We provoked a bee's nest for naught..."
+ gptmerc_chevauchee_failure_end_option: "A costly failure. We must learn from this."
+
+ # Placeholder for absent trait localization if needed
+ gptmerc_absent: "Absent"
+ gptmerc_absent_desc: "This character is currently away on a special activity and cannot interact normally."
+
+ # Placeholder for target modifier localization if needed (These would typically go in their own modifier localization file)
+ gpt_merc_raided_1: "Raided #weak (Lightly)#!"
+ gpt_merc_raided_1_desc: "This character's lands recently suffered a Chevauchée, resulting in minor losses and disruption."
+ gpt_merc_raided_2: "Raided #weak (Moderately)#!"
+ gpt_merc_raided_2_desc: "This character's lands recently suffered a significant Chevauchée, causing notable damage and hardship."
+ gpt_merc_raided_3: "Raided #weak (Harshly)#!"
+ gpt_merc_raided_3_desc: "This character's lands recently suffered a brutal Chevauchée, leaving a trail of devastation and fear."
+ gpt_merc_chevauchee: "Ongoing Raid #weak (Chevauchée)#!"
+ gpt_merc_chevauchee_desc: "A raiding party sponsored by this character is currently conducting a Chevauchée in foreign lands."
+
+##################################################
+
+
+
+
+
+gpt_satisfied_captain_tt:0 "Captain [saved_mercenary.GetFirstName] will be #P satisfied#!, decreasing the likelihood of adverse events from mercenary companies."
+gpt_unsatisfied_captain_tt:0 "Captain [saved_mercenary.GetFirstName] will be #N displeased#!, increasing the probability of rioting mercenary events."
+
+# Craven Ruler Mercenary Negotiation Events
+
+gpt_craven_ruler_mercenary_title_1:0 "A Hesitant Proposition"
+gpt_craven_ruler_mercenary_desc_1:0 "#weak The mercenary captain [saved_mercenary.GetFirstName] stands before you in your private chambers as you attempt to negotiate terms for [saved_mercenary.GetHerHis] company's service.#!\n\nYou try to mask your discomfort. 'Captain [saved_mercenary.GetFirstName], the gold I've offered is fair, surely?'\n\n[saved_mercenary.GetFirstName] scoffs. 'Fair? For long-term loyalty? My blades are worth twice that, [ROOT.Char.GetTitleAsName]. My men don't bleed cheap.'\n\nYou realize this negotiation requires more than just coin. The captain seems to evaluate your weakness, which you desperately try to conceal.\n\n#weak Your need for this mercenary's allegiance is great, potentially meaning the difference between survival and ruin, but the price seems impossibly steep.#!"
+gpt_craven_ruler_mercenary_option_1:0 "Your men seek fine wine? Warm company? I could facilitate."
+gpt_craven_ruler_mercenary_option_2:0 "A title... land... Have you ever dreamed of such things?"
+gpt_craven_ruler_mercenary_option_3:0 "There could be riches... glory... Help me ensure we do succeed."
+gpt_craven_ruler_mercenary_option_4:0 "The Divine protects the throne... Help me, share in that protection?"
+gpt_craven_ruler_mercenary_option_5:0 "Are you sure siding against me is wise? For anyone? You are wrong..."
+gpt_craven_ruler_mercenary_option_6:0 "I accept your price and hope to count on your loyalty."
+
+gpt_craven_ruler_mercenary_title_2:0 "Whispers of Uncertainty"
+gpt_craven_ruler_mercenary_desc_2:0 "#weak You meet Captain [saved_mercenary.GetFirstName] again, [saved_mercenary.GetHerHis] lieutenants nearby. The negotiation has stalled over price.#!\n\n'Your competitors offered better terms,' the captain says bluntly. 'Why should my company pledge to you when others value our swords more highly?'\n\nYou know how desperately you need these fighters. Without them, your position is terribly vulnerable.\n\n'P-perhaps we could discuss additional... considerations,' you suggest, hating the weakness in your voice. 'Beyond mere coin.'\n\n#weak The captain seems intrigued. 'Now we're getting somewhere, [ROOT.Char.GetTitleAsName]. What exactly are you offering that might persuade me to discount my company's worth?'#!"
+
+gpt_craven_ruler_mercenary_title_3:0 "Desperation's Bargain"
+gpt_craven_ruler_mercenary_desc_3:0 "#weak Captain [saved_mercenary.GetFirstName] paces your study. The mercenary's patience wears thin as your enemies draw closer. This is your final chance to secure the company's loyalty at a price you can afford.#!\n\n'I've entertained your hesitation long enough, [ROOT.Char.GetTitleAsName],' [saved_mercenary.GetSheHe] states. 'My men grow restless. Either meet our price or we march elsewhere tomorrow.'\n\nThe ultimatum terrifies you. Facing your enemies without these seasoned fighters seems unthinkable.\n\n'Please, Captain,' you say. 'Surely we can reach an agreement. There must be something beyond gold that you desire...'\n\n#weak The mercenary captain watches you, aware of your desperation. [saved_mercenary.GetSheHe] waits to see what you might sacrifice to secure [saved_mercenary.GetHerHis] swords.#!"
+
+# Pragmatic Ruler Mercenary Negotiation Events
+
+gpt_pragmatic_ruler_mercenary_title_1:0 "Calculated Transactions"
+gpt_pragmatic_ruler_mercenary_desc_1:0 "#weak Captain [saved_mercenary.GetFirstName] reviews the contract terms you've proposed in your chamber.#!\n\n'These terms undervalue my company's experience,' [saved_mercenary.GetSheHe] says. 'We've won battles that entire armies couldn't. Our price reflects our worth.'\n\nYou counter, 'And yet, Captain, a guaranteed contract offers security. Consider the stability of regular payment versus the feast-or-famine of typical contracts.'\n\nThe captain considers this. 'Security has its appeal, but my fighters won't accept being shortchanged.'\n\n#weak The negotiation has reached its critical juncture. This company is a valuable asset at the right price, but every resource must be allocated efficiently.#!"
+gpt_pragmatic_ruler_mercenary_option_1:0 "Your men will squander their pay on drink and women, unless..."
+gpt_pragmatic_ruler_mercenary_option_2:0 "Tell me, have you ever longed for the life of a noble?"
+gpt_pragmatic_ruler_mercenary_option_3:0 "Wealth and glory await, for you and me, my friend, I swear it."
+gpt_pragmatic_ruler_mercenary_option_4:0 "The Divine favors the faithful, your devotion will be rewarded."
+gpt_pragmatic_ruler_mercenary_option_5:0 "Watch your tongue. Do you truly know who you’re speaking to?"
+gpt_pragmatic_ruler_mercenary_option_6:0 "For now I accept your terms, in the future... we'll see."
+
+gpt_pragmatic_ruler_mercenary_title_2:0 "Strategic Allegiances"
+gpt_pragmatic_ruler_mercenary_desc_2:0 "#weak You and Captain [saved_mercenary.GetFirstName] discuss the contract terms, maps laid out between you.#!\n\n'Your proposed reduction would be more palatable if accompanied by certain... guarantees,' the captain says, indicating the contract. 'My company needs more than promises if we're to accept less than market rate.'\n\nYou nod. 'Every arrangement must benefit both parties, Captain. I'm prepared to consider alternative forms of compensation beyond simple coin.'\n\n[saved_mercenary.GetFirstName] seems interested. 'I'm listening, [ROOT.Char.GetTitleAsName]. What exactly do you offer in place of the gold you wish to withhold?'\n\n#weak The negotiation requires finding the precise leverage that will secure this military asset without depleting your treasury. The right incentive could tip the scales.#!"
+
+gpt_pragmatic_ruler_mercenary_title_3:0 "The Final Negotiation"
+gpt_pragmatic_ruler_mercenary_desc_3:0 "#weak Captain [saved_mercenary.GetFirstName] stands in your private study. Several days of negotiations have led to this final discussion.#!\n\n'My final offer stands,' the mercenary states. 'Any lower and I cannot guarantee my fighters' loyalty or effectiveness.'\n\nYou weigh the long-term costs and benefits. 'Your company's reputation is well-earned, Captain, but every wise ruler must balance military strength against fiscal prudence.'\n\nThe mercenary replies curtly. 'Prudence won't shield your lands, [ROOT.Char.GetTitleAsName]. But my soldiers will – if properly compensated.'\n\n#weak This is the moment to apply the perfect pressure point to secure the company's allegiance without compromising your treasury. The captain waits expectantly.#!"
+
+# Bold Ruler Mercenary Negotiation Events
+
+gpt_bold_ruler_mercenary_title_1:0 "Commanding Respect"
+gpt_bold_ruler_mercenary_desc_1:0 "#weak Captain [saved_mercenary.GetFirstName] sits across from you, having named an exorbitant price for [saved_mercenary.GetHerHis] company's services.#!\n\n'Your price is an insult,' you declare forcefully. 'I could hire two lesser companies for such coin!'\n\n[saved_mercenary.GetFirstName]'s tone hardens. 'Two lesser companies that would break and run. My fighters stand when others flee, [ROOT.Char.GetTitleAsName]. Quality commands premium.'\n\nYou meet the mercenary's gaze directly. 'And loyalty deserves reward beyond mere gold. I offer something few can match – an opportunity to serve a ruler worthy of your steel!'\n\n#weak The tension is palpable. This is no mere negotiation but a battle of wills, and you refuse to yield ground to a sword-for-hire.#!"
+gpt_bold_ruler_mercenary_option_1:0 "My service offers purpose, not just coin squandered on vice."
+gpt_bold_ruler_mercenary_option_2:0 "Serve me loyally, Captain. Virtue and bravery earns titles..."
+gpt_bold_ruler_mercenary_option_3:0 "Follow me! Unimaginable wealth and legendary glory awaits us!"
+gpt_bold_ruler_mercenary_option_4:0 "Destiny favors my cause. Fight beside me and share divine blessings."
+gpt_bold_ruler_mercenary_option_5:0 "Your worth is noted, but remember who commands here. Choose wisely."
+gpt_bold_ruler_mercenary_option_6:0 "You're a bastard, you know that? Take your damn money!"
+
+gpt_bold_ruler_mercenary_title_2:0 "The Lion's Negotiation"
+gpt_bold_ruler_mercenary_desc_2:0 "#weak You stride into the mercenary camp, surprising Captain [saved_mercenary.GetFirstName]. Your unannounced arrival, with minimal guard, is a calculated risk.#!\n\n'Your fighters look untested,' you observe loudly. 'Are you certain they're worth even half what you demand?'\n\n[saved_mercenary.GetFirstName] reacts angrily. 'These men have toppled kingdoms and scattered armies twice their size!'\n\nYou turn sharply. 'Then why haggle over coin instead of proving your worth? True warriors seek glory as much as gold.'\n\n#weak Nearby mercenaries watch the confrontation. Your boldness has shifted the dynamic, forcing the captain to defend not just [saved_mercenary.GetHerHis] price but [saved_mercenary.GetHerHis] honor before [saved_mercenary.GetHerHis] own troops.#!"
+
+gpt_bold_ruler_mercenary_title_3:0 "Blood and Bargains"
+gpt_bold_ruler_mercenary_desc_3:0 "#weak You face Captain [saved_mercenary.GetFirstName] in the practice yard, both armed for a spar. Mercenaries and your soldiers watch intently.#!\n\n'Is this how you normally negotiate contracts?' the captain asks between exchanges.\n\nYou reply confidently, 'I don't haggle, Captain. I test those who would serve me. Lower your price, and prove your worth with steel!'\n\n[saved_mercenary.GetFirstName] seems invigorated. 'Bold approach, [ROOT.Char.GetTitleAsName]. But if I best you, the price increases.'\n\n'And if I best you,' you counter, 'you'll accept my terms without further complaint!'\n\n#weak The onlookers cheer as you clash again. This unorthodox negotiation settles terms through skill, not ink. The captain eyes you with new respect for your willingness to engage directly.#!"
+
+
+
+
+
+
+
+
+
+
+#Pillage and Extortion Events - High Greed
+
+gpt_mercenary_pillage_option_1:0 "Confront the captain and demand reparations."
+gpt_mercenary_pillage_option_2:0 "Offer a generous payment to quell their predations."
+gpt_mercenary_pillage_option_3:0 "Punish and make an example of the worst offenders."
+gpt_mercenary_pillage_option_4:0 "Pretend nothing happened, for the time being..."
+
+gpt_mercenary_pillage_title_1:0 "Unwelcome Protectors"
+gpt_mercenary_pillage_desc_1:0 "#weak Troubling reports have reached your court. The mercenaries, currently in your service, have been demanding 'protection fees' from local villages.#!\n\nA trembling peasant representative kneels before you. 'Please, [ROOT.Char.GetTitleAsName], Captain [saved_mercenary.GetFirstName] says if we don't pay, they cannot guarantee our safety... from themselves! They've already burned three barns to show they're serious.'\n\nYour steward confirms these actions would violate the terms of your contract with the mercenaries, but confronting them risks provoking further trouble.\n\n#weak The mercenaries were hired to protect your realm, but their predatory actions threaten to turn your subjects against you. Captain [saved_mercenary.GetFirstName] awaits your response, seemingly unconcerned by [saved_mercenary.GetHerHis] company's misconduct.#!"
+
+gpt_mercenary_pillage_title_2:0 "Sanctified Plunder"
+gpt_mercenary_pillage_desc_2:0 "#weak A religious leader arrives in a state of agitation. He reports that mercenaries have raided a temple.#!\n\n'They've taken sacred relics, silver vessels for communion, and even the winter food stores,' the clergy member fumes. 'Captain [saved_mercenary.GetFirstName] claims it was a tithe for their protection, but this is naked sacrilege!'\n\nThe high seer has threatened divine sanctions if the items aren't returned and the perpetrators punished.\n\n#weak This isn't merely theft but a direct challenge to [ROOT.Char.GetFaith.HighGodName]'s authority - and by extension, yours. If left unanswered, it could permanently damage your standing with the clergy.#!"
+
+gpt_mercenary_pillage_title_3:0 "The Mercenary Tax"
+gpt_mercenary_pillage_desc_3:0 "#weak Several lesser nobles have arrived at court with matching grievances. Mercenaries have established unauthorized toll stations on major roads in your realm.#!\n\n'They demand payment from every merchant caravan and noble entourage,' explains the noble representative. 'Those who refuse face violence or confiscation of goods. Trade is grinding to a halt.'\n\nA messenger arrives from Captain [saved_mercenary.GetFirstName], explaining that the tolls are merely 'supplementary payment' for their continued service.\n\n#weak The mercenaries have essentially created their own taxation system within your lands. Each day this continues undermines your authority and economic prosperity.#!"
+
+#Sabotage of Local Trade Events
+
+gpt_mercenary_trade_title_1:0 "Highway Robbery"
+gpt_mercenary_trade_desc_1:0 "#weak Merchants have arrived at your court seeking justice. Armed mercenaries have established checkpoints on major trade routes.#!\n\n'They demand payment for "safe passage" through what they call their territory,' the guild master explains. 'Those who refuse are beaten and their goods confiscated. Captain [saved_mercenary.GetFirstName] claims this is simply collecting what they're owed.'\n\nThese impromptu tolls have caused several trading caravans to avoid your realm entirely.\n\n#weak The mercenaries have effectively imposed their own taxation system, undermining your authority while damaging trade relationships that took years to establish.#!"
+
+gpt_mercenary_trade_title_2:0 "Market Day Mayhem"
+gpt_mercenary_trade_desc_2:0 "#weak A bailiff reports that the weekly market was disrupted when drunk mercenaries stormed through the stalls.#!\n\n'They overturned tables, trampled goods, and helped themselves to whatever caught their eye,' the bailiff explains. 'When merchants protested, Captain [saved_mercenary.GetFirstName]'s men beat several unconscious as examples to others.'\n\nLocal traders threaten to cease bringing goods to your domains if their safety cannot be guaranteed.\n\n#weak This incident strikes at the heart of local commerce. Market days are essential economic events, and their disruption resonates throughout the regional economy.#!"
+
+gpt_mercenary_trade_title_3:0 "Merchant's Revenge"
+gpt_mercenary_trade_desc_3:0 "#weak Violence has erupted between local merchants and members of a mercenary company after weeks of escalating tensions.#!\n\n'The merchants finally organized resistance against mercenary predations,' your steward reports. 'They ambushed several soldiers who had been extorting them. Now Captain [saved_mercenary.GetFirstName] threatens to burn the merchant quarter in retaliation.'\n\nBoth sides prepare for further violence, with the mercenaries gathering outside the town gates.\n\n#weak What began as simple extortion has escalated into potential urban warfare. If the mercenaries are not stopped, blood will be spilled and people will hold you accountable for hiring them.#!""
+
+
+
+
+
+## Damage to Infrastructure Events - Low Greed
+
+gpt_mercenary_damage_title_1:0 "Fortress Misuse"
+gpt_mercenary_damage_desc_1:0 "#weak A castellan sends disturbing reports about the mercenaries currently stationed at your strategic fortress there.#!\n\n'They've torn out wooden beams for firewood, Captain [saved_mercenary.GetFirstName] has commandeered the armory as personal quarters, and they're using the inner bailey as a practice range for fire arrows,' the castellan writes. 'The structural integrity of the northeast tower is now compromised.'\n\nRepairing this damage would be costly, and leaving it unaddressed could render the fortress vulnerable to siege.\n\n#weak The mercenaries treat your vital military infrastructure with contempt, seemingly unconcerned that their actions weaken the very fortifications they're paid to defend.#!"
+
+gpt_mercenary_damage_title_2:0 "Bridges Burned"
+gpt_mercenary_damage_desc_2:0 "#weak Your Master of Roads arrives with alarming news. A vital bridge has been severely damaged by a mercenary company under your banner.#!\n\n'They've been using it for target practice and stripped its supports for campfire wood,' a courtier explains. 'When local engineers protested, Captain [saved_mercenary.GetFirstName]'s men threw them into the river.'\n\nThis bridge is crucial for trade and troop movements. Its loss isolates an important region of your realm.\n\n#weak The mercenaries' careless destruction has strategic implications beyond mere property damage. Rebuilding will take months, during which your realm's connectivity is severely compromised.#!"
+
+gpt_mercenary_damage_title_3:0 "Fields of Ruin"
+gpt_mercenary_damage_desc_3:0 "#weak Farmers fill your court, their faces gaunt with worry. Mercenaries have been allowing their horses to graze freely in cultivated fields, trampling the coming harvest.#!\n\n'They've destroyed nearly half our crops,' one elder explains. 'When we built fences, they knocked them down. Captain [saved_mercenary.GetFirstName] laughed and said war horses need better feed than peasants.'\n\nYour steward estimates this will cause significant food shortages in the coming winter.\n\n#weak This isn't mere negligence but a direct threat to your realm's food security. Without intervention, your domain faces potential famine, and hungry subjects quickly become rebellious ones.#!"
+
+## Internal Disorder Events
+
+gpt_mercenary_disorder_title_1:0 "Drunken Rampage"
+gpt_mercenary_disorder_desc_1:0 "#weak Chaos erupts in your domains as mercenaries go on a drunken spree through town markets and residences.#!\n\n'They've emptied every tavern, broken into wine cellars, and now roam the streets challenging all comers,' reports your constable. 'Three townspeople are dead, and Captain [saved_mercenary.GetFirstName] claims [saved_mercenary.GetSheHe] cannot control [saved_mercenary.GetHerHis] men when they're on leave.'\n\nThe local population is terrified and furious, demanding protection from their supposed protectors.\n\n#weak This breakdown in discipline reflects poorly on your authority. Each hour the rampage continues diminishes respect for your rule in your domains.#!"
+
+gpt_mercenary_disorder_title_2:0 "The Missing Paymaster"
+gpt_mercenary_disorder_desc_2:0 "#weak Your Chancellor brings disturbing news: the treasury official sent to pay the mercenaries under your banner has disappeared, along with the payment chest.#!\n\n'The mercenaries are in an uproar,' your Chancellor explains. 'Captain [saved_mercenary.GetFirstName] barely maintains control. They're threatening to 'collect payment' from the nearest towns if not compensated immediately.'\n\nWithout prompt intervention, these unpaid mercenaries might dissolve into uncontrolled looting bands across your lands.\n\n#weak The paymaster's disappearance has created a volatile situation. The mercenaries care little for the reasons behind their missing wages - they demand payment by any means necessary.#!"
+
+
+
+
+
+## Diplomatic Incident Events - Mid Greed
+
+gpt_mercenary_diplomatic_title_1:0 "Border Provocation"
+gpt_mercenary_diplomatic_desc_1:0 "#weak An envoy from a neighboring ruler storms into your court, face flushed with indignation.#!\n\n'Your mercenaries have raided three villages in our territory,' the envoy declares. 'Your mercenaries crossed our border days ago and has left nothing but ash and grief behind. Captain [saved_mercenary.GetFirstName] claims they were acting under your orders!'\n\nYour councilors look to you in alarm. You issued no such command, but the envoy clearly believes these actions were sanctioned.\n\n#weak This unauthorized incursion threatens to unravel carefully maintained diplomatic relations. The envoy representative demands explanation and compensation, while the mercenary captain has conveniently made [saved_mercenary.GetHimHer]self unavailable.#!"
+
+gpt_mercenary_diplomatic_title_2:0 "The Captured Envoy"
+gpt_mercenary_diplomatic_desc_2:0 "#weak A messenger arrives bearing troubling news from the mercenary encampment. Captain [saved_mercenary.GetFirstName] has detained an official envoy from a foreign realm.#!\n\n'The captain claims the envoy was spying,' explains your messenger. 'They've stripped him of diplomatic insignia and are treating him as a common prisoner.'\n\nWord has already reached the ruler, who demands immediate release and companesation for this breach of diplomatic custom.\n\n#weak Treating an envoy as a spy is an extremely serious matter that could justify a declaration of war. The mercenary captain may have just provided a pretext for conflict with a rivailing power.#!"
+
+## Smuggling and Black Market Events
+
+gpt_mercenary_smuggling_title_1:0 "The Shadow Market"
+gpt_mercenary_smuggling_desc_1:0 "#weak Your Spymaster has uncovered troubling activities within the mercenaries camp. They've established an extensive black market operation.#!\n\n'They're smuggling goods across borders to avoid taxation,' the Spymaster explains. 'Captain [saved_mercenary.GetFirstName] takes a percentage of every transaction. They've bribed local officials to look the other way.'\n\nThis illicit trade network undermines your authority and diverts significant revenue from your treasury.\n\n#weak The mercenaries have created a parallel economy that threatens legitimate commerce throughout the region. Their military training makes conventional law enforcement approaches risky.#!"
+
+gpt_mercenary_smuggling_title_2:0 "Contraband Weapons"
+gpt_mercenary_smuggling_desc_2:0 "#weak Guards have intercepted a large shipment of weapons being brought into your realm by associates of the mercenaries under your banner.#!\n\n'These aren't merely swords for their own use,' your Marshal reports. 'This is organized arms trafficking. Captain [saved_mercenary.GetFirstName] has been selling weapons to various factions within your realm, including some with questionable loyalties.'\n\nArming potential dissidents represents a serious security threat to your rule.\n\n#weak The mercenaries have betrayed their purpose by potentially strengthening your enemies. Their extensive military connections make them particularly dangerous arms dealers.#!"
+
+gpt_mercenary_smuggling_title_3:0 "The Corrupted Official"
+gpt_mercenary_smuggling_desc_3:0 "#weak Your Chancellor has discovered that local administrators have been taking bribes from the mercenaries.#!\n\n'The mercenaries run goods through your domains without inspection,' explains your Chancellor. 'Captain [saved_mercenary.GetFirstName] has even boasted of having officials in your pocket.'\n\nThis corruption threatens to spread throughout your administration as others see a corrupt official prosper.\n\n#weak The mercenaries have transformed from military asset to corrupting influence. Their ability to subvert your officials demonstrates dangerous political astuteness beyond mere soldiering.#!"
+
+
+
+
+
+
+
+## Religious Desecration Events - Diff Faith
+
+gpt_mercenary_diplomatic_title_3:0 "Unholy Trespass"
+gpt_mercenary_diplomatic_desc_3:0 "#weak A religious leader has sent a stern missive regarding the mercenaries's recent actions.#!\n\n'These godless mercenaries have desecrated sacred ground, looted religious artifacts, and manhandled clergy,' the letter states. 'Captain [saved_mercenary.GetFirstName] must face ecclesiastical justice for these outrages.'\n\nThe incident involves a monastery with special significance to neighboring realms. Several foreign rulers have already expressed their outrage.\n\n#weak This isn't merely a religious matter but a diplomatic crisis. The mercenary company's actions have offended multiple nobles and the clergy itself, placing you in a precarious position.#!"
+
+gpt_mercenary_desecration_title_1:0 "Defiled Sanctuary"
+gpt_mercenary_desecration_desc_1:0 "#weak Your court chaplain enters your chambers, visibly shaken. A mercenary company has commandeered a sacred shrine as their temporary barracks.#!\n\n'They've stabled horses in the sanctuary, melted down sacred vessels for coin, and Captain [saved_mercenary.GetFirstName] sleeps on the very altar!' A clergyman reports in horror. 'The local faithful are near rebellion over this sacrilege.'\n\nThe shrine draws pilgrims from across the realm, making this desecration widely known and deeply inflammatory.\n\n#weak This is not merely property damage but a direct affront to the faith that binds your realm. Religious authorities demand immediate action to restore the sanctity of the shrine.#!"
+
+gpt_mercenary_desecration_title_2:0 "Stolen Relics"
+gpt_mercenary_desecration_desc_2:0 "#weak Representatives from a prominent monastery seek urgent audience. Their most precious relic - a saint's preserved hand - has been stolen by members of a mercenary company.#!\n\n'They plan to sell it across the border,' the abbot explains frantically. 'Captain [saved_mercenary.GetFirstName] claims no knowledge, but witnesses saw [saved_mercenary.GetHerHis] personal guard carrying the reliquary.'\n\nThe relic attracted thousands of pilgrims annually, bringing prestige and revenue to your realm.\n\n#weak This theft strikes at both religious devotion and economic prosperity. If the relic crosses the border, it may never be recovered, permanently diminishing your standing.#!"
+
+gpt_mercenary_desecration_title_3:0 "Mockery of Faith"
+gpt_mercenary_desecration_desc_3:0 "#weak A procession of outraged clergy arrives at your court seeking justice. During a major religious festival, mercenaries disrupted sacred ceremonies with deliberate blasphemy.#!\n\n'They dressed in stolen vestments, performed obscene parodies of our most sacred rites, and Captain [saved_mercenary.GetFirstName] did nothing to stop this abomination,' their spokesperson declares. 'The faithful demand these sinners face divine justice.'\n\nReports indicate some mercenaries aren't of your realm's faith, worsening religious tensions.\n\n#weak This calculated mockery has inflamed religious sentiment throughout the region. Leading clergy threaten spiritual sanctions against your entire realm if the perpetrators go unpunished.#!"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Cruel Raider Hostage Negotiation Events
+
+gpt_raider_hostage_option_1:0 "Pay the full ransom immediately. We cannot risk more lives."
+gpt_raider_hostage_option_2:0 "Pay for the nobles only. Common folk are replaceable..."
+gpt_raider_hostage_option_3:0 "Refuse outright. We do not negotiate with raiders!"
+
+gpt_cruel_raider_hostage_title_1:0 "Merciless Demands"
+gpt_cruel_raider_hostage_desc_1:0 "#weak A messenger arrives breathless at your court, bearing a blood-stained letter from [saved_raider.GetFirstName], who recently raided your lands.#!\n\n'Greetings, [ROOT.Char.GetName],' the letter begins mockingly. 'Your subjects now enjoy my hospitality. Some nobles too—their names are listed below. Quite the collection of weeping faces.'\n\nThe letter continues with gruesome details of mistreatment. 'Each day without payment costs one hostage their fingers. By week's end, it will be heads. Gold buys their freedom—and continued breathing.'\n\nThe messenger stammers, 'The raider said to tell you... [saved_raider.GetSheHe] killed one elder already... to prove [saved_raider.GetHerHis] resolve.'\n\n#weak Attached to the letter is a severed ear bearing a familiar noble's signet ring—a calculated demonstration of [saved_raider.GetFirstName]'s ruthlessness and willingness to follow through on [saved_raider.GetHerHis] threats.#!"
+
+# Pragmatic Raider Hostage Negotiation Events
+
+gpt_pragmatic_raider_hostage_title_1:0 "Business of Ransoms"
+gpt_pragmatic_raider_hostage_desc_1:0 "#weak A messenger under flag of truce delivers a sealed letter from [saved_raider.GetFirstName], who recently raided your territory.#!\n\n'To [ROOT.Char.GetName],' the letter begins formally. 'During my recent expedition, I acquired assets of value to you: dozens of commoners and a handful of nobles, including some from your dynasty.'\n\nThe message continues: 'All hostages remain unharmed and will be treated according to their station, provided negotiations proceed efficiently. My terms: I want gold, delivered within a few days.'\n\n'This arrangement can conclude without incident,' the letter finishes. 'Delays or rescue attempts will force a renegotiation of terms—likely not in your favor.'\n\n#weak Unlike typical raiders, [saved_raider.GetFirstName] presents this as a straightforward transaction. The messenger confirms the hostages are fed and housed adequately—valuable merchandise isn't damaged unnecessarily.#!"
+
+# Compassionate Raider Hostage Negotiation Events
+
+gpt_compassionate_raider_hostage_title_1:0 "Reluctant Captor"
+gpt_compassionate_raider_hostage_desc_1:0 "#weak A messenger arrives bearing a letter from [saved_raider.GetFirstName], the leader who raided your lands recently.#!\n\n'[ROOT.Char.GetName],' the letter begins, 'circumstances have forced my hand. I hold many of your people, including nobles and members of your dynasty.'\n\nThe letter continues apologetically: 'All are treated well. The elderly and children receive extra rations. I seek only enough gold to see my warriors properly rewarded. I do not want to cause unnecessary suffering.'\n\n'Please,' it concludes, 'resolve this matter quickly. I have no desire to take innocent lives, but my position demand results. I cannot control my warriors' expectations indefinitely.'\n\n#weak The messenger, who was allowed to speak with the hostages, reports they are indeed unharmed and housed in decent conditions. [saved_raider.GetFirstName] appears conflicted about using such tactics, despite [saved_raider.GetHerHis] role as a raider.#!"
+
+
+
+# Arsonist Raider Hostage Negotiation Events
+
+gpt_raider_arsonist_option_1:0 "Pay the full price immediately. We cannot risk our lands being burned."
+gpt_raider_arsonist_option_2:0 "Pay to protect noble estates only. Common holdings can be rebuilt..."
+gpt_raider_arsonist_option_3:0 "Refuse outright. We will not be threatened with fire!"
+
+# Cruel Arsonist Raider Events
+
+gpt_cruel_arsonist_raider_title_1:0 "Flames of Destruction"
+gpt_cruel_arsonist_raider_desc_1:0 "#weak A messenger arrives at your court, carrying a cloth-wrapped package that smells of smoke and char.#!\n\n'A message from [saved_raider.GetFirstName],' the terrified messenger announces, unwrapping a partially burned tapestry bearing your family crest.\n\n'Your lands will burn, [ROOT.Char.GetName],' reads the attached note. 'My warriors stand ready with torches throughout your realm. First your fields, then your villages, finally your castles and churches. Nothing will remain but ash.'\n\nThe letter continues with meticulous detail about which estates will burn first. 'Each day without payment, another settlement becomes cinders. Gold buys mercy—otherwise watch your legacy turn to smoke.'\n\nThe messenger adds, trembling, '[saved_raider.GetSheHe] already burned an outlying farm... the family inside... as demonstration.'\n\n#weak Accompanying the tapestry is a small pouch containing charred bone fragments—a grim promise of [saved_raider.GetFirstName]'s intentions should payment be refused.#!"
+
+# Pragmatic Arsonist Raider Events
+
+gpt_pragmatic_arsonist_raider_title_1:0 "Calculated Inferno"
+gpt_pragmatic_arsonist_raider_desc_1:0 "#weak A messenger under flag of truce arrives bearing a sealed scroll and a small clay jar.#!\n\n'To [ROOT.Char.GetName],' the message begins with unexpected formality. 'My forces currently occupy strategic positions throughout your territory, each supplied with sufficient oil and pitch to reduce your holdings to rubble.'\n\nThe letter explains: 'The jar contains soil from your most productive fields, demonstrating my knowledge of where to strike for maximum economic damage. I offer a simple exchange: gold for restraint.'\n\n'This arrangement benefits us both,' the letter concludes. 'Payment ensures your continued prosperity. Refusal guarantees years of rebuilding—if you survive the coming winter without food stores.'\n\n#weak The messenger reports seeing [saved_raider.GetFirstName]'s forces methodically placing incendiary materials at key structures—not the chaotic destruction of typical raiders, but the careful preparation of someone who understands the true value of what they threaten.#!"
+
+# Compassionate Arsonist Raider Events
+
+gpt_compassionate_arsonist_raider_title_1:0 "Reluctant Threat"
+gpt_compassionate_arsonist_raider_desc_1:0 "#weak A messenger arrives with a letter bearing [saved_raider.GetFirstName]'s seal, along with a small pouch of ashes.#!\n\n'[ROOT.Char.GetName],' the letter begins with noticeable hesitation in the script, 'I write with a heavy heart. My warriors have positioned themselves throughout your lands with means to set fires that would devastate your realm.'\n\nThe message continues: 'I have ordered them to target only empty structures and to allow evacuation wherever possible. No torch has yet been lit, nor do I wish them to be. A reasonable payment will see my forces withdraw without harm to your people or their homes.'\n\n'Please,' it concludes, 'let us resolve this matter quickly. The ashes I send are from our campfire, not your buildings. I pray it remains so.'\n\n#weak The messenger reports that [saved_raider.GetFirstName] personally instructed warriors to prioritize people's safety, even as [saved_raider.GetSheHe] threatens their livelihoods. Several families were warned to leave vulnerable areas—compassion at odds with the threat itself.#!"
+
+
+
+# Plague Raider Negotiation Events
+
+gpt_raider_plague_option_1:0 "Pay the full sum demanded. We cannot risk an outbreak."
+gpt_raider_plague_option_2:0 "Pay for the formula only. We can produce more, i hope..."
+gpt_raider_plague_option_3:0 "Refuse any payment. This is surely a bluff!"
+
+gpt_cruel_plague_raider_title_1:0 "Poisoned Winds"
+gpt_cruel_plague_raider_desc_1:0 "#weak A hooded messenger leaves a sealed box at your gates before fleeing. Inside, you find vials of cloudy liquid and a letter from [saved_raider.GetFirstName].#!\n\n'Greetings, [ROOT.Char.GetName],' it reads with mocking formality. 'My scouts have placed similar vials near every water source in your realm. They contain a plague from distant lands that will bring suffering unlike any your people have known.'\n\nThe letter continues with clinical descriptions of symptoms. 'The first signs appear in three days, death follows in seven. I alone possess the antidote.'\n\n'Gold buys your people's lives. Delay, and watch them rot while still breathing.'\n\n#weak Your court physician examines the vial with trembling hands, confirming the substance contains unknown elements that could indeed harbor disease. A smaller note details exactly which villages have already been poisoned as proof of intent.#!"
+
+# Pragmatic Plague Raider Events
+
+gpt_pragmatic_plague_raider_title_1:0 "Calculated Contagion"
+gpt_pragmatic_plague_raider_desc_1:0 "#weak A messenger delivers a small wooden case containing two vials—one cloudy, one clear—and a sealed letter from [saved_raider.GetFirstName].#!\n\n'To [ROOT.Char.GetName],' the message begins with businesslike precision. 'My agents have strategically placed contaminated materials at key water sources throughout your territory. The cloudy vial demonstrates the contagion; the clear one, its neutralizing agent.'\n\nThe letter continues matter-of-factly: 'This pathogen was selected for its efficiency—three days of incubation followed by rapid spread. Your physicians will find it unfamiliar to these lands.'\n\n'I propose a straightforward exchange,' it concludes. 'Gold for the formula of the neutralizing agent and the locations of all contaminated sites. Both parties benefit—you keep your population healthy, I receive fair compensation for my expertise and restraint.'\n\n#weak Your court physician confirms the cloudy vial contains unknown biological elements that could indeed spread disease. A small sample of water from your castle's well, when tested, shows similar contamination, proving they've already begun their work.#!"
+
+# Craven Plague Raider Events
+
+gpt_craven_plague_raider_title_1:0 "Desperate Measures"
+gpt_craven_plague_raider_desc_1:0 "#weak A nervous messenger arrives with a sealed box containing a single vial and a trembling letter from [saved_raider.GetFirstName].#!\n\n'[ROOT.Char.GetName],' the letter begins with visible hesitation in the script, 'forgive this extreme action. Circumstances have driven me to desperate measures I never thought I would consider.'\n\nThe message continues with evident distress: 'I've obtained a disease from far merchants. My men have reluctantly placed traces near some of your water sources. The enclosed substance can neutralize it completely if applied within days.'\n\n'Please,' it concludes, 'I seek only enough payment to appease my own burdens. I've instructed my men to avoid contaminating wells used by children or the infirm. End this quickly, and I swear your people will remain healthy.'\n\n#weak Your physician notes that while the substance appears genuine, the contamination seems limited to non-essential water sources, suggesting [saved_raider.GetFirstName] lacks the resolve to fully execute [saved_raider.GetHerHis] threat. A separate note reveals the raider's own fear of the contagion [saved_raider.GetSheHe] threatens to unleash.#!"
+
+
+
+
+
+
+# Cruel Crop Raider Events
+
+gpt_raider_crops_option_1:0 "Pay for full protection. We cannot survive a famine."
+gpt_raider_crops_option_2:0 "Pay to protect the noble estates' fields only."
+gpt_raider_crops_option_3:0 "Refuse payment. We will find other food sources."
+
+gpt_cruel_crop_raider_title_1:0 "Harvest of Despair"
+gpt_cruel_crop_raider_desc_1:0 "#weak A messenger arrives at your court, visibly shaken, carrying a small sack that reeks of decay.#!\n\n'From [saved_raider.GetFirstName],' the messenger announces, emptying the sack to reveal rotted grain mixed with soil and what appears to be blood.\n\n'Greetings, [ROOT.Char.GetName],' reads the attached note. 'Your people's survival depends on their pathetic crops. Soon they will look like this sample—poisoned, salted, and trampled beneath my warriors' boots.'\n\nThe letter continues with sadistic detail: 'I've stationed men throughout your lands with barrels of salt and specially brewed toxins. Each day without payment, another field dies—permanently. The famine will hollow your subjects from within before winter's end.'\n\nThe messenger adds, trembling, '[saved_raider.GetSheHe] already destroyed an entire village's fields... they're starving now... children first...'\n\n#weak Included with the sample is a crude map marking specific noble estates and crucial farmlands, demonstrating [saved_raider.GetFirstName]'s intimate knowledge of which crops to target for maximum suffering.#!"
+
+# Crop Destroyer Negotiation Events
+
+gpt_pragmatic_crop_raider_title_1:0 "Seeds of Starvation"
+gpt_pragmatic_crop_raider_desc_1:0 "#weak A messenger delivers a small box containing a mixture of salt and strange powder, along with a letter from [saved_raider.GetFirstName].#!\n\n'To [ROOT.Char.GetName],' it begins plainly. 'My people have spent weeks preparing a special mixture that renders soil barren for years. We have men ready to distribute it across your fields.'\n\nThe letter continues: 'Your realm produces enough surplus to feed my warriors for a year. Pay us that value in gold, and your harvest remains untouched. Refuse, and learn how realms fall not to swords, but to empty stomachs.'\n\n'This is simply business,' the letter concludes. 'Food or gold—I care not which you provide.'\n\n#weak Your master farmer examines the mixture with concern, confirming that several outlying fields have already been treated with it. The crops there have begun to wither, demonstrating the threat is far from empty.#!"
+
+# Compassionate Crop Raider Events
+
+gpt_compassionate_crop_raider_title_1:0 "Reluctant Saboteur"
+gpt_compassionate_crop_raider_desc_1:0 "#weak A messenger arrives with a sealed pouch containing soil and seeds, along with a letter bearing [saved_raider.GetFirstName]'s seal.#!\n\n'[ROOT.Char.GetName],' the letter begins with evident discomfort, 'I write with great reluctance. My warriors are positioned near your farming communities with substances that can render fields unproductive.'\n\nThe message continues apologetically: 'I've instructed them to target only a portion of each area's crops, ensuring no community would face complete starvation. The seeds I've sent are quick-growing alternatives that could supplement food stores if needed.'\n\n'Please,' it concludes, 'let us resolve this quickly. I seek only enough payment to satisfy my obligations. I've forbidden targeting fields that feed orphanages or hospitals, but I cannot maintain such restraint indefinitely.'\n\n#weak The messenger reports seeing [saved_raider.GetFirstName] personally warning several farming families to set aside seed stock as precaution, revealing a conflicted leader trying to minimize suffering while still fulfilling [saved_raider.GetHerHis] role as a raider.#!"
+
+
+
+
+
+
+# Trade Blockade Negotiation Events
+
+gpt_raider_blockade_option_1:0 "Pay the full toll demanded. We need our trade routes."
+gpt_raider_blockade_option_2:0 "Pay for access to major routes. Minor paths can wait."
+gpt_raider_blockade_option_3:0 "Refuse payment. We'll find new trade routes."
+
+gpt_cruel_blockade_raider_title_1:0 "Strangled Roads"
+gpt_cruel_blockade_raider_desc_1:0 "#weak A bloodied merchant staggers into your court, bearing a message from [saved_raider.GetFirstName].#!\n\n'Your domain now stands isolated, [ROOT.Char.GetName],' the letter declares triumphantly. 'Every road, river, and mountain pass leading to your lands is under my control. Nothing enters without my permission—not food, not goods, not even messengers, as this poor soul discovered.'\n\nThe letter details attacks on recent caravans. 'Your people will feel hunger first, then desperation. Merchants already divert to safer routes, forgetting your markets exist.'\n\n'Gold buys back your domain safety. Delay, and watch your prosperity wither and die.'\n\n#weak The merchant shows you a necklace made from severed merchant fingers—taken from those who tried to bypass the blockade. Trade has indeed ceased entirely, with reports of raiders executing those who attempt passage.#!"
+
+# Pragmatic Blockade Raider Events
+
+gpt_pragmatic_blockade_raider_title_1:0 "Strategic Impasse"
+gpt_pragmatic_blockade_raider_desc_1:0 "#weak A merchant under flag of parley arrives at your court, carrying ledgers and a sealed letter from [saved_raider.GetFirstName].#!\n\n'To [ROOT.Char.GetName],' the letter begins with businesslike directness. 'I have established control over all major transportation routes connecting your realm to outside markets. A detailed map is enclosed showing our checkpoints.'\n\nThe message continues: 'My forces are under strict orders to allow basic necessities through—at substantially increased costs—while completely restricting luxury goods and military supplies. Your economy will decline precisely at a rate of fifteen percent per week.'\n\n'I propose a straightforward arrangement,' it concludes. 'A reasonable toll paid directly to me will restore normal commerce. Consider it an investment in infrastructure security that benefits us both.'\n\n#weak The merchant confirms that [saved_raider.GetFirstName]'s blockade is methodically organized—not random raids, but calculated checkpoints at strategic junctions. Guards maintain detailed records of intercepted goods and collect intelligence on your realm's supply vulnerabilities.#!"
+
+# Compassionate Blockade Raider Events
+
+gpt_compassionate_blockade_raider_title_1:0 "Reluctant Barrier"
+gpt_compassionate_blockade_raider_desc_1:0 "#weak A merchant arrives at your court, unharmed but visibly concerned, bearing a letter sealed by [saved_raider.GetFirstName].#!\n\n'[ROOT.Char.GetName],' the letter begins apologetically, 'circumstances compel me to inform you that my forces now control the major trade routes to your realm. This action brings me no pleasure.'\n\nThe message continues with evident conflict: 'I've instructed my people to allow medical supplies and pilgrims passage without hindrance. Food caravans are delayed but ultimately permitted through, though luxury goods and weapons are currently held.'\n\n'Please,' it concludes, 'I seek only modest compensation to resolve this quickly. The merchant carrying this letter can attest that my people treat travelers with respect, despite our position. I cannot maintain this restraint indefinitely if my needs remain unmet.'\n\n#weak The merchant confirms that unlike typical raiders, [saved_raider.GetFirstName]'s forces provide receipts for goods they hold and protect travelers from other bandits. Several times, they've allowed caravans carrying supplies for orphanages and hospitals to pass uninspected—compassion at odds with their blockade.#!"
+
+
+
+
+
+# Cruel Relic Raider Events
+
+gpt_raider_relic_option_1:0 "Pay the full ransom. We cannot lose any sacred relics."
+gpt_raider_relic_option_2:0 "Pay for the important relics only. Others can be recreated."
+gpt_raider_relic_option_3:0 "Refuse payment. The divine will punish such sacrilege."
+
+gpt_cruel_relic_raider_title_1:0 "Desecrated Faith"
+gpt_cruel_relic_raider_desc_1:0 "#weak A terrified priest enters your court, hands trembling as he presents a small box and blood-stained letter bearing [saved_raider.GetFirstName]'s mark.#!\n\n'Your gods weep, [ROOT.Char.GetName],' the letter taunts. 'The sacred relics your people crawl to worship now rest in my profane hands—your holy [ROOT.Char.GetFaith.HighGodName]'s power rendered impotent.'\n\nInside the box lies a fragment of a revered relic, deliberately defaced. The letter continues with meticulous descriptions of planned desecrations: 'Each day without payment, another sacred item meets my blade. I will melt your holy symbols into chamber pots and fashion your blessed texts into my horses' bedding.'\n\n'Gold buys salvation for your pathetic trinkets. Delay, and watch your people's faith shatter as I return their holiest objects piece by desecrated piece.'\n\nThe priest whispers, trembling, '[saved_raider.GetSheHe] forced monks to watch as [saved_raider.GetSheHe] performed unspeakable acts upon the saint's remains...'\n\n#weak Accompanying the letter is a crude drawing depicting [saved_raider.GetFirstName] performing blasphemous rituals with the stolen relics—a calculated assault on your realm's spiritual foundation and your people's deepest beliefs.#!"
+
+# Sacred Relic Negotiation Events
+
+gpt_pragmatic_relic_raider_title_1:0 "Faith's Ransom"
+gpt_pragmatic_relic_raider_desc_1:0 "#weak A messenger delivers a small piece of ornate cloth, recognizable as part of your realm's most revered religious relics, along with a letter from [saved_raider.GetFirstName].#!\n\n'To [ROOT.Char.GetName],' the message states factually. 'During my expedition, I acquired items of immeasurable spiritual value to your people: the sacred relics from your temples and holy sites.'\n\nThe letter continues dispassionately: 'These artifacts hold no particular significance to me, but I recognize their worth to you. I propose a straightforward exchange: gold for the safe return of your holy items.'\n\n'This is a simple transaction,' it concludes. 'Spiritual power for material wealth. Both sides benefit.'\n\n#weak The cloth fragment is authentic, confirming [saved_raider.GetFirstName]'s claim. The messenger reports seeing the relics being carefully inventoried and stored—treated with surprising respect for items viewed merely as valuable commodities.#!"
+
+# Compassionate Relic Raider Events
+
+gpt_compassionate_relic_raider_title_1:0 "Reluctant Sacrilege"
+gpt_compassionate_relic_raider_desc_1:0 "#weak A monk arrives at your court, unharmed and carrying a carefully wrapped package along with a letter bearing [saved_raider.GetFirstName]'s seal.#!\n\n'[ROOT.Char.GetName],' the letter begins with evident discomfort, 'I write with a troubled conscience. During our raid, my warriors seized sacred relics from your temples and shrines.'\n\nThe message continues apologetically: 'I have ordered these items treated with proper reverence. They remain wrapped in clean cloth, untouched by unclean hands. No one has been permitted to mock or desecrate them, despite suggestions from some of my less scrupulous followers.'\n\n'Please,' it concludes, 'I seek only modest payment for their safe return. The divine should not be caught in worldly conflicts. I return this smaller relic as a gesture of good faith and to demonstrate the others remain intact.'\n\n#weak The monk confirms that [saved_raider.GetFirstName] personally intervened when warriors attempted to mishandle the relics, insisting they be stored in a clean tent where daily prayers were permitted. [saved_raider.GetSheHe] even punished one warrior who spoke disrespectfully of your faith's practices.#!"
+
+
+
+
+
+
+
+gpt_merc_request_aid_lv1:0 "External Aid (1)"
+gpt_merc_request_aid_lv2:0 "External Aid (2)"
+gpt_merc_request_aid_lv3:0 "External Aid (3)"
+gpt_merc_request_aid_lv4:0 "External Aid (4)"
+gpt_merc_request_aid_lv5:0 "External Aid (5)"
+gpt_merc_request_aid_lv1_desc:0 "This character is receiving external aid from one ally to defend against foreign pillagers"
+gpt_merc_request_aid_lv2_desc:0 "This character is receiving external aid from two allies to defend against foreign pillagers"
+gpt_merc_request_aid_lv3_desc:0 "This character is receiving external aid from tree allies to defend against foreign pillagers"
+gpt_merc_request_aid_lv4_desc:0 "This character is receiving external aid from four allies to defend against foreign pillagers"
+gpt_merc_request_aid_lv5_desc:0 "This character is receiving external aid from five allies to defend against foreign pillagers"
+
+# Sociable Ruler Reinforcement Events
+
+gpt_sociable_ruler_reinforce_title:0 "Bonds of Friendship in Crisis"
+gpt_sociable_ruler_reinforce_desc:0 "#weak You stand at the highest tower, watching smoke rise from villages along your borders.#!\n\nReports confirm your fears—a massive raiding party, far larger than anticipated, pillages your lands with impunity. Your scouts estimate their numbers at twice what your garrison can field.\n\nPacing your solar, while you review letters and agreements with your allies, your [steward|E] nervously suggests the treasury could hire mercenaries, though barely enough; your [marshal|E] believes your forces alone would face grievous losses.\n\n\"My [ROOT.Char.GetLadyLord],\" your [chancellor|E] interjects, \"You have cultivated friendships for years. Those connections were built for moments like this.\"\n\n#weak Your hand hovers over parchment and seal, contemplating messages that would call upon personal bonds forged through years of fellowship.#!"
+
+gpt_sociable_ruler_reinforce_option_1:0 "I shall call upon my friends and allies for help"
+gpt_sociable_ruler_reinforce_option_2:0 "We shall stand alone. I won't burden my allies."
+
+# Pragmatic Ruler Reinforcement Events
+
+gpt_pragmatic_ruler_reinforce_title:0 "Strategic Calculations"
+gpt_pragmatic_ruler_reinforce_desc:0 "#weak The map on your table is marked with black stones representing raiders—far too many stones.#!\n\nYour domain faces an overwhelming threat. The raiding force cutting through your lands outmatches your garrison significantly. Each day brings reports of more villages burning, more supplies stolen.\n\nYou've analyzed the diplomatic landscape thoroughly. The ledger shows hiring sufficient mercenaries would drain the treasury for seasons to come. Your military advisors calculate a high casualty rate should you face this threat alone.\n\nAlliances and pacts exist for mutual benefit. The question remains whether invoking them now serves your long-term interests.\n\n#weak You weigh a quill in your hand, calculating whether the political cost of requesting aid outweighs the military necessity of reinforcements.#!"
+
+gpt_pragmatic_ruler_reinforce_option_1:0 "Invoke our treaties. The benefits outweigh the political costs."
+gpt_pragmatic_ruler_reinforce_option_2:0 "We shall handle this ourselves. Requesting aid creates obligations."
+
+# Shy Ruler Reinforcement Events
+
+gpt_shy_ruler_reinforce_title:0 "The Burden of Rulership"
+gpt_shy_ruler_reinforce_desc:0 "#weak You read the reports alone in your chamber, anxiety tightening around your chest.#!\n\nA massive raiding force has breached your borders, too powerful for your forces to repel alone. Villages burn while your soldiers can only shadow the enemy, too few to engage directly.\n\nYour advisors have laid out the options clearly. You need reinforcements. Allies and neighboring rulers could provide them—if asked.\n\nThe thought of sending such requests makes your mouth go dry. To admit weakness, to impose upon others, to stand before them asking for protection. Each imagined conversation sends waves of discomfort through you.\n\nYet the responsibility weighs heavier. Every day you delay, more of your people suffer while you wrestle with your reluctance.\n\n#weak Your seal and parchment sit before you, untouched, as you struggle between duty to your realm and the overwhelming dread of requesting help.#!"
+
+gpt_shy_ruler_reinforce_option_1:0 "I must overcome my pride and request aid..."
+gpt_shy_ruler_reinforce_option_2:0 "No. I shall find another way. I cannot ask for help."
+
+
+
+
+# Ruler Victory Events
+
+gpt_vengeful_ruler_victory_title_1:0 "Blood for Blood?"
+gpt_vengeful_ruler_victory_desc_1:0 "#weak The battlefield echoes with cries of the wounded as you survey the carnage.#!\n\n'Victory is ours, [ROOT.Char.GetTitleAsName]!' your [marshal|E], [saved_marshal.GetFirstName], declares proudly. '[saved_raider.GetName] has fled with [saved_raider.GetHerHis] guard, but hundreds of their warriors are scattered and in disarray.'\n\nYou recall the burning villages and the suffering of your people. These raiders showed no mercy.\n\n'They run like cowards!,' one of your commanders spits. 'Give the order, and we shall ride them down before sunset!'\n\nYour soldiers wait eagerly, bloodied weapons in hand, for your command on how to deal with the fleeing raiders.\n\n#weak How will you answer the wounds inflicted upon your realm?#!"
+
+gpt_vengeful_ruler_option_1:0 "Pursue and kill every last one. Let none survive!"
+gpt_vengeful_ruler_option_2:0 "Capture them alive. They will serve in chains."
+gpt_vengeful_ruler_option_3:0 "Let them flee. The lesson has been taught..."
+
+
+# Greedy Ruler Surplus Loot Events
+
+gpt_greedy_ruler_loot_title:0 "The Glittering Temptation"
+gpt_greedy_ruler_loot_desc:0 "#weak The spoils of the raid laid before you in your chamber are staggering.#!\n\nGold coins spill from chests. Jeweled goblets catch the torchlight. Silks and tapestries lie in heaps, each worth a fortune. The raiders have brought far more than expected.\n\nYou run your fingers through silver coins. Nothing fills your treasury like a successful raid.\n\nThe thought of sharing makes your chest tighten. Was it not your strategic mind that made this possible? The clergy have their tithes and the soldiers their payment. This surplus should flow to you.\n\nStill, a voice of caution whispers. The soldiers talk, and priests preach. Perhaps strategic generosity might serve your interests.\n\n#weak You find yourself clutching a jeweled necklace, already imagining it among your treasures.#!"
+
+gpt_ruler_loot_option_1:0 "All of it belongs in my personal treasury."
+gpt_ruler_loot_option_2:0 "The clergy shall receive half as an offering."
+gpt_ruler_loot_option_3:0 "The soldiers earned their share of the spoils."
+
+# Pragmatic Ruler Surplus Loot Events
+
+gpt_pragmatic_ruler_loot_title:0 "Calculated Distribution"
+gpt_pragmatic_ruler_loot_desc:0 "#weak You inspect the surplus treasures from the recent raid, calculating the best allocation of these resources.#!\n\nThe bounty exceeds projections—enough to warrant careful consideration. Every golden chalice and sack of silver represents a strategic opportunity.\n\nThe treasury needs replenishing, with defenses requiring maintenance and future campaigns needing funding. Yet political factors cannot be ignored.\n\nThe clergy's favor brings legitimacy and support. Their networks spread information favorable to their benefactors.\n\nYour soldiers represent immediate strength. Their loyalty correlates with compensation. Well-rewarded troops fight harder and complain less.\n\n#weak You make calculations on parchment, weighing treasury reserves against the loyalty strategic disbursement might purchase.#!"
+
+# Generous Ruler Surplus Loot Events
+
+gpt_generous_ruler_loot_title:0 "Fruits of Victory"
+gpt_generous_ruler_loot_desc:0 "#weak The unexpected bounty from the raid lies before you—far more than anticipated.#!\n\nYou think not of what you could acquire, but of those whose efforts made this success possible.\n\nYou recall the soldiers marching through mud and blood on your command, their families waiting anxiously. The celebration in their eyes when they succeeded, wondering what reward their courage might bring.\n\nYou consider the clergy, whose blessings comforted those soldiers, whose works ease your people's suffering. How much good could they do with this wealth?\n\nWhile the treasury has its needs, true prosperity comes from bonds between ruler and subject. Wealth shared builds loyalties that gold alone cannot buy.\n\n#weak You examine a golden figurine, contemplating how it might best serve not just your coffers but your realm.#!"
+
+
+# Zealous Coreligionist Ruler Demands Events
+
+gpt_raid_correlig_warning_tt:0 "When you raid a coreligionist [county|E] (Same [organized|E] [faith|E] or [faith_astray|E]), you will lose [piety|E] and [piety_experience|E]:"
+
+gpt_zealous_ruler_demand_title:0 "Appeal to Faith"
+gpt_zealous_ruler_demand_desc:0 "#weak A solemn envoy arrives bearing the seal of [saved_holder.GetName], whose lands you have been raiding.#!\n\n'My neighbor in faith,' begins the message, 'I write to you not as a rival ruler, but as a fellow servant of [ROOT.Char.GetFaith.HighGodName]. It pains me to see one who shares our beliefs bringing suffering upon the faithful.'\n\n'Each village you burn houses devout followers. Each field you plunder feeds those who pray to the same [ROOT.Char.GetFaith.HighGodName] as you. By what mandate do you raise your sword against spiritual brothers and sisters?'\n\n'I beseech you,' the message concludes, 'cease these unholy raids. Should you persist, [ROOT.Char.GetFaith.HighGodName] will judge you harshly—as will I, with whatever power I command.'\n\n#weak The envoy waits patiently, his eyes reflecting both hope and judgment.#!"
+
+gpt_zealous_ruler_demand_option:0 "I acknowledge the consequences of my actions"
+
+# Pragmatic Coreligionist Ruler Demands Events
+
+gpt_pragmatic_ruler_demand_title:0 "Practical Ultimatum"
+gpt_pragmatic_ruler_demand_desc:0 "#weak An envoy bearing [saved_holder.GetName]'s colors approaches, requesting immediate audience.#!\n\n'From [saved_holder.GetName] to [ROOT.Char.GetName],' the letter begins. 'Your raids on my territory create significant complications for us both.'\n\nThe message outlines consequences: 'First, we share the same faith, causing unrest among supporters questioning attacks on fellow believers. Second, continued raids force me to divert resources from mutual threats. Third, I have alliances you may not have considered.'\n\n'I propose a simple arrangement,' it concludes. 'Cease your raids, and I will not pursue action. Continue, and I must respond with measures benefiting neither of us.'\n\n#weak The envoy carries a detailed map of your territories and military positions—a subtle demonstration of [saved_holder.GetHerHis] thorough preparation.#!"
+
+# Cynical Coreligionist Ruler Demands Events
+
+gpt_cynical_ruler_demand_title:0 "Convenient Faith"
+gpt_cynical_ruler_demand_desc:0 "#weak A messenger arrives with little ceremony, bearing [saved_holder.GetName]'s sealed scroll.#!\n\n'Well, [ROOT.Char.GetFirstName],' the letter begins informally, 'isn't it amusing that you've chosen to raid someone who shares your faith? One might think religious obligations would give you pause.'\n\n'While I find it entertaining how quickly faith dissolves when gold appears, my priests and nobles are more traditional. They insist I respond to your raids with vigor.'\n\n'For appearance's sake, I must demand you stop. Should you continue, I'll play the outraged coreligionist convincingly. Neither of us wants a conflict justified by religious posturing.'\n\n#weak The messenger appears uncomfortable delivering such an irreverent message, suggesting [saved_holder.GetFirstName]'s inner circle knows [saved_holder.GetHerHis] cynical outlook on faith.#!"
+
+
+
+
+
+
+
+
+
+# Zealous Coreligionist Raider Response Events
+
+gpt_zealous_raider_response_title:0 "Divine Justification"
+gpt_zealous_raider_response_desc:0 "#weak A messenger returns from your mission to [saved_raider.GetName], bearing a response to your demand.#!\n\n'To [ROOT.Char.GetName],' the letter begins with religious invocations. 'While we both kneel before [ROOT.Char.GetFaith.HighGodName], I must clarify a divine misunderstanding.'\n\nThe message continues: 'My raids are not mere plunder but sacred correction. Your stewardship has allowed impurity in our faith's observance. The wealth I take builds temples. The fear I sow reminds your subjects of [ROOT.Char.GetFaith.HighGodName]'s judgment.'\n\n'I cannot cease this holy work,' the letter concludes. 'If you truly honored our shared faith, you would recognize my actions as necessary purification. Perhaps when your realm better reflects [ROOT.Char.GetFaith.HighGodName]'s will, my mandate will be fulfilled.'\n\n#weak The parchment is signed with [saved_raider.GetFirstName]'s name and an elaborate religious symbol, suggesting [saved_raider.GetSheHe] believes [saved_raider.GetHerHis] raids serve a higher purpose.#!"
+
+gpt_zealous_raider_response_option_1:0 "Denounce this blasphemer to the clergy!"
+gpt_zealous_raider_response_option_2:0 "The clergy need not meddle in matters of state."
+
+
+# Pragmatic Coreligionist Raider Response Events
+
+gpt_pragmatic_raider_response_title:0 "Strategic Necessity"
+gpt_pragmatic_raider_response_desc:0 "#weak Your messenger returns from [saved_raider.GetName]'s court with a sealed response to your demand.#!\n\n'To [ROOT.Char.GetName],' the letter begins. 'I acknowledge your request and appeal to our shared faith. However, I must decline for reasons beyond religious considerations.'\n\nThe message outlines: 'My realm's security depends on resources your lands provide. While we worship the same [ROOT.Char.GetFaith.HighGodName], rulership requires difficult choices. These raids are not personal but necessary for my realm's stability.'\n\n'I propose instead,' it concludes, 'that you consider a formal tribute arrangement. Regular payments would ensure peace between us. Should this not appeal, understand that my raids will continue as strategic necessity, regardless of our shared faith.'\n\n#weak Attached is a ledger showing what [saved_raider.GetFirstName] considers fair tribute compared to the value of continued raids—revealing a ruler who sees this as a matter of resources and power.#!"
+
+# Cynical Coreligionist Raider Response Events
+
+gpt_cynical_raider_response_title:0 "Faith and Fortune"
+gpt_cynical_raider_response_desc:0 "#weak Your messenger returns from [saved_raider.GetName]'s court looking unsettled, bearing a response.#!\n\n'Dear cousin in faith,' the letter begins with exaggerated formality. 'How touching that you invoke our shared devotion when suddenly convenient. I don't recall religious brotherhood mentioned when you increased tolls on my merchants last summer.'\n\nThe message continues mockingly: 'Let's be honest—[ROOT.Char.GetFaith.HighGodName] appreciates honesty. My raiders need wealth, your lands have it, and talk of faith is just dressing on an ugly situation. The priests prattle about unity, but they don't have armies to feed.'\n\n'My raids will continue,' it concludes. 'Pray for their end if it comforts you. Or better, pray for stronger defenses. I hear [ROOT.Char.GetFaith.HighGodName] helps those who help themselves... or was that just made up? Hard to tell these days.'\n\n#weak The letter bears [saved_raider.GetFirstName]'s seal but lacks the religious symbolism typically included in correspondence between rulers of the same faith.#!"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

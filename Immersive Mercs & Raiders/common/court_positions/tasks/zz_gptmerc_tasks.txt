@@ -1,0 +1,141 @@
+﻿### Master of the Raids Tasks ###
+
+master_of_raids_task_1 = {
+	court_position_types = { master_of_raids_court_position }
+
+	# Monthly cost for the task
+	cost = {
+		round = no
+		gold = {
+			add = {
+				value = monthly_court_position_task_cost
+				desc = COURT_POSITION_TASK_COST_BREAKDOWN_BASE
+				format = "BASE_VALUE_FORMAT_DECIMALS_PLUS_NEGATIVE"
+			}
+		}
+	}
+
+	scaling_employer_modifiers = {
+		terrible = {
+			hostile_raid_time = 0.04
+		}
+		poor = {
+			hostile_raid_time = 0.06
+		}
+		average = {
+			hostile_raid_time = 0.08
+		}
+		good = {
+			hostile_raid_time = 0.10
+		}
+		excellent = {
+			hostile_raid_time = 0.12
+		}
+	}
+
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = {
+				ai_boldness < -20
+			}
+			add = 25
+		}
+	}
+}
+
+master_of_raids_task_2 = {
+	court_position_types = { master_of_raids_court_position }
+
+	# Monthly cost for the task
+	cost = {
+		round = no
+		gold = {
+			add = {
+				value = monthly_court_position_task_cost
+				desc = COURT_POSITION_TASK_COST_BREAKDOWN_BASE
+				format = "BASE_VALUE_FORMAT_DECIMALS_PLUS_NEGATIVE"
+			}
+		}
+	}
+
+	scaling_employer_modifiers = {
+		terrible = {
+			vassal_tax_contribution_mult = 0.02
+		}
+		poor = {
+			vassal_tax_contribution_mult = 0.03
+		}
+		average = {
+			vassal_tax_contribution_mult = 0.04
+		}
+		good = {
+			vassal_tax_contribution_mult = 0.06
+		}
+		excellent = {
+			vassal_tax_contribution_mult = 0.08
+		}
+	}
+
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = {
+				ai_greed > 20
+				vassal_count > 12
+			}
+			add = 25
+		}
+	}
+}
+
+master_of_raids_task_3 = {
+	court_position_types = { master_of_raids_court_position }
+
+	# Monthly cost for the task
+	cost = {
+		round = no
+		piety = {
+			add = {
+				value = monthly_court_position_task_cost
+				desc = COURT_POSITION_TASK_COST_BREAKDOWN_BASE
+				format = "BASE_VALUE_FORMAT_DECIMALS_PLUS_NEGATIVE"
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		#aptitude = {
+		#	court_position = master_of_horse_court_position
+		#	value >= 1
+		#}
+	}
+
+	scaling_employer_modifiers = {
+		terrible = {
+			dread_baseline_add = 2
+		}
+		poor = {
+			dread_baseline_add = 4
+		}
+		average = {
+			dread_baseline_add = 6
+		}
+		good = {
+			dread_baseline_add = 8
+		}
+		excellent = {
+			dread_baseline_add = 10
+		}
+	}
+
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = {
+				ai_compassion < -20
+			}
+			add = 25
+		}
+	}
+}

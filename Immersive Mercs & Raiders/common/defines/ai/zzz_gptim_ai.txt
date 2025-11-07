@@ -1,0 +1,208 @@
+﻿NAI = {
+
+    AI_BASE_WAR_CHANCE = 1  # Base = 1
+    AI_WAR_BASE_COOLDOWN = 80  # Base = 50
+    CB_SCORE_MULT_NEIGHBOR_TITLE = 25  # Base = 15
+    DESIRED_WAR_SIDE_POWER = 1.5 # Base = 1.25
+
+
+
+
+    ### Brief: REDUCED_EFFECTIVE_WEALTH_PER_HIRED_MERC ( int32 )
+    # For each hired merc, the AI pretends to have less money so that 
+    # it ends up keeping some reserves.
+    #
+    REDUCED_EFFECTIVE_WEALTH_PER_HIRED_MERC = 100
+
+    ### Brief: MAX_WEALTH_EXPENDITURE_MERCS ( Fixed Point )
+    # The AI will never spend more than this fraction of its current 
+    # wealth on buying mercs.
+    #
+    MAX_WEALTH_EXPENDITURE_MERCS = 1.2
+
+    ### Brief: MERC_OVERMATCHING_TARGET ( Fixed Point )
+    # The AI will try to outnumber the enemy by this ratio if it can 
+    # afford it based on its warchest.
+    #
+    MERC_OVERMATCHING_TARGET = 1.5
+
+    ### Brief: MAX_WAR_CHEST_EXPENDITURE_MERC_OVERMATCHING ( Fixed Point )
+    # The AI will use up to this much of its warchest when trying to 
+    # outnumber the enemy.
+    #
+    MAX_WAR_CHEST_EXPENDITURE_MERC_OVERMATCHING = 1.2
+
+    ### Brief: MIN_HIRING_GOAL ( int32 )
+    # If missing less than this amount to outnumber its enemies, the AI 
+    # will hire as if it were actually missing this amount.
+    #
+    MIN_HIRING_GOAL = 500
+
+    ### Brief: MAX_HIRING_GOAL_OVERFLOW_RATIO ( Fixed Point )
+    # The AI won't hire more than this times as many men as it is 
+    # missing (using MERC_OVERMATCHING_TARGET). It'll hire the most 
+    # expensive merc that fits within this. E.G., this means that if 
+    # the AI is missing 1000 men, it'll hire the most expensive merc 
+    # with less than 2000 men.
+    #
+    MAX_HIRING_GOAL_OVERFLOW_RATIO = 2.0
+
+    ### Brief: MONTHS_BEFORE_CONTRACT_END_TO_REHIRE ( int32 )
+    # This many months before a merc contract ends, the AI will rehire 
+    # mercs if it can afford it and thinks it still needs them.
+    #
+    MONTHS_BEFORE_CONTRACT_END_TO_REHIRE = 3
+
+
+
+    ### Brief: COUNTER_RAID_MIN_DISTANCE ( int32 )
+    # The AI will try to raise counter-raid troops at least this far 
+    # away from the raid.
+    #
+    COUNTER_RAID_MIN_DISTANCE = 50
+
+    ### Brief: COUNTER_RAID_MAX_DISTANCE ( int32 )
+    # The AI will raise counter-raid troops at most this far away from 
+    # the raid.
+    #
+    COUNTER_RAID_MAX_DISTANCE = 500
+
+    ### Brief: OTHER_RAID_ARMY_COMBINED_STRENGTH_MAX_DISTANCE ( int32 )
+    # Other raid armies no more than this far away will be considered 
+    # as part of the same raid army for strength purposes.
+    #
+    OTHER_RAID_ARMY_COMBINED_STRENGTH_MAX_DISTANCE = 200
+
+    ### Brief: VASSAL_COUNTER_RAID_MIN_STRENGTH_RATIO ( Fixed Point )
+    # A vassal at least this strong compared to the raid will be 
+    # responsible for countering it.
+    #
+    VASSAL_COUNTER_RAID_MIN_STRENGTH_RATIO = 0.9
+
+    ### Brief: INDEPENDENT_COUNTER_RAID_MIN_STRENGTH_RATIO ( Fixed Point )
+    # An independent ruler at least this strong compared to the raid 
+    # will be responsible for countering it if no vassal does.
+    #
+    INDEPENDENT_COUNTER_RAID_MIN_STRENGTH_RATIO = 0.75
+
+    ### Brief: MAX_RAID_DISTANCE ( int32 array )
+    # How far away will the AI raid? Uses naval distance.
+    #
+    # - 0: Default range
+    # - 1000: Range from Agder to Brittany/Ireland
+    # - 1200: Range from Agder to Western France
+    # - 3000: Range from Agder to Southern Spain
+    # - 4000: Range from Agder to Rome
+    #
+	MAX_RAID_DISTANCE = {
+		0
+		0
+		1000
+		2000
+		3000
+		4000
+		5000
+	}							
+
+	### Brief: MAX_RAID_DISTANCE_NEXT_COUNTY (  Fixed Point  )
+	# After raiding one county, how far is the AI willing to go to the 
+	# next?
+	#
+	MAX_RAID_DISTANCE_NEXT_COUNTY = 200
+
+	### Brief: MIN_STRENGTH_TO_RAID_VASSAL (  Fixed Point  )
+	# How strong do vassals have to be for the AI to go raiding?
+	#
+	MIN_STRENGTH_TO_RAID_VASSAL = 300
+
+	### Brief: MIN_STRENGTH_TO_RAID_INDEPENDENT (  Fixed Point  )
+	# How strong do independent rulers have to be for the AI to go 
+	# raiding?
+	#
+	MIN_STRENGTH_TO_RAID_INDEPENDENT = 300
+
+	### Brief: MAX_RAID_TARGET_STRENGTH (  Fixed Point  )
+	# Don't raid enemies too strong.
+	#
+	MAX_RAID_TARGET_STRENGTH = 1.5
+
+	### Brief: MAX_RAID_TARGET_STRENGTH_AT_WAR (  Fixed Point  )
+	# But if they're at war, the risk might be worth it.
+	#
+	MAX_RAID_TARGET_STRENGTH_AT_WAR = 5.0
+
+	### Brief: MIN_STRENGTH_FOR_RAIDER_TO_AVOID (  Fixed Point  )
+	# If there's hostile units in this county and neighboring counties 
+	# that are combined this strong compared to the raid army, flee
+	# home.
+	#
+	MIN_STRENGTH_FOR_RAIDER_TO_AVOID = 0.9
+
+	### Brief: RAID_SCORE_MIN_STRENGTH_RATIO (  Fixed Point  )
+	# We divide the score by how strong the target is compared to us;
+	# if lower than this, we use this number. So 0.2 means that
+	# outnumbering them 5:1 and 2:1 are equivalent.
+	#
+	RAID_SCORE_MIN_STRENGTH_RATIO = 0.2
+
+	### Brief: RAID_SCORE_DISTANCE_OFFSET ( int32 )
+	# We divide the score by the distance from the realm (or army, if 
+	# follow-up raid) plus this number.
+	#
+	RAID_SCORE_DISTANCE_OFFSET = 200
+
+	### Brief: RAID_SCORE_DISTANCE_OFFSET_NEXT_TARGET ( int32 )
+	# We divide the score by the distance from the army plus this
+	# number when finding the next county to go to.
+	#
+	RAID_SCORE_DISTANCE_OFFSET_NEXT_TARGET = 30
+
+	### Brief: RAID_SCORE_FORT_LEVEL_OFFSET ( int32 )
+	# We divide the score by the sum of all fort levels in the county, 
+	# plus this number.
+	#
+	RAID_SCORE_FORT_LEVEL_OFFSET = 5
+
+	### Brief: MIN_RAID_SCORE_COMPARED_TO_BEST_SCORE (  Fixed Point  )
+	# Scores this much worse than the best score are just discarded.
+	#
+	MIN_RAID_SCORE_COMPARED_TO_BEST_SCORE = 0.4
+
+	### Brief: RAID_CHANCE_AT_MAX_GREED ( Fixed Point )
+	# Chance to go raiding each year if at 100 greed. 0.0 at -100 greed. 
+	# Must still meet all other conditions.
+	#
+	RAID_CHANCE_AT_MAX_GREED = 0.9
+
+	### Brief: MAX_RAID_DAYS ( int32 )
+	# After this long, the AI will go home when a raid action concludes.
+	#
+	MAX_RAID_DAYS = 365
+
+	### Brief: RAID_COOLDOWN_DAYS ( int32 )
+	# The AI won't start a new raid for this long after last having 
+	# started one.
+	#
+	RAID_COOLDOWN_DAYS = 2500
+
+	### Brief: COUNTER_RAID_COOLDOWN_DAYS ( int32 )
+	# The AI won't counter-raid for this long after they last 
+	# counter-raided.
+	#
+	COUNTER_RAID_COOLDOWN_DAYS = 90
+
+	### Brief: RAID_SCORE_FAITH_HOSTILITY_MULT ( Fixed Point array )
+	# Hostility levels start at 0 (same faith or equivalent to same
+	# faith)
+	#
+	# Raid score mult based on hostility
+	#
+	RAID_SCORE_FAITH_HOSTILITY_MULT = {
+		1
+		3
+		6
+		9
+	}
+	RAID_SCORE_MULT_SAME_CULTURE = 0.25
+	RAID_SCORE_MULT_SAME_HERITAGE = 0.50
+}

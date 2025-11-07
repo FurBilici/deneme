@@ -1,0 +1,111 @@
+﻿
+
+gpt_merc_chevauchee = {
+	icon = camp_negative
+	levy_size = -0.5
+	army_damage_mult = -0.25
+	army_pursuit_mult = -0.25
+	army_screen_mult = -0.25
+	army_toughness_mult = -0.25
+}
+
+gpt_merc_raided_1 = {
+	icon = county_modifier_development_negative
+	development_growth_factor = -0.20
+	domain_tax_mult = -0.10
+	dread_baseline_add = -5
+	county_opinion_add = -10
+}
+gpt_merc_raided_2 = {
+	icon = county_modifier_development_negative
+	development_growth_factor = -0.40
+	domain_tax_mult = -0.20
+	dread_baseline_add = -10
+	county_opinion_add = -20
+}
+gpt_merc_raided_3 = {
+	icon = county_modifier_development_negative
+	development_growth_factor = -0.60
+	domain_tax_mult = -0.30
+	dread_baseline_add = -15
+	county_opinion_add = -30
+}
+
+
+
+gpt_merc_md_id_count = {
+	icon = camp_positive
+}
+gpt_merc_md_vs_count = {
+	icon = camp_mixed
+	mercenary_hire_cost_mult = 0.20
+}
+
+gpt_merc_md_id_duke = {
+	icon = camp_positive
+	mercenary_hire_cost_mult = 0.20
+}
+gpt_merc_md_vs_duke = {
+	icon = camp_mixed
+	mercenary_hire_cost_mult = 0.40
+}
+
+gpt_merc_md_id_king = {
+	icon = camp_mixed
+	mercenary_hire_cost_mult = 0.50
+	vassal_tax_contribution_mult = 0.1
+	vassal_levy_contribution_mult = 0.1
+}
+gpt_merc_md_vs_king = {
+	icon = camp_negative
+	mercenary_hire_cost_mult = 1
+	vassal_tax_contribution_mult = 0.1
+	vassal_levy_contribution_mult = 0.1
+}
+
+gpt_merc_md_id_emp = {
+	icon = camp_negative
+	mercenary_hire_cost_mult = 1
+	vassal_tax_contribution_mult = 0.2
+	vassal_levy_contribution_mult = 0.2
+}
+
+
+
+
+
+
+gpt_merc_request_aid_lv1 = {
+	icon = camp_positive
+	levy_size = 0.2
+	general_opinion = -10
+}
+
+gpt_merc_request_aid_lv2 = {
+	icon = camp_positive
+	levy_size = 0.4
+	general_opinion = -10
+}
+
+gpt_merc_request_aid_lv3 = {
+	icon = camp_positive
+	levy_size = 0.6
+	general_opinion = -10
+}
+
+gpt_merc_request_aid_lv4 = {
+	icon = camp_positive
+	levy_size = 0.8
+	general_opinion = -10
+}
+
+gpt_merc_request_aid_lv5 = {
+	icon = camp_positive
+	levy_size = 1
+	general_opinion = -10
+}
+
+gpt_recently_looted_county = {
+	icon = county_modifier_development_negative
+	development_growth_factor = -1
+}

@@ -1,0 +1,3389 @@
+﻿namespace = gpt_raid_complete
+
+gpt_raid_complete.0001 = {
+	type = character_event
+	title = gpt_cruel_raider_hostage_title_1
+	desc = gpt_cruel_raider_hostage_desc_1
+	theme = battle
+	override_background = { reference = burning_building }
+	right_portrait = {
+		character = scope:saved_raider
+		animation = menacing
+	}
+
+	immediate = {
+		add_character_flag = { flag = gpt_already_raided years = 1 }
+		add_opinion = {
+			target = scope:saved_raider
+			modifier = raided_me_opinion
+		}
+	}
+
+	option = {
+		name = gpt_raider_hostage_option_1
+		stress_impact = {
+			compassionate = -12
+			generous = -8
+		}
+		stress_impact = {
+			greedy = 12
+			callous = 8
+			sadistic = 8
+		}
+		pay_short_term_gold = {
+			gold = {
+				value = capital_province.available_loot
+				multiply = 0.5
+				min = {
+					value = monthly_character_income
+					multiply = 4
+					min = 12
+				}
+				multiply = 1.5
+			}
+			target = scope:saved_raider
+		}
+		if = {
+			limit = {
+				has_legitimacy = yes
+			}
+			add_legitimacy = {
+				value = -7
+				multiply = highest_held_title_tier
+			}
+		}
+		if = {
+			limit = {
+				government_has_flag = government_has_influence
+			}
+			change_influence = {
+				value = -7
+				multiply = highest_held_title_tier
+			}
+		}
+	}
+
+	option = {
+		name = gpt_raider_hostage_option_2
+		stress_impact = {
+			compassionate = 12
+			generous = 8
+		}
+		stress_impact = {
+			greedy = -6
+			callous = -6
+			sadistic = -6
+		}
+		pay_short_term_gold = {
+			gold = {
+				value = capital_province.available_loot
+				multiply = 0.5
+				min = {
+					value = monthly_character_income
+					multiply = 4
+					min = 12
+				}
+				multiply = 1.5
+				divide = 2
+			}
+			target = scope:saved_raider
+		}
+		if = {
+			limit = {
+				has_legitimacy = yes
+			}
+			add_legitimacy = {
+				value = -14
+				multiply = highest_held_title_tier
+			}
+		}
+		if = {
+			limit = {
+				government_has_flag = government_has_influence
+			}
+			change_influence = {
+				value = -14
+				multiply = highest_held_title_tier
+			}
+		}
+		scope:county = {
+			change_county_control = -10
+			change_development_progress_with_overflow = -50
+		}
+	}	
+		
+	option = {
+		name = gpt_raider_hostage_option_3
+		stress_impact = {
+			greedy = -12
+			callous = -8
+			sadistic = -8
+		}
+		stress_impact = {
+			compassionate = 24
+			generous = 12
+		}
+		if = {
+			limit = {
+				has_legitimacy = yes
+			}
+			add_legitimacy = {
+				value = -21
+				multiply = highest_held_title_tier
+			}
+		}
+		if = {
+			limit = {
+				government_has_flag = government_has_influence
+			}
+			change_influence = {
+				value = -21
+				multiply = highest_held_title_tier
+			}
+		}
+		scope:county = {
+			change_county_control = -30
+			change_development_progress_with_overflow = -100
+		}
+	}	
+}
+gpt_raid_complete.0002 = {
+	type = character_event
+	title = gpt_cruel_arsonist_raider_title_1
+	desc = gpt_cruel_arsonist_raider_desc_1
+	theme = battle
+	override_background = { reference = burning_building }
+	right_portrait = {
+		character = scope:saved_raider
+		animation = menacing
+	}
+
+	immediate = {
+		add_character_flag = { flag = gpt_already_raided years = 1 }
+		add_opinion = {
+			target = scope:saved_raider
+			modifier = raided_me_opinion
+		}
+	}
+
+	option = {
+		name = gpt_raider_arsonist_option_1
+		stress_impact = {
+			compassionate = -12
+			generous = -8
+		}
+		stress_impact = {
+			greedy = 12
+			callous = 8
+			sadistic = 8
+		}
+		pay_short_term_gold = {
+			gold = {
+				value = capital_province.available_loot
+				multiply = 0.5
+				min = {
+					value = monthly_character_income
+					multiply = 4
+					min = 12
+				}
+				multiply = 1.5
+			}
+			target = scope:saved_raider
+		}
+		if = {
+			limit = {
+				has_legitimacy = yes
+			}
+			add_legitimacy = {
+				value = -7
+				multiply = highest_held_title_tier
+			}
+		}
+		if = {
+			limit = {
+				government_has_flag = government_has_influence
+			}
+			change_influence = {
+				value = -7
+				multiply = highest_held_title_tier
+			}
+		}
+	}
+
+	option = {
+		name = gpt_raider_arsonist_option_2
+		stress_impact = {
+			compassionate = 12
+			generous = 8
+		}
+		stress_impact = {
+			greedy = -6
+			callous = -6
+			sadistic = -6
+		}
+		pay_short_term_gold = {
+			gold = {
+				value = capital_province.available_loot
+				multiply = 0.5
+				min = {
+					value = monthly_character_income
+					multiply = 4
+					min = 12
+				}
+				multiply = 1.5
+				divide = 2
+			}
+			target = scope:saved_raider
+		}
+		if = {
+			limit = {
+				has_legitimacy = yes
+			}
+			add_legitimacy = {
+				value = -14
+				multiply = highest_held_title_tier
+			}
+		}
+		if = {
+			limit = {
+				government_has_flag = government_has_influence
+			}
+			change_influence = {
+				value = -14
+				multiply = highest_held_title_tier
+			}
+		}
+		scope:county = {
+			change_county_control = -10
+			change_development_progress_with_overflow = -50
+		}
+	}	
+		
+	option = {
+		name = gpt_raider_arsonist_option_3
+		stress_impact = {
+			greedy = -12
+			callous = -8
+			sadistic = -8
+		}
+		stress_impact = {
+			compassionate = 24
+			generous = 12
+		}
+		if = {
+			limit = {
+				has_legitimacy = yes
+			}
+			add_legitimacy = {
+				value = -21
+				multiply = highest_held_title_tier
+			}
+		}
+		if = {
+			limit = {
+				government_has_flag = government_has_influence
+			}
+			change_influence = {
+				value = -21
+				multiply = highest_held_title_tier
+			}
+		}
+		scope:county = {
+			change_county_control = -30
+			change_development_progress_with_overflow = -100
+		}
+	}	
+}
+gpt_raid_complete.0003 = {
+	type = character_event
+	title = gpt_cruel_plague_raider_title_1
+	desc = gpt_cruel_plague_raider_desc_1
+	theme = battle
+	override_background = { reference = burning_building }
+	right_portrait = {
+		character = scope:saved_raider
+		animation = menacing
+	}
+
+	immediate = {
+		add_character_flag = { flag = gpt_already_raided years = 1 }
+		add_opinion = {
+			target = scope:saved_raider
+			modifier = raided_me_opinion
+		}
+	}
+
+	option = {
+		name = gpt_raider_plague_option_1
+		stress_impact = {
+			compassionate = -12
+			generous = -8
+		}
+		stress_impact = {
+			greedy = 12
+			callous = 8
+			sadistic = 8
+		}
+		pay_short_term_gold = {
+			gold = {
+				value = capital_province.available_loot
+				multiply = 0.5
+				min = {
+					value = monthly_character_income
+					multiply = 4
+					min = 12
+				}
+				multiply = 1.5
+			}
+			target = scope:saved_raider
+		}
+		if = {
+			limit = {
+				has_legitimacy = yes
+			}
+			add_legitimacy = {
+				value = -7
+				multiply = highest_held_title_tier
+			}
+		}
+		if = {
+			limit = {
+				government_has_flag = government_has_influence
+			}
+			change_influence = {
+				value = -7
+				multiply = highest_held_title_tier
+			}
+		}
+	}
+
+	option = {
+		name = gpt_raider_plague_option_2
+		stress_impact = {
+			compassionate = 12
+			generous = 8
+		}
+		stress_impact = {
+			greedy = -6
+			callous = -6
+			sadistic = -6
+		}
+		pay_short_term_gold = {
+			gold = {
+				value = capital_province.available_loot
+				multiply = 0.5
+				min = {
+					value = monthly_character_income
+					multiply = 4
+					min = 12
+				}
+				multiply = 1.5
+				divide = 2
+			}
+			target = scope:saved_raider
+		}
+		if = {
+			limit = {
+				has_legitimacy = yes
+			}
+			add_legitimacy = {
+				value = -14
+				multiply = highest_held_title_tier
+			}
+		}
+		if = {
+			limit = {
+				government_has_flag = government_has_influence
+			}
+			change_influence = {
+				value = -14
+				multiply = highest_held_title_tier
+			}
+		}
+		scope:county = {
+			change_county_control = -10
+			change_development_progress_with_overflow = -50
+		}
+	}	
+		
+	option = {
+		name = gpt_raider_plague_option_3
+		stress_impact = {
+			greedy = -12
+			callous = -8
+			sadistic = -8
+		}
+		stress_impact = {
+			compassionate = 24
+			generous = 12
+		}
+		if = {
+			limit = {
+				has_legitimacy = yes
+			}
+			add_legitimacy = {
+				value = -21
+				multiply = highest_held_title_tier
+			}
+		}
+		if = {
+			limit = {
+				government_has_flag = government_has_influence
+			}
+			change_influence = {
+				value = -21
+				multiply = highest_held_title_tier
+			}
+		}
+		scope:county = {
+			change_county_control = -30
+			change_development_progress_with_overflow = -100
+		}
+	}	
+}
+gpt_raid_complete.0004 = {
+	type = character_event
+	title = gpt_cruel_crop_raider_title_1
+	desc = gpt_cruel_crop_raider_desc_1
+	theme = battle
+	override_background = { reference = burning_building }
+	right_portrait = {
+		character = scope:saved_raider
+		animation = menacing
+	}
+
+	immediate = {
+		add_character_flag = { flag = gpt_already_raided years = 1 }
+		add_opinion = {
+			target = scope:saved_raider
+			modifier = raided_me_opinion
+		}
+	}
+
+	option = {
+		name = gpt_raider_crops_option_1
+		stress_impact = {
+			compassionate = -12
+			generous = -8
+		}
+		stress_impact = {
+			greedy = 12
+			callous = 8
+			sadistic = 8
+		}
+		pay_short_term_gold = {
+			gold = {
+				value = capital_province.available_loot
+				multiply = 0.5
+				min = {
+					value = monthly_character_income
+					multiply = 4
+					min = 12
+				}
+				multiply = 1.5
+			}
+			target = scope:saved_raider
+		}
+		if = {
+			limit = {
+				has_legitimacy = yes
+			}
+			add_legitimacy = {
+				value = -7
+				multiply = highest_held_title_tier
+			}
+		}
+		if = {
+			limit = {
+				government_has_flag = government_has_influence
+			}
+			change_influence = {
+				value = -7
+				multiply = highest_held_title_tier
+			}
+		}
+	}
+
+	option = {
+		name = gpt_raider_crops_option_2
+		stress_impact = {
+			compassionate = 12
+			generous = 8
+		}
+		stress_impact = {
+			greedy = -6
+			callous = -6
+			sadistic = -6
+		}
+		pay_short_term_gold = {
+			gold = {
+				value = capital_province.available_loot
+				multiply = 0.5
+				min = {
+					value = monthly_character_income
+					multiply = 4
+					min = 12
+				}
+				multiply = 1.5
+				divide = 2
+			}
+			target = scope:saved_raider
+		}
+		if = {
+			limit = {
+				has_legitimacy = yes
+			}
+			add_legitimacy = {
+				value = -14
+				multiply = highest_held_title_tier
+			}
+		}
+		if = {
+			limit = {
+				government_has_flag = government_has_influence
+			}
+			change_influence = {
+				value = -14
+				multiply = highest_held_title_tier
+			}
+		}
+		scope:county = {
+			change_county_control = -10
+			change_development_progress_with_overflow = -50
+		}
+	}	
+		
+	option = {
+		name = gpt_raider_crops_option_3
+		stress_impact = {
+			greedy = -12
+			callous = -8
+			sadistic = -8
+		}
+		stress_impact = {
+			compassionate = 24
+			generous = 12
+		}
+		if = {
+			limit = {
+				has_legitimacy = yes
+			}
+			add_legitimacy = {
+				value = -21
+				multiply = highest_held_title_tier
+			}
+		}
+		if = {
+			limit = {
+				government_has_flag = government_has_influence
+			}
+			change_influence = {
+				value = -21
+				multiply = highest_held_title_tier
+			}
+		}
+		scope:county = {
+			change_county_control = -30
+			change_development_progress_with_overflow = -100
+		}
+	}	
+}
+gpt_raid_complete.0005 = {
+	type = character_event
+	title = gpt_cruel_blockade_raider_title_1
+	desc = gpt_cruel_blockade_raider_desc_1
+	theme = battle
+	override_background = { reference = burning_building }
+	right_portrait = {
+		character = scope:saved_raider
+		animation = menacing
+	}
+
+	immediate = {
+		add_character_flag = { flag = gpt_already_raided years = 1 }
+		add_opinion = {
+			target = scope:saved_raider
+			modifier = raided_me_opinion
+		}
+	}
+
+	option = {
+		name = gpt_raider_blockade_option_1
+		stress_impact = {
+			compassionate = -12
+			generous = -8
+		}
+		stress_impact = {
+			greedy = 12
+			callous = 8
+			sadistic = 8
+		}
+		pay_short_term_gold = {
+			gold = {
+				value = capital_province.available_loot
+				multiply = 0.5
+				min = {
+					value = monthly_character_income
+					multiply = 4
+					min = 12
+				}
+				multiply = 1.5
+			}
+			target = scope:saved_raider
+		}
+		if = {
+			limit = {
+				has_legitimacy = yes
+			}
+			add_legitimacy = {
+				value = -7
+				multiply = highest_held_title_tier
+			}
+		}
+		if = {
+			limit = {
+				government_has_flag = government_has_influence
+			}
+			change_influence = {
+				value = -7
+				multiply = highest_held_title_tier
+			}
+		}
+	}
+
+	option = {
+		name = gpt_raider_blockade_option_2
+		stress_impact = {
+			compassionate = 12
+			generous = 8
+		}
+		stress_impact = {
+			greedy = -6
+			callous = -6
+			sadistic = -6
+		}
+		pay_short_term_gold = {
+			gold = {
+				value = capital_province.available_loot
+				multiply = 0.5
+				min = {
+					value = monthly_character_income
+					multiply = 4
+					min = 12
+				}
+				multiply = 1.5
+				divide = 2
+			}
+			target = scope:saved_raider
+		}
+		if = {
+			limit = {
+				has_legitimacy = yes
+			}
+			add_legitimacy = {
+				value = -14
+				multiply = highest_held_title_tier
+			}
+		}
+		if = {
+			limit = {
+				government_has_flag = government_has_influence
+			}
+			change_influence = {
+				value = -14
+				multiply = highest_held_title_tier
+			}
+		}
+		scope:county = {
+			change_county_control = -10
+			change_development_progress_with_overflow = -50
+		}
+	}	
+		
+	option = {
+		name = gpt_raider_blockade_option_3
+		stress_impact = {
+			greedy = -12
+			callous = -8
+			sadistic = -8
+		}
+		stress_impact = {
+			compassionate = 24
+			generous = 12
+		}
+		if = {
+			limit = {
+				has_legitimacy = yes
+			}
+			add_legitimacy = {
+				value = -21
+				multiply = highest_held_title_tier
+			}
+		}
+		if = {
+			limit = {
+				government_has_flag = government_has_influence
+			}
+			change_influence = {
+				value = -21
+				multiply = highest_held_title_tier
+			}
+		}
+		scope:county = {
+			change_county_control = -30
+			change_development_progress_with_overflow = -100
+		}
+	}	
+}
+gpt_raid_complete.0006 = {
+	type = character_event
+	title = gpt_cruel_relic_raider_title_1
+	desc = gpt_cruel_relic_raider_desc_1
+	theme = battle
+	override_background = { reference = burning_building }
+	right_portrait = {
+		character = scope:saved_raider
+		animation = menacing
+	}
+
+	immediate = {
+		add_character_flag = { flag = gpt_already_raided years = 1 }
+		add_opinion = {
+			target = scope:saved_raider
+			modifier = raided_me_opinion
+		}
+	}
+
+	option = {
+		name = gpt_raider_relic_option_1
+		stress_impact = {
+			compassionate = -12
+			generous = -8
+		}
+		stress_impact = {
+			greedy = 12
+			callous = 8
+			sadistic = 8
+		}
+		pay_short_term_gold = {
+			gold = {
+				value = capital_province.available_loot
+				multiply = 0.5
+				min = {
+					value = monthly_character_income
+					multiply = 4
+					min = 12
+				}
+				multiply = 1.5
+			}
+			target = scope:saved_raider
+		}
+		if = {
+			limit = {
+				has_legitimacy = yes
+			}
+			add_legitimacy = {
+				value = -7
+				multiply = highest_held_title_tier
+			}
+		}
+		if = {
+			limit = {
+				government_has_flag = government_has_influence
+			}
+			change_influence = {
+				value = -7
+				multiply = highest_held_title_tier
+			}
+		}
+	}
+
+	option = {
+		name = gpt_raider_relic_option_2
+		stress_impact = {
+			compassionate = 12
+			generous = 8
+		}
+		stress_impact = {
+			greedy = -6
+			callous = -6
+			sadistic = -6
+		}
+		pay_short_term_gold = {
+			gold = {
+				value = capital_province.available_loot
+				multiply = 0.5
+				min = {
+					value = monthly_character_income
+					multiply = 4
+					min = 12
+				}
+				multiply = 1.5
+				divide = 2
+			}
+			target = scope:saved_raider
+		}
+		if = {
+			limit = {
+				has_legitimacy = yes
+			}
+			add_legitimacy = {
+				value = -14
+				multiply = highest_held_title_tier
+			}
+		}
+		if = {
+			limit = {
+				government_has_flag = government_has_influence
+			}
+			change_influence = {
+				value = -14
+				multiply = highest_held_title_tier
+			}
+		}
+		scope:county = {
+			change_county_control = -10
+			change_development_progress_with_overflow = -50
+		}
+	}	
+		
+	option = {
+		name = gpt_raider_relic_option_3
+		stress_impact = {
+			greedy = -12
+			callous = -8
+			sadistic = -8
+		}
+		stress_impact = {
+			compassionate = 24
+			generous = 12
+		}
+		if = {
+			limit = {
+				has_legitimacy = yes
+			}
+			add_legitimacy = {
+				value = -21
+				multiply = highest_held_title_tier
+			}
+		}
+		if = {
+			limit = {
+				government_has_flag = government_has_influence
+			}
+			change_influence = {
+				value = -21
+				multiply = highest_held_title_tier
+			}
+		}
+		scope:county = {
+			change_county_control = -30
+			change_development_progress_with_overflow = -100
+		}
+	}	
+}
+
+
+
+gpt_raid_complete.0011 = {
+	type = character_event
+	title = gpt_pragmatic_raider_hostage_title_1
+	desc = gpt_pragmatic_raider_hostage_desc_1
+	theme = battle
+	override_background = { reference = burning_building }
+	right_portrait = {
+		character = scope:saved_raider
+		animation = marshal_axe
+	}
+
+	immediate = {
+		add_character_flag = { flag = gpt_already_raided years = 1 }
+		add_opinion = {
+			target = scope:saved_raider
+			modifier = raided_me_opinion
+		}
+	}
+
+	option = {
+		name = gpt_raider_hostage_option_1
+		stress_impact = {
+			compassionate = -12
+			generous = -8
+		}
+		stress_impact = {
+			greedy = 12
+			callous = 8
+			sadistic = 8
+		}
+		pay_short_term_gold = {
+			gold = {
+				value = capital_province.available_loot
+				multiply = 0.5
+				min = {
+					value = monthly_character_income
+					multiply = 4
+					min = 12
+				}
+				multiply = 1.5
+			}
+			target = scope:saved_raider
+		}
+		if = {
+			limit = {
+				has_legitimacy = yes
+			}
+			add_legitimacy = {
+				value = -6
+				multiply = highest_held_title_tier
+			}
+		}
+		if = {
+			limit = {
+				government_has_flag = government_has_influence
+			}
+			change_influence = {
+				value = -6
+				multiply = highest_held_title_tier
+			}
+		}
+	}
+
+	option = {
+		name = gpt_raider_hostage_option_2
+		stress_impact = {
+			compassionate = 12
+			generous = 8
+		}
+		stress_impact = {
+			greedy = -6
+			callous = -6
+			sadistic = -6
+		}
+		pay_short_term_gold = {
+			gold = {
+				value = capital_province.available_loot
+				multiply = 0.5
+				min = {
+					value = monthly_character_income
+					multiply = 4
+					min = 12
+				}
+				multiply = 1.5
+				divide = 2
+			}
+			target = scope:saved_raider
+		}
+		if = {
+			limit = {
+				has_legitimacy = yes
+			}
+			add_legitimacy = {
+				value = -12
+				multiply = highest_held_title_tier
+			}
+		}
+		if = {
+			limit = {
+				government_has_flag = government_has_influence
+			}
+			change_influence = {
+				value = -12
+				multiply = highest_held_title_tier
+			}
+		}
+		scope:county = {
+			change_county_control = -5
+			change_development_progress_with_overflow = -25
+		}
+	}	
+		
+	option = {
+		name = gpt_raider_hostage_option_3
+		stress_impact = {
+			greedy = -12
+			callous = -8
+			sadistic = -8
+		}
+		stress_impact = {
+			compassionate = 24
+			generous = 12
+		}
+		if = {
+			limit = {
+				has_legitimacy = yes
+			}
+			add_legitimacy = {
+				value = -18
+				multiply = highest_held_title_tier
+			}
+		}
+		if = {
+			limit = {
+				government_has_flag = government_has_influence
+			}
+			change_influence = {
+				value = -18
+				multiply = highest_held_title_tier
+			}
+		}
+		scope:county = {
+			change_county_control = -15
+			change_development_progress_with_overflow = -50
+		}
+	}	
+}
+gpt_raid_complete.0012 = {
+	type = character_event
+	title = gpt_pragmatic_arsonist_raider_title_1
+	desc = gpt_pragmatic_arsonist_raider_desc_1
+	theme = battle
+	override_background = { reference = burning_building }
+	right_portrait = {
+		character = scope:saved_raider
+		animation = marshal_axe
+	}
+
+	immediate = {
+		add_character_flag = { flag = gpt_already_raided years = 1 }
+		add_opinion = {
+			target = scope:saved_raider
+			modifier = raided_me_opinion
+		}
+	}
+
+	option = {
+		name = gpt_raider_arsonist_option_1
+		stress_impact = {
+			compassionate = -12
+			generous = -8
+		}
+		stress_impact = {
+			greedy = 12
+			callous = 8
+			sadistic = 8
+		}
+		pay_short_term_gold = {
+			gold = {
+				value = capital_province.available_loot
+				multiply = 0.5
+				min = {
+					value = monthly_character_income
+					multiply = 4
+					min = 12
+				}
+				multiply = 1.5
+			}
+			target = scope:saved_raider
+		}
+		if = {
+			limit = {
+				has_legitimacy = yes
+			}
+			add_legitimacy = {
+				value = -6
+				multiply = highest_held_title_tier
+			}
+		}
+		if = {
+			limit = {
+				government_has_flag = government_has_influence
+			}
+			change_influence = {
+				value = -6
+				multiply = highest_held_title_tier
+			}
+		}
+	}
+
+	option = {
+		name = gpt_raider_arsonist_option_2
+		stress_impact = {
+			compassionate = 12
+			generous = 8
+		}
+		stress_impact = {
+			greedy = -6
+			callous = -6
+			sadistic = -6
+		}
+		pay_short_term_gold = {
+			gold = {
+				value = capital_province.available_loot
+				multiply = 0.5
+				min = {
+					value = monthly_character_income
+					multiply = 4
+					min = 12
+				}
+				multiply = 1.5
+				divide = 2
+			}
+			target = scope:saved_raider
+		}
+		if = {
+			limit = {
+				has_legitimacy = yes
+			}
+			add_legitimacy = {
+				value = -12
+				multiply = highest_held_title_tier
+			}
+		}
+		if = {
+			limit = {
+				government_has_flag = government_has_influence
+			}
+			change_influence = {
+				value = -12
+				multiply = highest_held_title_tier
+			}
+		}
+		scope:county = {
+			change_county_control = -5
+			change_development_progress_with_overflow = -25
+		}
+	}	
+		
+	option = {
+		name = gpt_raider_arsonist_option_3
+		stress_impact = {
+			greedy = -12
+			callous = -8
+			sadistic = -8
+		}
+		stress_impact = {
+			compassionate = 24
+			generous = 12
+		}
+		if = {
+			limit = {
+				has_legitimacy = yes
+			}
+			add_legitimacy = {
+				value = -18
+				multiply = highest_held_title_tier
+			}
+		}
+		if = {
+			limit = {
+				government_has_flag = government_has_influence
+			}
+			change_influence = {
+				value = -18
+				multiply = highest_held_title_tier
+			}
+		}
+		scope:county = {
+			change_county_control = -15
+			change_development_progress_with_overflow = -50
+		}
+	}	
+}
+gpt_raid_complete.0013 = {
+	type = character_event
+	title = gpt_pragmatic_plague_raider_title_1
+	desc = gpt_pragmatic_plague_raider_desc_1
+	theme = battle
+	override_background = { reference = burning_building }
+	right_portrait = {
+		character = scope:saved_raider
+		animation = marshal_axe
+	}
+
+	immediate = {
+		add_character_flag = { flag = gpt_already_raided years = 1 }
+		add_opinion = {
+			target = scope:saved_raider
+			modifier = raided_me_opinion
+		}
+	}
+
+	option = {
+		name = gpt_raider_plague_option_1
+		stress_impact = {
+			compassionate = -12
+			generous = -8
+		}
+		stress_impact = {
+			greedy = 12
+			callous = 8
+			sadistic = 8
+		}
+		pay_short_term_gold = {
+			gold = {
+				value = capital_province.available_loot
+				multiply = 0.5
+				min = {
+					value = monthly_character_income
+					multiply = 4
+					min = 12
+				}
+				multiply = 1.5
+			}
+			target = scope:saved_raider
+		}
+		if = {
+			limit = {
+				has_legitimacy = yes
+			}
+			add_legitimacy = {
+				value = -6
+				multiply = highest_held_title_tier
+			}
+		}
+		if = {
+			limit = {
+				government_has_flag = government_has_influence
+			}
+			change_influence = {
+				value = -6
+				multiply = highest_held_title_tier
+			}
+		}
+	}
+
+	option = {
+		name = gpt_raider_plague_option_2
+		stress_impact = {
+			compassionate = 12
+			generous = 8
+		}
+		stress_impact = {
+			greedy = -6
+			callous = -6
+			sadistic = -6
+		}
+		pay_short_term_gold = {
+			gold = {
+				value = capital_province.available_loot
+				multiply = 0.5
+				min = {
+					value = monthly_character_income
+					multiply = 4
+					min = 12
+				}
+				multiply = 1.5
+				divide = 2
+			}
+			target = scope:saved_raider
+		}
+		if = {
+			limit = {
+				has_legitimacy = yes
+			}
+			add_legitimacy = {
+				value = -12
+				multiply = highest_held_title_tier
+			}
+		}
+		if = {
+			limit = {
+				government_has_flag = government_has_influence
+			}
+			change_influence = {
+				value = -12
+				multiply = highest_held_title_tier
+			}
+		}
+		scope:county = {
+			change_county_control = -5
+			change_development_progress_with_overflow = -25
+		}
+	}	
+		
+	option = {
+		name = gpt_raider_plague_option_3
+		stress_impact = {
+			greedy = -12
+			callous = -8
+			sadistic = -8
+		}
+		stress_impact = {
+			compassionate = 24
+			generous = 12
+		}
+		if = {
+			limit = {
+				has_legitimacy = yes
+			}
+			add_legitimacy = {
+				value = -18
+				multiply = highest_held_title_tier
+			}
+		}
+		if = {
+			limit = {
+				government_has_flag = government_has_influence
+			}
+			change_influence = {
+				value = -18
+				multiply = highest_held_title_tier
+			}
+		}
+		scope:county = {
+			change_county_control = -15
+			change_development_progress_with_overflow = -50
+		}
+	}	
+}
+gpt_raid_complete.0014 = {
+	type = character_event
+	title = gpt_pragmatic_crop_raider_title_1
+	desc = gpt_pragmatic_crop_raider_desc_1
+	theme = battle
+	override_background = { reference = burning_building }
+	right_portrait = {
+		character = scope:saved_raider
+		animation = marshal_axe
+	}
+
+	immediate = {
+		add_character_flag = { flag = gpt_already_raided years = 1 }
+		add_opinion = {
+			target = scope:saved_raider
+			modifier = raided_me_opinion
+		}
+	}
+
+	option = {
+		name = gpt_raider_crops_option_1
+		stress_impact = {
+			compassionate = -12
+			generous = -8
+		}
+		stress_impact = {
+			greedy = 12
+			callous = 8
+			sadistic = 8
+		}
+		pay_short_term_gold = {
+			gold = {
+				value = capital_province.available_loot
+				multiply = 0.5
+				min = {
+					value = monthly_character_income
+					multiply = 4
+					min = 12
+				}
+				multiply = 1.5
+			}
+			target = scope:saved_raider
+		}
+		if = {
+			limit = {
+				has_legitimacy = yes
+			}
+			add_legitimacy = {
+				value = -6
+				multiply = highest_held_title_tier
+			}
+		}
+		if = {
+			limit = {
+				government_has_flag = government_has_influence
+			}
+			change_influence = {
+				value = -6
+				multiply = highest_held_title_tier
+			}
+		}
+	}
+
+	option = {
+		name = gpt_raider_crops_option_2
+		stress_impact = {
+			compassionate = 12
+			generous = 8
+		}
+		stress_impact = {
+			greedy = -6
+			callous = -6
+			sadistic = -6
+		}
+		pay_short_term_gold = {
+			gold = {
+				value = capital_province.available_loot
+				multiply = 0.5
+				min = {
+					value = monthly_character_income
+					multiply = 4
+					min = 12
+				}
+				multiply = 1.5
+				divide = 2
+			}
+			target = scope:saved_raider
+		}
+		if = {
+			limit = {
+				has_legitimacy = yes
+			}
+			add_legitimacy = {
+				value = -12
+				multiply = highest_held_title_tier
+			}
+		}
+		if = {
+			limit = {
+				government_has_flag = government_has_influence
+			}
+			change_influence = {
+				value = -12
+				multiply = highest_held_title_tier
+			}
+		}
+		scope:county = {
+			change_county_control = -5
+			change_development_progress_with_overflow = -25
+		}
+	}	
+		
+	option = {
+		name = gpt_raider_crops_option_3
+		stress_impact = {
+			greedy = -12
+			callous = -8
+			sadistic = -8
+		}
+		stress_impact = {
+			compassionate = 24
+			generous = 12
+		}
+		if = {
+			limit = {
+				has_legitimacy = yes
+			}
+			add_legitimacy = {
+				value = -18
+				multiply = highest_held_title_tier
+			}
+		}
+		if = {
+			limit = {
+				government_has_flag = government_has_influence
+			}
+			change_influence = {
+				value = -18
+				multiply = highest_held_title_tier
+			}
+		}
+		scope:county = {
+			change_county_control = -15
+			change_development_progress_with_overflow = -50
+		}
+	}	
+}
+gpt_raid_complete.0015 = {
+	type = character_event
+	title = gpt_pragmatic_blockade_raider_title_1
+	desc = gpt_pragmatic_blockade_raider_desc_1
+	theme = battle
+	override_background = { reference = burning_building }
+	right_portrait = {
+		character = scope:saved_raider
+		animation = marshal_axe
+	}
+
+	immediate = {
+		add_character_flag = { flag = gpt_already_raided years = 1 }
+		add_opinion = {
+			target = scope:saved_raider
+			modifier = raided_me_opinion
+		}
+	}
+
+	option = {
+		name = gpt_raider_blockade_option_1
+		stress_impact = {
+			compassionate = -12
+			generous = -8
+		}
+		stress_impact = {
+			greedy = 12
+			callous = 8
+			sadistic = 8
+		}
+		pay_short_term_gold = {
+			gold = {
+				value = capital_province.available_loot
+				multiply = 0.5
+				min = {
+					value = monthly_character_income
+					multiply = 4
+					min = 12
+				}
+				multiply = 1.5
+			}
+			target = scope:saved_raider
+		}
+		if = {
+			limit = {
+				has_legitimacy = yes
+			}
+			add_legitimacy = {
+				value = -6
+				multiply = highest_held_title_tier
+			}
+		}
+		if = {
+			limit = {
+				government_has_flag = government_has_influence
+			}
+			change_influence = {
+				value = -6
+				multiply = highest_held_title_tier
+			}
+		}
+	}
+
+	option = {
+		name = gpt_raider_blockade_option_2
+		stress_impact = {
+			compassionate = 12
+			generous = 8
+		}
+		stress_impact = {
+			greedy = -6
+			callous = -6
+			sadistic = -6
+		}
+		pay_short_term_gold = {
+			gold = {
+				value = capital_province.available_loot
+				multiply = 0.5
+				min = {
+					value = monthly_character_income
+					multiply = 4
+					min = 12
+				}
+				multiply = 1.5
+				divide = 2
+			}
+			target = scope:saved_raider
+		}
+		if = {
+			limit = {
+				has_legitimacy = yes
+			}
+			add_legitimacy = {
+				value = -12
+				multiply = highest_held_title_tier
+			}
+		}
+		if = {
+			limit = {
+				government_has_flag = government_has_influence
+			}
+			change_influence = {
+				value = -12
+				multiply = highest_held_title_tier
+			}
+		}
+		scope:county = {
+			change_county_control = -5
+			change_development_progress_with_overflow = -25
+		}
+	}	
+		
+	option = {
+		name = gpt_raider_blockade_option_3
+		stress_impact = {
+			greedy = -12
+			callous = -8
+			sadistic = -8
+		}
+		stress_impact = {
+			compassionate = 24
+			generous = 12
+		}
+		if = {
+			limit = {
+				has_legitimacy = yes
+			}
+			add_legitimacy = {
+				value = -18
+				multiply = highest_held_title_tier
+			}
+		}
+		if = {
+			limit = {
+				government_has_flag = government_has_influence
+			}
+			change_influence = {
+				value = -18
+				multiply = highest_held_title_tier
+			}
+		}
+		scope:county = {
+			change_county_control = -15
+			change_development_progress_with_overflow = -50
+		}
+	}	
+}
+gpt_raid_complete.0016 = {
+	type = character_event
+	title = gpt_pragmatic_relic_raider_title_1
+	desc = gpt_pragmatic_relic_raider_desc_1
+	theme = battle
+	override_background = { reference = burning_building }
+	right_portrait = {
+		character = scope:saved_raider
+		animation = marshal_axe
+	}
+
+	immediate = {
+		add_character_flag = { flag = gpt_already_raided years = 1 }
+		add_opinion = {
+			target = scope:saved_raider
+			modifier = raided_me_opinion
+		}
+	}
+
+	option = {
+		name = gpt_raider_relic_option_1
+		stress_impact = {
+			compassionate = -12
+			generous = -8
+		}
+		stress_impact = {
+			greedy = 12
+			callous = 8
+			sadistic = 8
+		}
+		pay_short_term_gold = {
+			gold = {
+				value = capital_province.available_loot
+				multiply = 0.5
+				min = {
+					value = monthly_character_income
+					multiply = 4
+					min = 12
+				}
+				multiply = 1.5
+			}
+			target = scope:saved_raider
+		}
+		if = {
+			limit = {
+				has_legitimacy = yes
+			}
+			add_legitimacy = {
+				value = -6
+				multiply = highest_held_title_tier
+			}
+		}
+		if = {
+			limit = {
+				government_has_flag = government_has_influence
+			}
+			change_influence = {
+				value = -6
+				multiply = highest_held_title_tier
+			}
+		}
+	}
+
+	option = {
+		name = gpt_raider_relic_option_2
+		stress_impact = {
+			compassionate = 12
+			generous = 8
+		}
+		stress_impact = {
+			greedy = -6
+			callous = -6
+			sadistic = -6
+		}
+		pay_short_term_gold = {
+			gold = {
+				value = capital_province.available_loot
+				multiply = 0.5
+				min = {
+					value = monthly_character_income
+					multiply = 4
+					min = 12
+				}
+				multiply = 1.5
+				divide = 2
+			}
+			target = scope:saved_raider
+		}
+		if = {
+			limit = {
+				has_legitimacy = yes
+			}
+			add_legitimacy = {
+				value = -12
+				multiply = highest_held_title_tier
+			}
+		}
+		if = {
+			limit = {
+				government_has_flag = government_has_influence
+			}
+			change_influence = {
+				value = -12
+				multiply = highest_held_title_tier
+			}
+		}
+		scope:county = {
+			change_county_control = -5
+			change_development_progress_with_overflow = -25
+		}
+	}	
+		
+	option = {
+		name = gpt_raider_relic_option_3
+		stress_impact = {
+			greedy = -12
+			callous = -8
+			sadistic = -8
+		}
+		stress_impact = {
+			compassionate = 24
+			generous = 12
+		}
+		if = {
+			limit = {
+				has_legitimacy = yes
+			}
+			add_legitimacy = {
+				value = -18
+				multiply = highest_held_title_tier
+			}
+		}
+		if = {
+			limit = {
+				government_has_flag = government_has_influence
+			}
+			change_influence = {
+				value = -18
+				multiply = highest_held_title_tier
+			}
+		}
+		scope:county = {
+			change_county_control = -15
+			change_development_progress_with_overflow = -50
+		}
+	}	
+}
+
+
+
+gpt_raid_complete.0021 = {
+	type = character_event
+	title = gpt_compassionate_raider_hostage_title_1
+	desc = gpt_compassionate_raider_hostage_desc_1
+	theme = battle
+	override_background = { reference = burning_building }
+	right_portrait = {
+		character = scope:saved_raider
+		animation = writing
+	}
+
+	immediate = {
+		add_character_flag = { flag = gpt_already_raided years = 1 }
+		add_opinion = {
+			target = scope:saved_raider
+			modifier = raided_me_opinion
+		}
+	}
+
+	option = {
+		name = gpt_raider_hostage_option_1
+		stress_impact = {
+			compassionate = -12
+			generous = -8
+		}
+		stress_impact = {
+			greedy = 12
+			callous = 8
+			sadistic = 8
+		}
+		pay_short_term_gold = {
+			gold = {
+				value = capital_province.available_loot
+				multiply = 0.5
+				min = {
+					value = monthly_character_income
+					multiply = 4
+					min = 12
+				}
+				multiply = 1.5
+			}
+			target = scope:saved_raider
+		}
+		if = {
+			limit = {
+				has_legitimacy = yes
+			}
+			add_legitimacy = {
+				value = -5
+				multiply = highest_held_title_tier
+			}
+		}
+		if = {
+			limit = {
+				government_has_flag = government_has_influence
+			}
+			change_influence = {
+				value = -5
+				multiply = highest_held_title_tier
+			}
+		}
+	}
+
+	option = {
+		name = gpt_raider_hostage_option_2
+		stress_impact = {
+			compassionate = 12
+			generous = 8
+		}
+		stress_impact = {
+			greedy = -6
+			callous = -6
+			sadistic = -6
+		}
+		pay_short_term_gold = {
+			gold = {
+				value = capital_province.available_loot
+				multiply = 0.5
+				min = {
+					value = monthly_character_income
+					multiply = 4
+					min = 12
+				}
+				multiply = 1.5
+				divide = 2
+			}
+			target = scope:saved_raider
+		}
+		if = {
+			limit = {
+				has_legitimacy = yes
+			}
+			add_legitimacy = {
+				value = -10
+				multiply = highest_held_title_tier
+			}
+		}
+		if = {
+			limit = {
+				government_has_flag = government_has_influence
+			}
+			change_influence = {
+				value = -10
+				multiply = highest_held_title_tier
+			}
+		}
+		scope:county = {
+			change_development_progress_with_overflow = -25
+		}
+	}	
+		
+	option = {
+		name = gpt_raider_hostage_option_3
+		stress_impact = {
+			greedy = -12
+			callous = -8
+			sadistic = -8
+		}
+		stress_impact = {
+			compassionate = 24
+			generous = 12
+		}
+		if = {
+			limit = {
+				has_legitimacy = yes
+			}
+			add_legitimacy = {
+				value = -15
+				multiply = highest_held_title_tier
+			}
+		}
+		if = {
+			limit = {
+				government_has_flag = government_has_influence
+			}
+			change_influence = {
+				value = -15
+				multiply = highest_held_title_tier
+			}
+		}
+		scope:county = {
+			change_county_control = -10
+			change_development_progress_with_overflow = -25
+		}
+	}	
+}
+gpt_raid_complete.0022 = {
+	type = character_event
+	title = gpt_compassionate_arsonist_raider_title_1
+	desc = gpt_compassionate_arsonist_raider_desc_1
+	theme = battle
+	override_background = { reference = burning_building }
+	right_portrait = {
+		character = scope:saved_raider
+		animation = writing
+	}
+
+	immediate = {
+		add_character_flag = { flag = gpt_already_raided years = 1 }
+		add_opinion = {
+			target = scope:saved_raider
+			modifier = raided_me_opinion
+		}
+	}
+
+	option = {
+		name = gpt_raider_arsonist_option_1
+		stress_impact = {
+			compassionate = -12
+			generous = -8
+		}
+		stress_impact = {
+			greedy = 12
+			callous = 8
+			sadistic = 8
+		}
+		pay_short_term_gold = {
+			gold = {
+				value = capital_province.available_loot
+				multiply = 0.5
+				min = {
+					value = monthly_character_income
+					multiply = 4
+					min = 12
+				}
+				multiply = 1.5
+			}
+			target = scope:saved_raider
+		}
+		if = {
+			limit = {
+				has_legitimacy = yes
+			}
+			add_legitimacy = {
+				value = -5
+				multiply = highest_held_title_tier
+			}
+		}
+		if = {
+			limit = {
+				government_has_flag = government_has_influence
+			}
+			change_influence = {
+				value = -5
+				multiply = highest_held_title_tier
+			}
+		}
+	}
+
+	option = {
+		name = gpt_raider_arsonist_option_2
+		stress_impact = {
+			compassionate = 12
+			generous = 8
+		}
+		stress_impact = {
+			greedy = -6
+			callous = -6
+			sadistic = -6
+		}
+		pay_short_term_gold = {
+			gold = {
+				value = capital_province.available_loot
+				multiply = 0.5
+				min = {
+					value = monthly_character_income
+					multiply = 4
+					min = 12
+				}
+				multiply = 1.5
+				divide = 2
+			}
+			target = scope:saved_raider
+		}
+		if = {
+			limit = {
+				has_legitimacy = yes
+			}
+			add_legitimacy = {
+				value = -10
+				multiply = highest_held_title_tier
+			}
+		}
+		if = {
+			limit = {
+				government_has_flag = government_has_influence
+			}
+			change_influence = {
+				value = -10
+				multiply = highest_held_title_tier
+			}
+		}
+		scope:county = {
+			change_development_progress_with_overflow = -25
+		}
+	}	
+		
+	option = {
+		name = gpt_raider_arsonist_option_3
+		stress_impact = {
+			greedy = -12
+			callous = -8
+			sadistic = -8
+		}
+		stress_impact = {
+			compassionate = 24
+			generous = 12
+		}
+		if = {
+			limit = {
+				has_legitimacy = yes
+			}
+			add_legitimacy = {
+				value = -15
+				multiply = highest_held_title_tier
+			}
+		}
+		if = {
+			limit = {
+				government_has_flag = government_has_influence
+			}
+			change_influence = {
+				value = -15
+				multiply = highest_held_title_tier
+			}
+		}
+		scope:county = {
+			change_county_control = -10
+			change_development_progress_with_overflow = -25
+		}
+	}	
+}
+gpt_raid_complete.0023 = {
+	type = character_event
+	title = gpt_craven_plague_raider_title_1
+	desc = gpt_craven_plague_raider_desc_1
+	theme = battle
+	override_background = { reference = burning_building }
+	right_portrait = {
+		character = scope:saved_raider
+		animation = writing
+	}
+
+	immediate = {
+		add_character_flag = { flag = gpt_already_raided years = 1 }
+		add_opinion = {
+			target = scope:saved_raider
+			modifier = raided_me_opinion
+		}
+	}
+
+	option = {
+		name = gpt_raider_plague_option_1
+		stress_impact = {
+			compassionate = -12
+			generous = -8
+		}
+		stress_impact = {
+			greedy = 12
+			callous = 8
+			sadistic = 8
+		}
+		pay_short_term_gold = {
+			gold = {
+				value = capital_province.available_loot
+				multiply = 0.5
+				min = {
+					value = monthly_character_income
+					multiply = 4
+					min = 12
+				}
+				multiply = 1.5
+			}
+			target = scope:saved_raider
+		}
+		if = {
+			limit = {
+				has_legitimacy = yes
+			}
+			add_legitimacy = {
+				value = -5
+				multiply = highest_held_title_tier
+			}
+		}
+		if = {
+			limit = {
+				government_has_flag = government_has_influence
+			}
+			change_influence = {
+				value = -5
+				multiply = highest_held_title_tier
+			}
+		}
+	}
+
+	option = {
+		name = gpt_raider_plague_option_2
+		stress_impact = {
+			compassionate = 12
+			generous = 8
+		}
+		stress_impact = {
+			greedy = -6
+			callous = -6
+			sadistic = -6
+		}
+		pay_short_term_gold = {
+			gold = {
+				value = capital_province.available_loot
+				multiply = 0.5
+				min = {
+					value = monthly_character_income
+					multiply = 4
+					min = 12
+				}
+				multiply = 1.5
+				divide = 2
+			}
+			target = scope:saved_raider
+		}
+		if = {
+			limit = {
+				has_legitimacy = yes
+			}
+			add_legitimacy = {
+				value = -10
+				multiply = highest_held_title_tier
+			}
+		}
+		if = {
+			limit = {
+				government_has_flag = government_has_influence
+			}
+			change_influence = {
+				value = -10
+				multiply = highest_held_title_tier
+			}
+		}
+		scope:county = {
+			change_development_progress_with_overflow = -25
+		}
+	}	
+		
+	option = {
+		name = gpt_raider_plague_option_3
+		stress_impact = {
+			greedy = -12
+			callous = -8
+			sadistic = -8
+		}
+		stress_impact = {
+			compassionate = 24
+			generous = 12
+		}
+		if = {
+			limit = {
+				has_legitimacy = yes
+			}
+			add_legitimacy = {
+				value = -15
+				multiply = highest_held_title_tier
+			}
+		}
+		if = {
+			limit = {
+				government_has_flag = government_has_influence
+			}
+			change_influence = {
+				value = -15
+				multiply = highest_held_title_tier
+			}
+		}
+		scope:county = {
+			change_county_control = -10
+			change_development_progress_with_overflow = -25
+		}
+	}	
+}
+gpt_raid_complete.0024 = {
+	type = character_event
+	title = gpt_compassionate_crop_raider_title_1
+	desc = gpt_compassionate_crop_raider_desc_1
+	theme = battle
+	override_background = { reference = burning_building }
+	right_portrait = {
+		character = scope:saved_raider
+		animation = writing
+	}
+
+	immediate = {
+		add_character_flag = { flag = gpt_already_raided years = 1 }
+		add_opinion = {
+			target = scope:saved_raider
+			modifier = raided_me_opinion
+		}
+	}
+
+	option = {
+		name = gpt_raider_crops_option_1
+		stress_impact = {
+			compassionate = -12
+			generous = -8
+		}
+		stress_impact = {
+			greedy = 12
+			callous = 8
+			sadistic = 8
+		}
+		pay_short_term_gold = {
+			gold = {
+				value = capital_province.available_loot
+				multiply = 0.5
+				min = {
+					value = monthly_character_income
+					multiply = 4
+					min = 12
+				}
+				multiply = 1.5
+			}
+			target = scope:saved_raider
+		}
+		if = {
+			limit = {
+				has_legitimacy = yes
+			}
+			add_legitimacy = {
+				value = -5
+				multiply = highest_held_title_tier
+			}
+		}
+		if = {
+			limit = {
+				government_has_flag = government_has_influence
+			}
+			change_influence = {
+				value = -5
+				multiply = highest_held_title_tier
+			}
+		}
+	}
+
+	option = {
+		name = gpt_raider_crops_option_2
+		stress_impact = {
+			compassionate = 12
+			generous = 8
+		}
+		stress_impact = {
+			greedy = -6
+			callous = -6
+			sadistic = -6
+		}
+		pay_short_term_gold = {
+			gold = {
+				value = capital_province.available_loot
+				multiply = 0.5
+				min = {
+					value = monthly_character_income
+					multiply = 4
+					min = 12
+				}
+				multiply = 1.5
+				divide = 2
+			}
+			target = scope:saved_raider
+		}
+		if = {
+			limit = {
+				has_legitimacy = yes
+			}
+			add_legitimacy = {
+				value = -10
+				multiply = highest_held_title_tier
+			}
+		}
+		if = {
+			limit = {
+				government_has_flag = government_has_influence
+			}
+			change_influence = {
+				value = -10
+				multiply = highest_held_title_tier
+			}
+		}
+		scope:county = {
+			change_development_progress_with_overflow = -25
+		}
+	}	
+		
+	option = {
+		name = gpt_raider_crops_option_3
+		stress_impact = {
+			greedy = -12
+			callous = -8
+			sadistic = -8
+		}
+		stress_impact = {
+			compassionate = 24
+			generous = 12
+		}
+		if = {
+			limit = {
+				has_legitimacy = yes
+			}
+			add_legitimacy = {
+				value = -15
+				multiply = highest_held_title_tier
+			}
+		}
+		if = {
+			limit = {
+				government_has_flag = government_has_influence
+			}
+			change_influence = {
+				value = -15
+				multiply = highest_held_title_tier
+			}
+		}
+		scope:county = {
+			change_county_control = -10
+			change_development_progress_with_overflow = -25
+		}
+	}	
+}
+gpt_raid_complete.0025 = {
+	type = character_event
+	title = gpt_compassionate_blockade_raider_title_1
+	desc = gpt_compassionate_blockade_raider_desc_1
+	theme = battle
+	override_background = { reference = burning_building }
+	right_portrait = {
+		character = scope:saved_raider
+		animation = writing
+	}
+
+	immediate = {
+		add_character_flag = { flag = gpt_already_raided years = 1 }
+		add_opinion = {
+			target = scope:saved_raider
+			modifier = raided_me_opinion
+		}
+	}
+
+	option = {
+		name = gpt_raider_blockade_option_1
+		stress_impact = {
+			compassionate = -12
+			generous = -8
+		}
+		stress_impact = {
+			greedy = 12
+			callous = 8
+			sadistic = 8
+		}
+		pay_short_term_gold = {
+			gold = {
+				value = capital_province.available_loot
+				multiply = 0.5
+				min = {
+					value = monthly_character_income
+					multiply = 4
+					min = 12
+				}
+				multiply = 1.5
+			}
+			target = scope:saved_raider
+		}
+		if = {
+			limit = {
+				has_legitimacy = yes
+			}
+			add_legitimacy = {
+				value = -5
+				multiply = highest_held_title_tier
+			}
+		}
+		if = {
+			limit = {
+				government_has_flag = government_has_influence
+			}
+			change_influence = {
+				value = -5
+				multiply = highest_held_title_tier
+			}
+		}
+	}
+
+	option = {
+		name = gpt_raider_blockade_option_2
+		stress_impact = {
+			compassionate = 12
+			generous = 8
+		}
+		stress_impact = {
+			greedy = -6
+			callous = -6
+			sadistic = -6
+		}
+		pay_short_term_gold = {
+			gold = {
+				value = capital_province.available_loot
+				multiply = 0.5
+				min = {
+					value = monthly_character_income
+					multiply = 4
+					min = 12
+				}
+				multiply = 1.5
+				divide = 2
+			}
+			target = scope:saved_raider
+		}
+		if = {
+			limit = {
+				has_legitimacy = yes
+			}
+			add_legitimacy = {
+				value = -10
+				multiply = highest_held_title_tier
+			}
+		}
+		if = {
+			limit = {
+				government_has_flag = government_has_influence
+			}
+			change_influence = {
+				value = -10
+				multiply = highest_held_title_tier
+			}
+		}
+		scope:county = {
+			change_development_progress_with_overflow = -25
+		}
+	}	
+		
+	option = {
+		name = gpt_raider_blockade_option_3
+		stress_impact = {
+			greedy = -12
+			callous = -8
+			sadistic = -8
+		}
+		stress_impact = {
+			compassionate = 24
+			generous = 12
+		}
+		if = {
+			limit = {
+				has_legitimacy = yes
+			}
+			add_legitimacy = {
+				value = -15
+				multiply = highest_held_title_tier
+			}
+		}
+		if = {
+			limit = {
+				government_has_flag = government_has_influence
+			}
+			change_influence = {
+				value = -15
+				multiply = highest_held_title_tier
+			}
+		}
+		scope:county = {
+			change_county_control = -10
+			change_development_progress_with_overflow = -25
+		}
+	}	
+}
+gpt_raid_complete.0026 = {
+	type = character_event
+	title = gpt_compassionate_relic_raider_title_1
+	desc = gpt_compassionate_relic_raider_desc_1
+	theme = battle
+	override_background = { reference = burning_building }
+	right_portrait = {
+		character = scope:saved_raider
+		animation = writing
+	}
+
+	immediate = {
+		add_character_flag = { flag = gpt_already_raided years = 1 }
+		add_opinion = {
+			target = scope:saved_raider
+			modifier = raided_me_opinion
+		}
+	}
+
+	option = {
+		name = gpt_raider_relic_option_1
+		stress_impact = {
+			compassionate = -12
+			generous = -8
+		}
+		stress_impact = {
+			greedy = 12
+			callous = 8
+			sadistic = 8
+		}
+		pay_short_term_gold = {
+			gold = {
+				value = capital_province.available_loot
+				multiply = 0.5
+				min = {
+					value = monthly_character_income
+					multiply = 4
+					min = 12
+				}
+				multiply = 1.5
+			}
+			target = scope:saved_raider
+		}
+		if = {
+			limit = {
+				has_legitimacy = yes
+			}
+			add_legitimacy = {
+				value = -5
+				multiply = highest_held_title_tier
+			}
+		}
+		if = {
+			limit = {
+				government_has_flag = government_has_influence
+			}
+			change_influence = {
+				value = -5
+				multiply = highest_held_title_tier
+			}
+		}
+	}
+
+	option = {
+		name = gpt_raider_relic_option_2
+		stress_impact = {
+			compassionate = 12
+			generous = 8
+		}
+		stress_impact = {
+			greedy = -6
+			callous = -6
+			sadistic = -6
+		}
+		pay_short_term_gold = {
+			gold = {
+				value = capital_province.available_loot
+				multiply = 0.5
+				min = {
+					value = monthly_character_income
+					multiply = 4
+					min = 12
+				}
+				multiply = 1.5
+				divide = 2
+			}
+			target = scope:saved_raider
+		}
+		if = {
+			limit = {
+				has_legitimacy = yes
+			}
+			add_legitimacy = {
+				value = -10
+				multiply = highest_held_title_tier
+			}
+		}
+		if = {
+			limit = {
+				government_has_flag = government_has_influence
+			}
+			change_influence = {
+				value = -10
+				multiply = highest_held_title_tier
+			}
+		}
+		scope:county = {
+			change_development_progress_with_overflow = -25
+		}
+	}	
+		
+	option = {
+		name = gpt_raider_relic_option_3
+		stress_impact = {
+			greedy = -12
+			callous = -8
+			sadistic = -8
+		}
+		stress_impact = {
+			compassionate = 24
+			generous = 12
+		}
+		if = {
+			limit = {
+				has_legitimacy = yes
+			}
+			add_legitimacy = {
+				value = -15
+				multiply = highest_held_title_tier
+			}
+		}
+		if = {
+			limit = {
+				government_has_flag = government_has_influence
+			}
+			change_influence = {
+				value = -15
+				multiply = highest_held_title_tier
+			}
+		}
+		scope:county = {
+			change_county_control = -10
+			change_development_progress_with_overflow = -25
+		}
+	}	
+}
+
+
+
+
+
+gpt_raid_complete.0031 = {
+	type = character_event
+	title = gpt_zealous_ruler_demand_title
+	desc = gpt_zealous_ruler_demand_desc
+	theme = battle
+	override_background = { reference = burning_building }
+	right_portrait = {
+		character = scope:saved_holder
+		animation = personality_zealous
+	}
+
+	immediate = {
+		add_character_flag = { flag = gpt_already_warned years = 3 }
+		stress_impact = {
+			zealous = 20
+		}
+		stress_impact = {
+			cynical = -10
+		}
+	}
+
+	option = {
+		name = gpt_zealous_ruler_demand_option
+		custom_tooltip = gpt_raid_correlig_warning_tt
+		add_piety = -50
+		add_piety_experience = -100
+	}	
+}
+
+gpt_raid_complete.0032 = {
+	type = character_event
+	title = gpt_pragmatic_ruler_demand_title
+	desc = gpt_pragmatic_ruler_demand_desc
+	theme = battle
+	override_background = { reference = burning_building }
+	right_portrait = {
+		character = scope:saved_holder
+		animation = throne_room_conversation_3
+	}
+
+	immediate = {
+		add_character_flag = { flag = gpt_already_warned years = 3 }
+		stress_impact = {
+			zealous = 20
+		}
+		stress_impact = {
+			cynical = -10
+		}
+	}
+
+	option = {
+		name = gpt_zealous_ruler_demand_option
+		custom_tooltip = gpt_raid_correlig_warning_tt
+		add_piety = -50
+		add_piety_experience = -100
+	}	
+}
+
+gpt_raid_complete.0033 = {
+	type = character_event
+	title = gpt_cynical_ruler_demand_title
+	desc = gpt_cynical_ruler_demand_desc
+	theme = battle
+	override_background = { reference = burning_building }
+	right_portrait = {
+		character = scope:saved_holder
+		animation = personality_cynical
+	}
+
+	immediate = {
+		add_character_flag = { flag = gpt_already_warned years = 3 }
+		stress_impact = {
+			zealous = 20
+		}
+		stress_impact = {
+			cynical = -10
+		}
+	}
+
+	option = {
+		name = gpt_zealous_ruler_demand_option
+		custom_tooltip = gpt_raid_correlig_warning_tt
+		add_piety = -50
+		add_piety_experience = -100
+	}	
+}
+
+
+
+
+gpt_raid_complete.0041 = {
+	type = character_event
+	title = gpt_greedy_ruler_loot_title
+	desc = gpt_greedy_ruler_loot_desc
+	theme = stewardship_wealth_focus
+	right_portrait = {
+		character = root
+		animation = personality_greedy
+	}
+
+	immediate = {
+		add_character_flag = { flag = gpt_already_surplus years = 2 }
+	}
+
+	option = {
+		name = gpt_ruler_loot_option_1
+		stress_impact = {
+			greedy = -10
+			arbitrary = -6
+			cynical = -6
+		}
+		stress_impact = {
+			generous = 10
+			zealous = 10
+			just = 10
+		}
+	}
+	option = {
+		stress_impact = {
+			greedy = 10
+			arbitrary = 10
+			cynical = 10
+		}
+		stress_impact = {
+			generous = -8
+			zealous = -8
+		}
+		name = gpt_ruler_loot_option_2
+		remove_short_term_gold = {
+			value = global_var:gpt_raid_loot_value
+			divide = 2
+		}
+		add_piety = {
+			value = global_var:gpt_raid_loot_value
+			multiply = 1.5
+		}
+	}	
+	option = {
+		stress_impact = {
+			greedy = 10
+			arbitrary = 10
+			cynical = 10
+		}
+		stress_impact = {
+			generous = -8
+			just = -8
+		}
+		name = gpt_ruler_loot_option_3
+		remove_short_term_gold = {
+			value = global_var:gpt_raid_loot_value
+			divide = 2
+		}
+		add_prestige = {
+			value = global_var:gpt_raid_loot_value
+			multiply = 1.5
+		}
+	}	
+}
+
+gpt_raid_complete.0042 = {
+	type = character_event
+	title = gpt_pragmatic_ruler_loot_title
+	desc = gpt_pragmatic_ruler_loot_desc
+	theme = stewardship_wealth_focus
+	right_portrait = {
+		character = root
+		animation = page_flipping
+	}
+
+	immediate = {
+		add_character_flag = { flag = gpt_already_surplus years = 2 }
+	}
+
+	option = {
+		name = gpt_ruler_loot_option_1
+		stress_impact = {
+			greedy = -10
+			arbitrary = -6
+			cynical = -6
+		}
+		stress_impact = {
+			generous = 10
+			zealous = 10
+			just = 10
+		}
+	}
+	option = {
+		stress_impact = {
+			greedy = 10
+			arbitrary = 10
+			cynical = 10
+		}
+		stress_impact = {
+			generous = -8
+			zealous = -8
+		}
+		name = gpt_ruler_loot_option_2
+		remove_short_term_gold = {
+			value = global_var:gpt_raid_loot_value
+			divide = 2
+		}
+		add_piety = {
+			value = global_var:gpt_raid_loot_value
+			multiply = 1.5
+		}
+	}	
+	option = {
+		stress_impact = {
+			greedy = 10
+			arbitrary = 10
+			cynical = 10
+		}
+		stress_impact = {
+			generous = -8
+			just = -8
+		}
+		name = gpt_ruler_loot_option_3
+		remove_short_term_gold = {
+			value = global_var:gpt_raid_loot_value
+			divide = 2
+		}
+		add_prestige = {
+			value = global_var:gpt_raid_loot_value
+			multiply = 1.5
+		}
+	}	
+}
+
+gpt_raid_complete.0043 = {
+	type = character_event
+	title = gpt_generous_ruler_loot_title
+	desc = gpt_generous_ruler_loot_desc
+	theme = stewardship_wealth_focus
+	right_portrait = {
+		character = root
+		animation = drink
+	}
+
+	immediate = {
+		add_character_flag = { flag = gpt_already_surplus years = 2 }
+	}
+
+	option = {
+		name = gpt_ruler_loot_option_1
+		stress_impact = {
+			greedy = -10
+			arbitrary = -6
+			cynical = -6
+		}
+		stress_impact = {
+			generous = 10
+			zealous = 10
+			just = 10
+		}
+	}
+	option = {
+		stress_impact = {
+			greedy = 10
+			arbitrary = 10
+			cynical = 10
+		}
+		stress_impact = {
+			generous = -8
+			zealous = -8
+		}
+		name = gpt_ruler_loot_option_2
+		remove_short_term_gold = {
+			value = global_var:gpt_raid_loot_value
+			divide = 2
+		}
+		add_piety = {
+			value = global_var:gpt_raid_loot_value
+			multiply = 1.5
+		}
+	}	
+	option = {
+		stress_impact = {
+			greedy = 10
+			arbitrary = 10
+			cynical = 10
+		}
+		stress_impact = {
+			generous = -8
+			just = -8
+		}
+		name = gpt_ruler_loot_option_3
+		remove_short_term_gold = {
+			value = global_var:gpt_raid_loot_value
+			divide = 2
+		}
+		add_prestige = {
+			value = global_var:gpt_raid_loot_value
+			multiply = 1.5
+		}
+	}		
+}
+
+
+
+
+gpt_raid_complete.0051 = {
+	type = character_event
+	title = gpt_vengeful_ruler_victory_title_1
+	desc = gpt_vengeful_ruler_victory_desc_1
+	theme = battle
+	override_background = { reference = burning_building }
+	right_portrait = {
+		character = root
+		animation = celebrate_sword
+	}
+
+	left_portrait = {
+		character = scope:saved_marshal
+		animation = marshal
+	}
+
+	immediate = {
+		add_character_flag = { flag = gpt_already_avenged years = 1 }
+		add_prestige = {
+			value = gpt_raid_pay_short_term_gold
+			divide = 4
+			min = 100
+		}
+	}
+
+	option = {
+		name = gpt_vengeful_ruler_option_1
+		stress_impact = {
+			vengeful = -10
+			wrathful = -10
+		}
+		stress_impact = {
+			forgiving = 10
+			calm = 10
+		}
+		add_dread = 20
+		dynasty = {
+			add_dynasty_prestige = {
+				value = gpt_raid_pay_short_term_gold
+				divide = 16
+				min = 25
+			}
+		}
+	}
+	option = {
+		stress_impact = {
+			callous = -10
+			greedy = -10
+		}
+		stress_impact = {
+			compassionate = 10
+			content = 10
+		}
+		name = gpt_vengeful_ruler_option_2
+		add_short_term_gold = {
+			value = gpt_raid_pay_short_term_gold
+			divide = 8
+			min = 50
+		}
+	}	
+	option = {
+		stress_impact = {
+			vengeful = 10
+			wrathful = 10
+		}
+		stress_impact = {
+			forgiving = -10
+			calm = -10
+		}
+		name = gpt_vengeful_ruler_option_3
+		add_piety = {
+			value = gpt_raid_pay_short_term_gold
+			divide = 4
+			min = 100
+		}
+	}	
+}
+
+
+
+
+
+
+gpt_raid_complete.0071 = {
+	type = character_event
+	title = gpt_sociable_ruler_reinforce_title
+	desc = gpt_sociable_ruler_reinforce_desc
+	theme = alliance
+	right_portrait = {
+		character = root
+		animation = drink
+	}
+
+	immediate = {
+		add_character_flag = { flag = gpt_already_helped years = 2 }
+	}
+
+	option = {
+		name = gpt_sociable_ruler_reinforce_option_1
+		stress_impact = {
+			shy = 10
+			arrogant = 10
+			brave = 10
+		}
+		if = {
+			limit = {
+				any_ally = {
+					count >= 5
+				}
+			}
+			add_prestige = {
+				value = -35
+				multiply = highest_held_title_tier
+			}
+			add_character_modifier = {
+				modifier = gpt_merc_request_aid_lv5
+				years = 1
+			}
+		}
+		else_if = {
+			limit = {
+				any_ally = {
+					count >= 4
+				}
+			}
+			add_prestige = {
+				value = -35
+				multiply = highest_held_title_tier
+			}
+			add_character_modifier = {
+				modifier = gpt_merc_request_aid_lv4
+				years = 1
+			}
+		}
+		else_if = {
+			limit = {
+				any_ally = {
+					count >= 3
+				}
+			}
+			add_prestige = {
+				value = -35
+				multiply = highest_held_title_tier
+			}
+			add_character_modifier = {
+				modifier = gpt_merc_request_aid_lv3
+				years = 1
+			}
+		}
+		else_if = {
+			limit = {
+				any_ally = {
+					count >= 2
+				}
+			}
+			add_prestige = {
+				value = -35
+				multiply = highest_held_title_tier
+			}
+			add_character_modifier = {
+				modifier = gpt_merc_request_aid_lv2
+				years = 1
+			}
+		}
+		else_if = {
+			limit = {
+				any_ally = {
+					count >= 1
+				}
+			}
+			add_prestige = {
+				value = -35
+				multiply = highest_held_title_tier
+			}
+			add_character_modifier = {
+				modifier = gpt_merc_request_aid_lv1
+				years = 1
+			}
+		}
+		else = { }
+		ai_chance = {
+			base = 100
+		}
+	}
+	option = {
+		name = gpt_sociable_ruler_reinforce_option_2
+		stress_impact = {
+			shy = -8
+			arrogant = -8
+			brave = -8
+		}
+		add_prestige = {
+			value = 25
+			multiply = highest_held_title_tier
+		}
+		ai_chance = {
+			base = 0
+		}
+	}
+}
+
+gpt_raid_complete.0072 = {
+	type = character_event
+	title = gpt_pragmatic_ruler_reinforce_title
+	desc = gpt_pragmatic_ruler_reinforce_desc
+	theme = alliance
+	right_portrait = {
+		character = root
+		animation = thinking
+	}
+
+	immediate = {
+		add_character_flag = { flag = gpt_already_helped years = 2 }
+	}
+
+	option = {
+		name = gpt_pragmatic_ruler_reinforce_option_1
+		stress_impact = {
+			shy = 10
+			arrogant = 10
+			brave = 10
+		}
+		if = {
+			limit = {
+				any_ally = {
+					count >= 5
+				}
+			}
+			add_prestige = {
+				value = -35
+				multiply = highest_held_title_tier
+			}
+			add_character_modifier = {
+				modifier = gpt_merc_request_aid_lv5
+				years = 1
+			}
+		}
+		else_if = {
+			limit = {
+				any_ally = {
+					count >= 4
+				}
+			}
+			add_prestige = {
+				value = -35
+				multiply = highest_held_title_tier
+			}
+			add_character_modifier = {
+				modifier = gpt_merc_request_aid_lv4
+				years = 1
+			}
+		}
+		else_if = {
+			limit = {
+				any_ally = {
+					count >= 3
+				}
+			}
+			add_prestige = {
+				value = -35
+				multiply = highest_held_title_tier
+			}
+			add_character_modifier = {
+				modifier = gpt_merc_request_aid_lv3
+				years = 1
+			}
+		}
+		else_if = {
+			limit = {
+				any_ally = {
+					count >= 2
+				}
+			}
+			add_prestige = {
+				value = -35
+				multiply = highest_held_title_tier
+			}
+			add_character_modifier = {
+				modifier = gpt_merc_request_aid_lv2
+				years = 1
+			}
+		}
+		else_if = {
+			limit = {
+				any_ally = {
+					count >= 1
+				}
+			}
+			add_prestige = {
+				value = -35
+				multiply = highest_held_title_tier
+			}
+			add_character_modifier = {
+				modifier = gpt_merc_request_aid_lv1
+				years = 1
+			}
+		}
+		else = { }
+		ai_chance = {
+			base = 100
+		}
+	}
+	option = {
+		name = gpt_pragmatic_ruler_reinforce_option_2
+		stress_impact = {
+			shy = -8
+			arrogant = -8
+			brave = -8
+		}
+		add_prestige = {
+			value = 25
+			multiply = highest_held_title_tier
+		}
+		ai_chance = {
+			base = 0
+		}
+	}
+}
+
+gpt_raid_complete.0073 = {
+	type = character_event
+	title = gpt_shy_ruler_reinforce_title
+	desc = gpt_shy_ruler_reinforce_desc
+	theme = alliance
+	right_portrait = {
+		character = root
+		animation = worry
+	}
+
+	immediate = {
+		add_character_flag = { flag = gpt_already_helped years = 2 }
+	}
+
+	option = {
+		name = gpt_shy_ruler_reinforce_option_1
+		stress_impact = {
+			shy = 10
+			arrogant = 10
+			brave = 10
+		}
+		if = {
+			limit = {
+				any_ally = {
+					count >= 5
+				}
+			}
+			add_prestige = {
+				value = -35
+				multiply = highest_held_title_tier
+			}
+			add_character_modifier = {
+				modifier = gpt_merc_request_aid_lv5
+				years = 1
+			}
+		}
+		else_if = {
+			limit = {
+				any_ally = {
+					count >= 4
+				}
+			}
+			add_prestige = {
+				value = -35
+				multiply = highest_held_title_tier
+			}
+			add_character_modifier = {
+				modifier = gpt_merc_request_aid_lv4
+				years = 1
+			}
+		}
+		else_if = {
+			limit = {
+				any_ally = {
+					count >= 3
+				}
+			}
+			add_prestige = {
+				value = -35
+				multiply = highest_held_title_tier
+			}
+			add_character_modifier = {
+				modifier = gpt_merc_request_aid_lv3
+				years = 1
+			}
+		}
+		else_if = {
+			limit = {
+				any_ally = {
+					count >= 2
+				}
+			}
+			add_prestige = {
+				value = -35
+				multiply = highest_held_title_tier
+			}
+			add_character_modifier = {
+				modifier = gpt_merc_request_aid_lv2
+				years = 1
+			}
+		}
+		else_if = {
+			limit = {
+				any_ally = {
+					count >= 1
+				}
+			}
+			add_prestige = {
+				value = -35
+				multiply = highest_held_title_tier
+			}
+			add_character_modifier = {
+				modifier = gpt_merc_request_aid_lv1
+				years = 1
+			}
+		}
+		else = { }
+		ai_chance = {
+			base = 100
+		}
+	}
+	option = {
+		name = gpt_shy_ruler_reinforce_option_2
+		stress_impact = {
+			shy = -8
+			arrogant = -8
+			brave = -8
+		}
+		add_prestige = {
+			value = 25
+			multiply = highest_held_title_tier
+		}
+		ai_chance = {
+			base = 0
+		}
+	}
+}

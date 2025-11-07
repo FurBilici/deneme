@@ -1,0 +1,1256 @@
+﻿namespace = gpt_chevauchee_events
+
+gpt_chevauchee_events.0001 = {
+	type = character_event
+	title = gptmerc_chevauchee_main_title
+	theme = hunting
+	override_background = { reference = council_chamber }
+	window = big_event_window
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { has_character_flag = gpt_r_gold_flag }
+				desc = gptmerc_chevauchee_gold_desc
+			}
+			triggered_desc = {
+				trigger = { has_character_flag = gpt_r_prestige_flag }
+				desc = gptmerc_chevauchee_prestige_desc
+			}
+			triggered_desc = {
+				trigger = { has_character_flag = gpt_r_dread_flag }
+				desc = gptmerc_chevauchee_dread_desc
+			}
+		}
+	}
+
+	left_portrait = {
+		trigger = { exists = scope:gptmerc_heir }
+		character = scope:gptmerc_heir
+		animation = thinking
+	}
+
+	center_portrait = {
+		character = root
+		animation = interested
+	}
+
+	right_portrait = {
+		character = scope:gptmerc_mraid
+		animation = throne_room_conversation_1
+	}
+
+	immediate = {
+		scope:gptmerc_mraid = { add_character_flag = { flag = need_military_outfit days = 91 } }
+		scope:gptmerc_knight_1 = { add_character_flag = { flag = need_military_outfit days = 91 } }
+		scope:gptmerc_knight_2 = { add_character_flag = { flag = need_military_outfit days = 91 } }
+		scope:gptmerc_knight_3 = { add_character_flag = { flag = need_military_outfit days = 91 } }
+	}
+		
+	option = {
+		name = gptmerc_chevauchee_main_option_1
+		if = {
+			limit = {
+				exists = scope:gptmerc_heir
+			}
+			trigger_event = gpt_chevauchee_events.0002
+		}
+		else = { trigger_event = gpt_chevauchee_events.0003 }
+	}		
+}
+
+gpt_chevauchee_events.0002 = {
+	type = character_event
+	title = gptmerc_chevauchee_bold_child_title
+	theme = hunting
+	override_background = { reference = courtyard }
+	window = big_event_window
+
+	desc = gptmerc_chevauchee_bold_child_desc
+
+	left_portrait = {
+		character = scope:gptmerc_mraid
+		animation = menacing
+	}
+
+	center_portrait = {
+		character = scope:gptmerc_heir
+		animation = throne_room_two_handed_passive_shield
+	}
+
+	right_portrait = {
+		character = root
+		animation = disapproval
+	}
+
+	immediate = {
+	}
+		
+	option = {
+		name = gptmerc_chevauchee_bold_child_option_1
+		add_character_flag = { flag = gpt_selected_heir days = 5 }
+		scope:gptmerc_heir = { save_scope_as = gptmerc_confirmed_heir }
+		trigger_event = gpt_chevauchee_events.0003
+		reverse_add_opinion = {
+			target = scope:gptmerc_heir
+			modifier = pleased_opinion
+			opinion = 10
+		}
+	}
+
+	option = {
+		name = gptmerc_chevauchee_bold_child_option_2
+		trigger_event = gpt_chevauchee_events.0003
+		reverse_add_opinion = {
+			target = scope:gptmerc_heir
+			modifier = disappointed_opinion
+			opinion = -10
+		}
+	}
+}
+
+gpt_chevauchee_events.0003 = {
+	type = character_event
+	title = gptmerc_chevauchee_select_knight_title
+	theme = hunting
+	override_background = { reference = armory }
+	window = big_event_window
+
+	desc = gptmerc_chevauchee_select_knight_desc
+
+	trigger = {
+		exists = scope:gptmerc_knight_1
+	}
+
+	left_portrait = {
+		trigger = { exists = scope:gptmerc_knight_2 }
+		character = scope:gptmerc_knight_2
+		animation = marshal_shield
+	}
+
+	center_portrait = {
+		trigger = { exists = scope:gptmerc_knight_1 }
+		character = scope:gptmerc_knight_1
+		animation = throne_room_two_handed_passive_1
+	}
+
+	right_portrait = {
+		trigger = { exists = scope:gptmerc_knight_3 }
+		character = scope:gptmerc_knight_3
+		animation = marshal_axe
+	}
+
+	immediate = {
+	}
+		
+	option = {
+		trigger = { exists = scope:gptmerc_knight_2 }
+		add_character_flag = { flag = gpt_selected_k2 days = 5 }
+		name = gptmerc_chevauchee_knight_option_2
+		scope:gptmerc_knight_2 = { 
+			save_scope_as = gpt_merc_selected_knight
+			add_opinion = {
+				target = root
+				modifier = pleased_opinion
+				opinion = 10
+			}
+		}
+		scope:gptmerc_knight_1 = {
+			save_scope_as = gpt_merc_follower_knight_1
+		}
+		scope:gptmerc_knight_3 = {
+			save_scope_as = gpt_merc_follower_knight_2
+		}
+		trigger_event = gpt_chevauchee_events.0004
+	}
+	option = {
+		trigger = { exists = scope:gptmerc_knight_1 }
+		add_character_flag = { flag = gpt_selected_k1 days = 5 }
+		name = gptmerc_chevauchee_knight_option_1
+		scope:gptmerc_knight_1 = { 
+			save_scope_as = gpt_merc_selected_knight
+			add_opinion = {
+				target = root
+				modifier = pleased_opinion
+				opinion = 10
+			}
+		}
+		scope:gptmerc_knight_2 = {
+			save_scope_as = gpt_merc_follower_knight_1
+		}
+		scope:gptmerc_knight_3 = {
+			save_scope_as = gpt_merc_follower_knight_2
+		}
+		trigger_event = gpt_chevauchee_events.0004
+	}
+	option = {
+		trigger = { exists = scope:gptmerc_knight_3 }
+		add_character_flag = { flag = gpt_selected_k3 days = 5 }
+		name = gptmerc_chevauchee_knight_option_3
+		scope:gptmerc_knight_3 = { 
+			save_scope_as = gpt_merc_selected_knight
+			add_opinion = {
+				target = root
+				modifier = pleased_opinion
+				opinion = 10
+			}
+		}
+		scope:gptmerc_knight_1 = {
+			save_scope_as = gpt_merc_follower_knight_1
+		}
+		scope:gptmerc_knight_2 = {
+			save_scope_as = gpt_merc_follower_knight_2
+		}
+		trigger_event = gpt_chevauchee_events.0004
+	}
+}
+
+gpt_chevauchee_events.0004 = {
+	type = character_event
+	title = gptmerc_chevauchee_confirmation_title
+	theme = hunting
+	override_background = { reference = army_camp }
+	window = big_event_window
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = scope:gptmerc_confirmed_heir } }
+				desc = gptmerc_chevauchee_confirmation_desc
+			}
+			triggered_desc = {
+				trigger = { exists = scope:gptmerc_confirmed_heir }
+				desc = gptmerc_chevauchee_confirmation_2_desc
+			}
+		}
+	}
+
+	left_portrait = {
+		trigger = { exists = scope:gptmerc_mraid }
+		character = scope:gptmerc_mraid
+		animation = throne_room_applaud_1
+	}
+
+	center_portrait = {
+		trigger = { exists = scope:gpt_merc_selected_knight }
+		character = scope:gpt_merc_selected_knight
+		animation = celebrate_axe
+	}
+
+	right_portrait = {
+		character = root
+		animation = toast
+	}
+
+	lower_left_portrait = {
+		character = scope:gptmerc_confirmed_heir
+		trigger = { exists = scope:gptmerc_confirmed_heir }
+	}
+
+	lower_center_portrait = {
+		character = scope:gpt_merc_follower_knight_1
+		trigger = { exists = scope:gpt_merc_follower_knight_1 }
+	}
+
+	lower_right_portrait = {
+		character = scope:gpt_merc_follower_knight_2
+		trigger = { exists = scope:gpt_merc_follower_knight_2 }
+	}
+
+	immediate = {
+	}
+		
+	option = {
+		name = gptmerc_chevauchee_confirmation_option_1
+		custom_tooltip = gptmerc_confirmation_tt
+		hidden_effect = {
+			if = { limit = { has_character_flag = gpt_selected_heir } scope:gptmerc_heir = { add_trait = gptmerc_absent add_character_flag = { flag = is_in_martial_special_event years = 1 } add_character_flag = { flag = need_military_outfit days = 91 } } }
+			scope:gptmerc_knight_1 = { add_trait = gptmerc_absent add_character_flag = { flag = is_in_martial_special_event years = 1 } }
+			scope:gptmerc_knight_2 = { add_trait = gptmerc_absent add_character_flag = { flag = is_in_martial_special_event years = 1 } }
+			scope:gptmerc_knight_3 = { add_trait = gptmerc_absent add_character_flag = { flag = is_in_martial_special_event years = 1 } }
+		 #	if = { limit = { has_character_flag = gpt_selected_heir } remove_courtier_or_guest = scope:gptmerc_heir }
+		 #	remove_courtier_or_guest = scope:gptmerc_knight_1
+		 #	remove_courtier_or_guest = scope:gptmerc_knight_2
+		 #	remove_courtier_or_guest = scope:gptmerc_knight_3
+		}
+		add_character_modifier = { modifier = gpt_merc_chevauchee years = 1 }
+		random_list = {
+			20 = {
+				modifier = {
+					add = {
+						value = 0
+						add = scope:gpt_merc_selected_knight.martial
+						add = scope:gptmerc_knight_1.martial
+						add = scope:gptmerc_knight_2.martial
+						add = scope:gptmerc_knight_3.martial
+						if = {
+							limit = { has_character_flag = gpt_selected_heir }
+							add = scope:gptmerc_heir.martial
+						}
+						multiply = 1.25
+						add = scope:gpt_merc_selected_knight.prowess
+						add = scope:gptmerc_knight_1.prowess
+						add = scope:gptmerc_knight_2.prowess
+						add = scope:gptmerc_knight_3.prowess
+						if = {
+							limit = { has_character_flag = gpt_selected_heir }
+							add = scope:gptmerc_heir.prowess
+						}
+						multiply = 0.75
+						if = {
+							limit = {
+								any_court_position_holder = {
+									type = master_of_raids_court_position
+									aptitude = {
+										court_position = master_of_raids_court_position
+										value = 5
+									}
+								}
+							}
+							multiply = 0.6
+						}
+						else_if = {
+							limit = {
+								any_court_position_holder = {
+									type = master_of_raids_court_position
+									aptitude = {
+										court_position = master_of_raids_court_position
+										value = 4
+									}
+								}
+							}
+							multiply = 0.5
+						}
+						else_if = {
+							limit = {
+								any_court_position_holder = {
+									type = master_of_raids_court_position
+									aptitude = {
+										court_position = master_of_raids_court_position
+										value = 3
+									}
+								}
+							}
+							multiply = 0.4
+						}
+						else_if = {
+							limit = {
+								any_court_position_holder = {
+									type = master_of_raids_court_position
+									aptitude = {
+										court_position = master_of_raids_court_position
+										value = 2
+									}
+								}
+							}
+							multiply = 0.3
+						}
+						else_if = {
+							limit = {
+								any_court_position_holder = {
+									type = master_of_raids_court_position
+									aptitude = {
+										court_position = master_of_raids_court_position
+										value = 1
+									}
+								}
+							}
+							multiply = 0.2
+						}
+						else = {  }
+					}
+					add = {
+						value = 0
+						add = scope:gpt_merc_selected_knight.ai_boldness
+						add = scope:gptmerc_knight_1.ai_boldness
+						add = scope:gptmerc_knight_2.ai_boldness
+						add = scope:gptmerc_knight_3.ai_boldness
+						if = {
+							limit = { has_character_flag = gpt_selected_heir }
+							add = scope:gptmerc_heir.ai_boldness
+						}
+						multiply = 0.3
+						if = {
+							limit = {
+								any_court_position_holder = {
+									type = master_of_raids_court_position
+									aptitude = {
+										court_position = master_of_raids_court_position
+										value = 5
+									}
+								}
+							}
+							multiply = 0.3
+						}
+						else_if = {
+							limit = {
+								any_court_position_holder = {
+									type = master_of_raids_court_position
+									aptitude = {
+										court_position = master_of_raids_court_position
+										value = 4
+									}
+								}
+							}
+							multiply = 0.25
+						}
+						else_if = {
+							limit = {
+								any_court_position_holder = {
+									type = master_of_raids_court_position
+									aptitude = {
+										court_position = master_of_raids_court_position
+										value = 3
+									}
+								}
+							}
+							multiply = 0.2
+						}
+						else_if = {
+							limit = {
+								any_court_position_holder = {
+									type = master_of_raids_court_position
+									aptitude = {
+										court_position = master_of_raids_court_position
+										value = 2
+									}
+								}
+							}
+							multiply = 0.15
+						}
+						else_if = {
+							limit = {
+								any_court_position_holder = {
+									type = master_of_raids_court_position
+									aptitude = {
+										court_position = master_of_raids_court_position
+										value = 1
+									}
+								}
+							}
+							multiply = 0.1
+						}
+						else = {  }
+					}
+				}
+				custom_tooltip = gptmerc_success_tt
+				trigger_event = {
+					id = gpt_chevauchee_events.0005 #success
+					days = 360
+				}
+			}
+			20 = {
+				modifier = { has_character_flag = gptmerc_very_hard_flag add = 40 }
+				modifier = { has_character_flag = gptmerc_hard_flag add = 20 }
+				modifier = { max_military_strength < scope:gptmerc_target.max_military_strength add = 10 }
+				modifier = { max_military_strength < scope:gptmerc_target.eighty_percent_of_max_military_strength add = 10 }
+				modifier = { max_military_strength < scope:gptmerc_target.sixty_percent_of_max_military_strength add = 10 }
+				custom_tooltip = gptmerc_failure_tt
+				trigger_event = {
+					id = gpt_chevauchee_events.0006 #failure
+					days = 360
+				}
+			}
+		}
+	}
+	option = {
+		name = gptmerc_chevauchee_confirmation_option_2
+		custom_tooltip = gptmerc_desistance_tt
+		add_prestige = {
+			value = monthly_character_income
+			multiply = 4
+			multiply = -1
+			max = -75
+		}
+		clear_saved_scope = gptmerc_heir
+		clear_saved_scope = gptmerc_confirmed_heir
+		clear_saved_scope = gptmerc_mraid
+		clear_saved_scope = gptmerc_knight_1
+		clear_saved_scope = gptmerc_knight_2
+		clear_saved_scope = gptmerc_knight_3
+		clear_saved_scope = gpt_merc_selected_knight
+		clear_saved_scope = gpt_merc_follower_knight_1
+		clear_saved_scope = gpt_merc_follower_knight_2
+		clear_saved_scope = gptmerc_target
+	}
+}
+
+gpt_chevauchee_events.0005 = {
+	type = character_event
+	title = gptmerc_chevauchee_success_title
+	theme = hunting
+	override_background = { reference = burning_building }
+	window = big_event_window
+
+	desc = gptmerc_chevauchee_success_desc
+
+	immediate = {
+		add_short_term_gold = {
+			value = 0
+			if = {
+				limit = {
+					scope:gptmerc_target = {
+						is_alive = yes
+						is_landed = yes
+						exists = capital_province
+					}
+				}
+				add = scope:gptmerc_target.capital_province.available_loot
+			}
+			add = {
+				value = scope:gptmerc_target.sub_realm_size
+				multiply = 3
+			}
+			min = {
+				value = capital_province.available_loot
+				multiply = 0.5
+			}
+			if = { limit = { has_character_flag = gptmerc_compassion_flag } multiply = 0.3 }
+			if = { limit = { has_character_flag = gptmerc_pragmatic_flag } multiply = 0.4 }
+			if = { limit = { has_character_flag = gptmerc_ruthless_flag } multiply = 0.5 }
+			if = { limit = { has_character_flag = gpt_r_gold_flag } multiply = 2 }
+		}
+		add_prestige = {
+			value = 0
+			if = {
+				limit = {
+					scope:gptmerc_target = {
+						is_alive = yes
+						is_landed = yes
+						exists = capital_province
+					}
+				}
+				add = scope:gptmerc_target.capital_province.available_loot
+			}
+			add = {
+				value = scope:gptmerc_target.sub_realm_size
+				multiply = 3
+			}
+			min = {
+				value = capital_province.available_loot
+				multiply = 0.5
+			}
+			if = { limit = { has_character_flag = gptmerc_compassion_flag } multiply = 0.3 }
+			if = { limit = { has_character_flag = gptmerc_pragmatic_flag } multiply = 0.4 }
+			if = { limit = { has_character_flag = gptmerc_ruthless_flag } multiply = 0.5 }
+			if = { limit = { has_character_flag = gpt_r_prestige_flag } multiply = 2 }
+			multiply = 1.5
+		}
+		add_dread = {
+			value = 6
+			if = {
+				limit = { highest_held_title_tier > scope:gptmerc_target.highest_held_title_tier }
+				add = 6
+			}
+			if = {
+				limit = { highest_held_title_tier = scope:gptmerc_target.highest_held_title_tier }
+				add = 9
+			}
+			if = {
+				limit = { highest_held_title_tier < scope:gptmerc_target.highest_held_title_tier }
+				add = 12
+			}
+			if = { limit = { has_character_flag = gpt_r_dread_flag } multiply = 2 }
+		}
+		if = {
+			limit = {
+				has_character_flag = gptmerc_compassion_flag
+			}
+			custom_tooltip = gptmerc_cruel_opinion_1
+			hidden_effect = {
+				every_ruler = {
+					limit = {
+						NOT = { this = root }
+						is_landed = yes
+						exists = capital_province
+						NOR = {
+							government_has_flag = government_is_tribal
+							government_has_flag = government_is_nomadic
+						}
+						capital_province = {
+							squared_distance = {
+								target = root.capital_province
+								value <= squared_distance_medium #250 map-pixels. Roughly one Ireland away (top to bottom).
+							}
+						}
+						NOT = { is_vassal_or_below_of = root }
+					}
+					add_opinion = {
+						target = root
+						modifier = cruelty_opinion
+						opinion = -5
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				has_character_flag = gptmerc_pragmatic_flag
+			}
+			custom_tooltip = gptmerc_cruel_opinion_2
+			hidden_effect = {
+				every_ruler = {
+					limit = {
+						NOT = { this = root }
+						is_landed = yes
+						exists = capital_province
+						NOR = {
+							government_has_flag = government_is_tribal
+							government_has_flag = government_is_nomadic
+						}
+						capital_province = {
+							squared_distance = {
+								target = root.capital_province
+								value <= squared_distance_medium #250 map-pixels. Roughly one Ireland away (top to bottom).
+							}
+						}
+						NOT = { is_vassal_or_below_of = root }
+					}
+					add_opinion = {
+						target = root
+						modifier = cruelty_opinion
+						opinion = -10
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				has_character_flag = gptmerc_ruthless_flag
+			}
+			custom_tooltip = gptmerc_cruel_opinion_3
+			hidden_effect = {
+				every_ruler = {
+					limit = {
+						NOT = { this = root }
+						is_landed = yes
+						exists = capital_province
+						NOR = {
+							government_has_flag = government_is_tribal
+							government_has_flag = government_is_nomadic
+						}
+						capital_province = {
+							squared_distance = {
+								target = root.capital_province
+								value <= squared_distance_medium #250 map-pixels. Roughly one Ireland away (top to bottom).
+							}
+						}
+						NOT = { is_vassal_or_below_of = root }
+					}
+					add_opinion = {
+						target = root
+						modifier = cruelty_opinion
+						opinion = -15
+					}
+				}
+			}
+		}
+		else = {
+			custom_tooltip = gptmerc_cruel_opinion_2
+			hidden_effect = {
+				every_ruler = {
+					limit = {
+						NOT = { this = root }
+						is_landed = yes
+						exists = capital_province
+						NOR = {
+							government_has_flag = government_is_tribal
+							government_has_flag = government_is_nomadic
+						}
+						capital_province = {
+							squared_distance = {
+								target = root.capital_province
+								value <= squared_distance_medium #250 map-pixels. Roughly one Ireland away (top to bottom).
+							}
+						}
+						NOT = { is_vassal_or_below_of = root }
+					}
+					add_opinion = {
+						target = root
+						modifier = cruelty_opinion
+						opinion = -10
+					}
+				}
+			}
+		}
+		if = { limit = { exists = scope:gptmerc_confirmed_heir } scope:gptmerc_confirmed_heir = { add_character_flag = { flag = need_military_outfit days = 91 } } }
+		if = { limit = { exists = scope:gpt_merc_follower_knight_1 } scope:gpt_merc_follower_knight_1 = { add_character_flag = { flag = need_military_outfit days = 91 } } }
+		if = { limit = { exists = scope:gpt_merc_selected_knight } scope:gpt_merc_selected_knight = { add_character_flag = { flag = need_military_outfit days = 91 } } }
+		if = { limit = { exists = scope:gpt_merc_follower_knight_2 } scope:gpt_merc_follower_knight_2 = { add_character_flag = { flag = need_military_outfit days = 91 } } }
+		random_list = {
+			60 = {}
+			6 = {
+				if = {
+					limit = {
+						exists = scope:gptmerc_confirmed_heir scope:gptmerc_confirmed_heir = { is_alive = yes }
+					}
+				}
+				scope:gptmerc_confirmed_heir = {
+					increase_wounds_effect = { REASON = fight }
+				}
+			}
+			6 = {
+				if = {
+					limit = {
+						exists = scope:gpt_merc_selected_knight scope:gpt_merc_selected_knight = { is_alive = yes }
+					}
+				}
+				scope:gpt_merc_selected_knight = {
+					increase_wounds_effect = { REASON = fight }
+				}
+			}
+			6 = {
+				if = {
+					limit = {
+						exists = scope:gpt_merc_follower_knight_1 scope:gpt_merc_follower_knight_1 = { is_alive = yes }
+					}
+				}
+				scope:gpt_merc_follower_knight_1 = {
+					increase_wounds_effect = { REASON = fight }
+				}
+			}
+			36 = {
+				if = {
+					limit = {
+						exists = scope:gpt_merc_follower_knight_2 scope:gpt_merc_follower_knight_2 = { is_alive = yes }
+					}
+				}
+				scope:gpt_merc_follower_knight_2 = {
+					increase_wounds_effect = { REASON = fight }
+				}
+			}
+			2 = {
+				if = {
+					limit = {
+						exists = scope:gptmerc_confirmed_heir scope:gptmerc_confirmed_heir = { is_alive = yes is_imprisoned = no }
+						exists = scope:gptmerc_target scope:gptmerc_target = { is_alive = yes is_imprisoned = no }
+					}
+					scope:gptmerc_confirmed_heir = {
+						hard_imprison_character_effect = {
+							TARGET = this
+							IMPRISONER = scope:gptmerc_target
+						}
+					}
+				}
+			}
+			2 = {
+				if = {
+					limit = {
+						exists = scope:gpt_merc_selected_knight scope:gpt_merc_selected_knight = { is_alive = yes is_imprisoned = no }
+						exists = scope:gptmerc_target scope:gptmerc_target = { is_alive = yes is_imprisoned = no }
+					}
+					scope:gpt_merc_selected_knight = {
+						hard_imprison_character_effect = {
+							TARGET = this
+							IMPRISONER = scope:gptmerc_target
+						}
+					}
+				}
+			}
+			2 = {
+				if = {
+					limit = {
+						exists = scope:gpt_merc_follower_knight_1 scope:gpt_merc_follower_knight_1 = { is_alive = yes is_imprisoned = no }
+						exists = scope:gptmerc_target scope:gptmerc_target = { is_alive = yes is_imprisoned = no }
+					}
+					scope:gpt_merc_follower_knight_1 = {
+						hard_imprison_character_effect = {
+							TARGET = this
+							IMPRISONER = scope:gptmerc_target
+						}
+					}
+				}
+			}
+			2 = {
+				if = {
+					limit = {
+						exists = scope:gpt_merc_follower_knight_2 scope:gpt_merc_follower_knight_2 = { is_alive = yes is_imprisoned = no }
+						exists = scope:gptmerc_target scope:gptmerc_target = { is_alive = yes is_imprisoned = no }
+					}
+					scope:gpt_merc_follower_knight_2 = {
+						hard_imprison_character_effect = {
+							TARGET = this
+							IMPRISONER = scope:gptmerc_target
+						}
+					}
+				}
+			}
+			2 = {
+				if = {
+					limit = {
+						exists = scope:gptmerc_confirmed_heir scope:gptmerc_confirmed_heir = { is_alive = yes }
+					}
+				}
+				scope:gptmerc_confirmed_heir = {
+				 #	add_character_flag = gptmerc_dead_skirmish
+				 	hidden_effect = {
+						death = {
+							death_reason = death_battle
+						}
+					}
+				}
+			}
+			2 = {
+				if = {
+					limit = {
+						exists = scope:gpt_merc_selected_knight scope:gpt_merc_selected_knight = { is_alive = yes }
+					}
+				}
+				scope:gpt_merc_selected_knight = {
+				 #	add_character_flag = gptmerc_dead_skirmish
+				 	hidden_effect = {
+						death = {
+							death_reason = death_battle
+						}
+					}
+				}
+			}
+			2 = {
+				if = {
+					limit = {
+						exists = scope:gpt_merc_follower_knight_1 scope:gpt_merc_follower_knight_1 = { is_alive = yes }
+					}
+				}
+				scope:gpt_merc_follower_knight_1 = {
+				 #	add_character_flag = gptmerc_dead_skirmish
+				 	hidden_effect = {
+						death = {
+							death_reason = death_battle
+						}
+					}
+				}
+			}
+			2 = {
+				if = {
+					limit = {
+						exists = scope:gpt_merc_follower_knight_2 scope:gpt_merc_follower_knight_2 = { is_alive = yes }
+					}
+				}
+				scope:gpt_merc_follower_knight_2 = {
+				 #	add_character_flag = gptmerc_dead_skirmish
+				 	hidden_effect = {
+						death = {
+							death_reason = death_battle
+						}
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				exists = scope:gptmerc_confirmed_heir scope:gptmerc_confirmed_heir = { is_alive = no NOT = { has_character_flag = gptmerc_dead_skirmish } }
+			}
+			custom_tooltip = gptmerc_dead_heir_tt
+		}
+		if = {
+			limit = {
+				exists = scope:gpt_merc_selected_knight scope:gpt_merc_selected_knight = { is_alive = no NOT = { has_character_flag = gptmerc_dead_skirmish } }
+			}
+			custom_tooltip = gptmerc_dead_skin_tt
+		}
+		if = {
+			limit = {
+				exists = scope:gpt_merc_follower_knight_1 scope:gpt_merc_follower_knight_1 = { is_alive = no NOT = { has_character_flag = gptmerc_dead_skirmish } }
+			}
+			custom_tooltip = gptmerc_dead_kin1_tt
+		}
+		if = {
+			limit = {
+				exists = scope:gpt_merc_follower_knight_2 scope:gpt_merc_follower_knight_2 = { is_alive = no NOT = { has_character_flag = gptmerc_dead_skirmish } }
+			}
+			custom_tooltip = gptmerc_dead_kin2_tt
+		}
+	}
+
+	left_portrait = {
+		trigger = { exists = scope:gpt_merc_follower_knight_2 scope:gpt_merc_follower_knight_2 = { is_alive = yes } }
+		character = scope:gpt_merc_follower_knight_2
+		triggered_animation = { trigger = { scope:gpt_merc_follower_knight_2 = { is_alive = no } } animation = dead }
+		triggered_animation = { trigger = { scope:gpt_merc_follower_knight_2 = { is_imprisoned = yes } } animation = prisondungeon }
+		triggered_animation = { trigger = { scope:gpt_merc_follower_knight_2 = { OR = { has_trait = wounded_1 has_trait = wounded_2 has_trait = wounded_3 } } } animation = severelywounded }
+		triggered_animation = { trigger = { scope:gpt_merc_follower_knight_2 = { NOR = { has_trait = wounded_1 has_trait = wounded_2 has_trait = wounded_3 } } } animation = celebrate_sword }
+		triggered_animation = { trigger = { scope:gpt_merc_follower_knight_2 = { is_imprisoned = yes } } animation = prisondungeon }
+		triggered_animation = { trigger = { scope:gpt_merc_follower_knight_2 = { is_alive = no } } animation = dead }
+	}
+
+	center_portrait = {
+		trigger = { exists = scope:gpt_merc_follower_knight_1 scope:gpt_merc_follower_knight_1 = { is_alive = yes } }
+		character = scope:gpt_merc_follower_knight_1
+		triggered_animation = { trigger = { scope:gpt_merc_follower_knight_1 = { is_alive = no } } animation = dead }
+		triggered_animation = { trigger = { scope:gpt_merc_follower_knight_1 = { is_imprisoned = yes } } animation = prisondungeon }
+		triggered_animation = { trigger = { scope:gpt_merc_follower_knight_1 = { OR = { has_trait = wounded_1 has_trait = wounded_2 has_trait = wounded_3 } } } animation = severelywounded }
+		triggered_animation = { trigger = { scope:gpt_merc_follower_knight_1 = { NOR = { has_trait = wounded_1 has_trait = wounded_2 has_trait = wounded_3 } } } animation = celebrate_hammer }
+		triggered_animation = { trigger = { scope:gpt_merc_follower_knight_1 = { is_imprisoned = yes } } animation = prisondungeon }
+		triggered_animation = { trigger = { scope:gpt_merc_follower_knight_1 = { is_alive = no } } animation = dead }
+	}
+
+	right_portrait = {
+		trigger = { exists = scope:gpt_merc_selected_knight scope:gpt_merc_selected_knight = { is_alive = yes } }
+		character = scope:gpt_merc_selected_knight
+		triggered_animation = { trigger = { scope:gpt_merc_selected_knight = { is_alive = no } } animation = dead }
+		triggered_animation = { trigger = { scope:gpt_merc_selected_knight = { is_imprisoned = yes } } animation = prisondungeon }
+		triggered_animation = { trigger = { scope:gpt_merc_selected_knight = { OR = { has_trait = wounded_1 has_trait = wounded_2 has_trait = wounded_3 } } } animation = severelywounded }
+		triggered_animation = { trigger = { scope:gpt_merc_selected_knight = { NOR = { has_trait = wounded_1 has_trait = wounded_2 has_trait = wounded_3 } } } animation = celebrate_axe }
+		triggered_animation = { trigger = { scope:gpt_merc_selected_knight = { is_imprisoned = yes } } animation = prisondungeon }
+		triggered_animation = { trigger = { scope:gpt_merc_selected_knight = { is_alive = no } } animation = dead }
+	}
+
+	lower_right_portrait = {
+		trigger = { exists = scope:gptmerc_confirmed_heir scope:gptmerc_confirmed_heir = { is_alive = yes } }
+		character = scope:gptmerc_confirmed_heir
+	}
+		
+	option = {
+		name = gptmerc_chevauchee_success_end_option
+		reverse_add_opinion = {
+			target = scope:gptmerc_target
+			modifier = raided_me_opinion
+		}
+		if = {
+			limit = { has_character_flag = gptmerc_compassion_flag }
+			scope:gptmerc_target = { add_character_modifier = { modifier = gpt_merc_raided_1 years = 3 } }
+		}
+		if = {
+			limit = { has_character_flag = gptmerc_pragmatic_flag }
+			scope:gptmerc_target = { add_character_modifier = { modifier = gpt_merc_raided_2 years = 3 } }
+		}
+		if = {
+			limit = { has_character_flag = gptmerc_ruthless_flag }
+			scope:gptmerc_target = { add_character_modifier = { modifier = gpt_merc_raided_3 years = 3 } }
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					exists = scope:gptmerc_confirmed_heir
+					scope:gptmerc_confirmed_heir = { is_alive = yes has_trait = gptmerc_absent }
+				}
+				scope:gptmerc_confirmed_heir = { remove_trait = gptmerc_absent }
+			 #	add_courtier = scope:gptmerc_confirmed_heir
+			}
+			if = {
+				limit = {
+					exists = scope:gptmerc_knight_1
+					scope:gptmerc_knight_1 = { is_alive = yes has_trait = gptmerc_absent }
+				}
+				scope:gptmerc_knight_1 = { remove_trait = gptmerc_absent }
+			 #	add_courtier = scope:gptmerc_knight_1
+			}
+			if = {
+				limit = {
+					exists = scope:gptmerc_knight_2
+					scope:gptmerc_knight_2 = { is_alive = yes has_trait = gptmerc_absent }
+				}
+				scope:gptmerc_knight_2 = { remove_trait = gptmerc_absent }
+			 #	add_courtier = scope:gptmerc_knight_2
+			}
+			if = {
+				limit = {
+					exists = scope:gptmerc_knight_3
+					scope:gptmerc_knight_3 = { is_alive = yes has_trait = gptmerc_absent }
+				}
+				scope:gptmerc_knight_3 = { remove_trait = gptmerc_absent }
+			 #	add_courtier = scope:gptmerc_knight_3
+			}
+		}
+		clear_saved_scope = gptmerc_heir
+		clear_saved_scope = gptmerc_confirmed_heir
+		clear_saved_scope = gptmerc_mraid
+		clear_saved_scope = gptmerc_knight_1
+		clear_saved_scope = gptmerc_knight_2
+		clear_saved_scope = gptmerc_knight_3
+		clear_saved_scope = gpt_merc_selected_knight
+		clear_saved_scope = gpt_merc_follower_knight_1
+		clear_saved_scope = gpt_merc_follower_knight_2
+		clear_saved_scope = gptmerc_target
+	}
+}
+
+gpt_chevauchee_events.0006 = {
+	type = character_event
+	title = gptmerc_chevauchee_failure_title
+	theme = hunting
+	override_background = { reference = wilderness }
+	window = big_event_window
+
+	desc = gptmerc_chevauchee_failure_desc
+
+	immediate = {
+		reverse_add_opinion = {
+			target = scope:gptmerc_target
+			modifier = raided_me_opinion
+		}
+		if = { limit = { exists = scope:gptmerc_confirmed_heir } scope:gptmerc_confirmed_heir = { add_character_flag = { flag = need_military_outfit days = 91 } } }
+		if = { limit = { exists = scope:gpt_merc_follower_knight_1 } scope:gpt_merc_follower_knight_1 = { add_character_flag = { flag = need_military_outfit days = 91 } } }
+		if = { limit = { exists = scope:gpt_merc_selected_knight } scope:gpt_merc_selected_knight = { add_character_flag = { flag = need_military_outfit days = 91 } } }
+		if = { limit = { exists = scope:gpt_merc_follower_knight_2 } scope:gpt_merc_follower_knight_2 = { add_character_flag = { flag = need_military_outfit days = 91 } } }
+		random_list = {
+			20 = {}
+			12 = {
+				if = {
+					limit = {
+						exists = scope:gptmerc_confirmed_heir scope:gptmerc_confirmed_heir = { is_alive = yes }
+					}
+				}
+				scope:gptmerc_confirmed_heir = {
+					increase_wounds_effect = { REASON = fight }
+				}
+			}
+			12 = {
+				if = {
+					limit = {
+						exists = scope:gpt_merc_selected_knight scope:gpt_merc_selected_knight = { is_alive = yes }
+					}
+				}
+				scope:gpt_merc_selected_knight = {
+					increase_wounds_effect = { REASON = fight }
+				}
+			}
+			12 = {
+				if = {
+					limit = {
+						exists = scope:gpt_merc_follower_knight_1 scope:gpt_merc_follower_knight_1 = { is_alive = yes }
+					}
+				}
+				scope:gpt_merc_follower_knight_1 = {
+					increase_wounds_effect = { REASON = fight }
+				}
+			}
+			12 = {
+				if = {
+					limit = {
+						exists = scope:gpt_merc_follower_knight_2 scope:gpt_merc_follower_knight_2 = { is_alive = yes }
+					}
+				}
+				scope:gpt_merc_follower_knight_2 = {
+					increase_wounds_effect = { REASON = fight }
+				}
+			}
+			4 = {
+				if = {
+					limit = {
+						exists = scope:gptmerc_confirmed_heir scope:gptmerc_confirmed_heir = { is_alive = yes is_imprisoned = no }
+						exists = scope:gptmerc_target scope:gptmerc_target = { is_alive = yes is_imprisoned = no }
+					}
+					scope:gptmerc_confirmed_heir = {
+						hard_imprison_character_effect = {
+							TARGET = this
+							IMPRISONER = scope:gptmerc_target
+						}
+					}
+				}
+			}
+			4 = {
+				if = {
+					limit = {
+						exists = scope:gpt_merc_selected_knight scope:gpt_merc_selected_knight = { is_alive = yes is_imprisoned = no }
+						exists = scope:gptmerc_target scope:gptmerc_target = { is_alive = yes is_imprisoned = no }
+					}
+					scope:gpt_merc_selected_knight = {
+						hard_imprison_character_effect = {
+							TARGET = this
+							IMPRISONER = scope:gptmerc_target
+						}
+					}
+				}
+			}
+			4 = {
+				if = {
+					limit = {
+						exists = scope:gpt_merc_follower_knight_1 scope:gpt_merc_follower_knight_1 = { is_alive = yes is_imprisoned = no }
+						exists = scope:gptmerc_target scope:gptmerc_target = { is_alive = yes is_imprisoned = no }
+					}
+					scope:gpt_merc_follower_knight_1 = {
+						hard_imprison_character_effect = {
+							TARGET = this
+							IMPRISONER = scope:gptmerc_target
+						}
+					}
+				}
+			}
+			4 = {
+				if = {
+					limit = {
+						exists = scope:gpt_merc_follower_knight_2 scope:gpt_merc_follower_knight_2 = { is_alive = yes is_imprisoned = no }
+						exists = scope:gptmerc_target scope:gptmerc_target = { is_alive = yes is_imprisoned = no }
+					}
+					scope:gpt_merc_follower_knight_2 = {
+						hard_imprison_character_effect = {
+							TARGET = this
+							IMPRISONER = scope:gptmerc_target
+						}
+					}
+				}
+			}
+			4 = {
+				if = {
+					limit = {
+						exists = scope:gptmerc_confirmed_heir scope:gptmerc_confirmed_heir = { is_alive = yes }
+					}
+				}
+				scope:gptmerc_confirmed_heir = {
+				 #	add_character_flag = gptmerc_dead_skirmish
+				 	hidden_effect = {
+						death = {
+							death_reason = death_battle
+						}
+					}
+				}
+			}
+			4 = {
+				if = {
+					limit = {
+						exists = scope:gpt_merc_selected_knight scope:gpt_merc_selected_knight = { is_alive = yes }
+					}
+				}
+				scope:gpt_merc_selected_knight = {
+				 #	add_character_flag = gptmerc_dead_skirmish
+				 	hidden_effect = {
+						death = {
+							death_reason = death_battle
+						}
+					}
+				}
+			}
+			4 = {
+				if = {
+					limit = {
+						exists = scope:gpt_merc_follower_knight_1 scope:gpt_merc_follower_knight_1 = { is_alive = yes }
+					}
+				}
+				scope:gpt_merc_follower_knight_1 = {
+				 #	add_character_flag = gptmerc_dead_skirmish
+				 	hidden_effect = {
+						death = {
+							death_reason = death_battle
+						}
+					}
+				}
+			}
+			4 = {
+				if = {
+					limit = {
+						exists = scope:gpt_merc_follower_knight_2 scope:gpt_merc_follower_knight_2 = { is_alive = yes }
+					}
+				}
+				scope:gpt_merc_follower_knight_2 = {
+				 #	add_character_flag = gptmerc_dead_skirmish
+				 	hidden_effect = {
+						death = {
+							death_reason = death_battle
+						}
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				exists = scope:gptmerc_confirmed_heir scope:gptmerc_confirmed_heir = { is_alive = no NOT = { has_character_flag = gptmerc_dead_skirmish } }
+			}
+			custom_tooltip = gptmerc_dead_heir_tt
+		}
+		if = {
+			limit = {
+				exists = scope:gpt_merc_selected_knight scope:gpt_merc_selected_knight = { is_alive = no NOT = { has_character_flag = gptmerc_dead_skirmish } }
+			}
+			custom_tooltip = gptmerc_dead_skin_tt
+		}
+		if = {
+			limit = {
+				exists = scope:gpt_merc_follower_knight_1 scope:gpt_merc_follower_knight_1 = { is_alive = no NOT = { has_character_flag = gptmerc_dead_skirmish } }
+			}
+			custom_tooltip = gptmerc_dead_kin1_tt
+		}
+		if = {
+			limit = {
+				exists = scope:gpt_merc_follower_knight_2 scope:gpt_merc_follower_knight_2 = { is_alive = no NOT = { has_character_flag = gptmerc_dead_skirmish } }
+			}
+			custom_tooltip = gptmerc_dead_kin2_tt
+		}
+	}
+
+	left_portrait = {
+		trigger = { exists = scope:gpt_merc_follower_knight_2 scope:gpt_merc_follower_knight_2 = { is_alive = yes } }
+		character = scope:gpt_merc_follower_knight_2
+		triggered_animation = { trigger = { scope:gpt_merc_follower_knight_2 = { is_alive = no } } animation = dead }
+		triggered_animation = { trigger = { scope:gpt_merc_follower_knight_2 = { is_imprisoned = yes } } animation = prisondungeon }
+		triggered_animation = { trigger = { scope:gpt_merc_follower_knight_2 = { OR = { has_trait = wounded_1 has_trait = wounded_2 has_trait = wounded_3 } } } animation = severelywounded }
+		triggered_animation = { trigger = { scope:gpt_merc_follower_knight_2 = { NOR = { has_trait = wounded_1 has_trait = wounded_2 has_trait = wounded_3 } } } animation = war_over_loss }
+		triggered_animation = { trigger = { scope:gpt_merc_follower_knight_2 = { is_imprisoned = yes } } animation = prisondungeon }
+		triggered_animation = { trigger = { scope:gpt_merc_follower_knight_2 = { is_alive = no } } animation = dead }
+	}
+
+	center_portrait = {
+		trigger = { exists = scope:gpt_merc_follower_knight_1 scope:gpt_merc_follower_knight_1 = { is_alive = yes } }
+		character = scope:gpt_merc_follower_knight_1
+		triggered_animation = { trigger = { scope:gpt_merc_follower_knight_1 = { is_alive = no } } animation = dead }
+		triggered_animation = { trigger = { scope:gpt_merc_follower_knight_1 = { is_imprisoned = yes } } animation = prisondungeon }
+		triggered_animation = { trigger = { scope:gpt_merc_follower_knight_1 = { OR = { has_trait = wounded_1 has_trait = wounded_2 has_trait = wounded_3 } } } animation = severelywounded }
+		triggered_animation = { trigger = { scope:gpt_merc_follower_knight_1 = { NOR = { has_trait = wounded_1 has_trait = wounded_2 has_trait = wounded_3 } } } animation = worry }
+		triggered_animation = { trigger = { scope:gpt_merc_follower_knight_1 = { is_imprisoned = yes } } animation = prisondungeon }
+		triggered_animation = { trigger = { scope:gpt_merc_follower_knight_1 = { is_alive = no } } animation = dead }
+	}
+
+	right_portrait = {
+		trigger = { exists = scope:gpt_merc_selected_knight scope:gpt_merc_selected_knight = { is_alive = yes } }
+		character = scope:gpt_merc_selected_knight
+		triggered_animation = { trigger = { scope:gpt_merc_selected_knight = { is_alive = no } } animation = dead }
+		triggered_animation = { trigger = { scope:gpt_merc_selected_knight = { is_imprisoned = yes } } animation = prisondungeon }
+		triggered_animation = { trigger = { scope:gpt_merc_selected_knight = { OR = { has_trait = wounded_1 has_trait = wounded_2 has_trait = wounded_3 } } } animation = severelywounded }
+		triggered_animation = { trigger = { scope:gpt_merc_selected_knight = { NOR = { has_trait = wounded_1 has_trait = wounded_2 has_trait = wounded_3 } } } animation = disbelief }
+		triggered_animation = { trigger = { scope:gpt_merc_selected_knight = { is_imprisoned = yes } } animation = prisondungeon }
+		triggered_animation = { trigger = { scope:gpt_merc_selected_knight = { is_alive = no } } animation = dead }
+	}
+
+	lower_right_portrait = {
+		trigger = { exists = scope:gptmerc_confirmed_heir scope:gptmerc_confirmed_heir = { is_alive = yes } }
+		character = scope:gptmerc_confirmed_heir
+	}
+		
+	option = {
+		name = gptmerc_chevauchee_failure_end_option
+		hidden_effect = {
+			if = {
+				limit = {
+					exists = scope:gptmerc_confirmed_heir
+					scope:gptmerc_confirmed_heir = { is_alive = yes has_trait = gptmerc_absent }
+				}
+				scope:gptmerc_confirmed_heir = { remove_trait = gptmerc_absent }
+			 #	add_courtier = scope:gptmerc_confirmed_heir
+			}
+			if = {
+				limit = {
+					exists = scope:gptmerc_knight_1
+					scope:gptmerc_knight_1 = { is_alive = yes has_trait = gptmerc_absent }
+				}
+				scope:gptmerc_knight_1 = { remove_trait = gptmerc_absent }
+			 #	add_courtier = scope:gptmerc_knight_1
+			}
+			if = {
+				limit = {
+					exists = scope:gptmerc_knight_2
+					scope:gptmerc_knight_2 = { is_alive = yes has_trait = gptmerc_absent }
+				}
+				scope:gptmerc_knight_2 = { remove_trait = gptmerc_absent }
+			 #	add_courtier = scope:gptmerc_knight_2
+			}
+			if = {
+				limit = {
+					exists = scope:gptmerc_knight_3
+					scope:gptmerc_knight_3 = { is_alive = yes has_trait = gptmerc_absent }
+				}
+				scope:gptmerc_knight_3 = { remove_trait = gptmerc_absent }
+			 #	add_courtier = scope:gptmerc_knight_3
+			}
+		}
+		clear_saved_scope = gptmerc_heir
+		clear_saved_scope = gptmerc_confirmed_heir
+		clear_saved_scope = gptmerc_mraid
+		clear_saved_scope = gptmerc_knight_1
+		clear_saved_scope = gptmerc_knight_2
+		clear_saved_scope = gptmerc_knight_3
+		clear_saved_scope = gpt_merc_selected_knight
+		clear_saved_scope = gpt_merc_follower_knight_1
+		clear_saved_scope = gpt_merc_follower_knight_2
+		clear_saved_scope = gptmerc_target
+	}
+}

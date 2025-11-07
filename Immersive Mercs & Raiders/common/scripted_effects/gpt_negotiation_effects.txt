@@ -1,0 +1,221 @@
+﻿
+
+gpt_sucessful_negotiation_effect = {
+	send_interface_toast = {
+		title = gpt_sucessful_negotiation_toast_title
+		left_icon = root
+		right_icon = scope:saved_mercenary
+		scope:saved_mercenary = {
+			pay_short_term_gold = {
+				gold = gpt_merc_pay_short_term_gold
+				target = root
+			}
+			add_character_flag = { flag = gpt_sucessful_negotiation years = 5 }
+			add_opinion = {
+				modifier = upset_opinion
+				target = root
+				opinion = -10
+			}
+		}
+	}
+	hidden_effect = {
+		scope:saved_mercenary = {
+			add_short_term_gold = gpt_merc_pay_short_term_gold
+		}
+	}
+}
+
+gpt_failed_negotiation_effect = {
+	custom_tooltip = gpt_failure_negotiate_tt
+	send_interface_toast = {
+		title = gpt_failed_negotiation_toast_title
+		left_icon = root				
+		right_icon = scope:saved_mercenary
+		scope:saved_mercenary = {
+			add_opinion = {
+				modifier = irritated_opinion
+				target = root
+				opinion = -10
+			}
+			reverse_add_opinion = {
+				modifier = irritated_opinion
+				target = root
+				opinion = -10
+			}
+			add_character_flag = { flag = gpt_merc_unhappy years = 10 }
+		}
+	}
+	custom_tooltip = gpt_unsatisfied_captain_tt
+}
+
+gpt_rivalry_negotiation_effect = {
+	scope:saved_mercenary = {
+		set_relation_rival = root
+		add_character_flag = { flag = gpt_merc_unhappy years = 10 }
+	}
+}
+
+gpt_tied_negotiation_effect = {
+	custom_tooltip = gpt_tied_negotiate_tt
+	send_interface_toast = {
+		title = gpt_tied_negotiation_toast_title
+		left_icon = root				
+		right_icon = scope:saved_mercenary
+		scope:saved_mercenary = {
+			add_opinion = {
+				modifier = pleased_opinion
+				target = root
+				opinion = 12
+			}
+			add_character_flag = { flag = gpt_merc_happy years = 10 }
+		}
+	}
+	custom_tooltip = gpt_satisfied_captain_tt
+}
+
+
+
+
+
+
+
+
+
+gpt_merc_riot_sucessful_negotiation_effect = {
+	custom_tooltip = gpt_sucess_merc_confrontation_tt
+	send_interface_toast = {
+		title = gpt_sucessful_merc_confrontation_toast_title
+		left_icon = root
+		right_icon = scope:saved_mercenary
+		scope:saved_mercenary = {
+			add_opinion = {
+				modifier = upset_opinion
+				target = root
+				opinion = -20
+			}
+			add_prestige_level = -1
+		}
+	}
+}
+
+gpt_merc_riot_failed_negotiation_effect = {
+	custom_tooltip = gpt_failure_merc_confrontation_tt
+	send_interface_toast = {
+		title = gpt_failed_merc_confrontation_toast_title
+		left_icon = root				
+		right_icon = scope:saved_mercenary
+		scope:saved_mercenary = {
+			add_opinion = {
+				modifier = irritated_opinion
+				target = root
+				opinion = -20
+			}
+			reverse_add_opinion = {
+				modifier = irritated_opinion
+				target = root
+				opinion = -20
+			}
+		}
+		gpt_merc_riot_player_effect = yes
+	}
+}
+
+gpt_merc_riot_negative_effect = {
+	send_interface_toast = {
+		title = gpt_tied_merc_confrontation_toast_title
+		left_icon = root				
+		right_icon = scope:saved_mercenary
+		scope:saved_mercenary = {
+			add_opinion = {
+				modifier = pleased_opinion
+				target = root
+				opinion = 20
+			}
+		}
+		gpt_merc_riot_player_effect = yes
+	}
+}
+
+gpt_rivalry_merc_negotiation_effect = {
+	send_interface_toast = {
+		title = gpt_failed_merc_confrontation_toast_title
+		left_icon = root				
+		right_icon = scope:saved_mercenary
+		gpt_merc_riot_player_effect = yes
+		scope:saved_mercenary = {
+			set_relation_rival = root
+			add_character_flag = { flag = gpt_merc_unhappy years = 10 }
+		}
+	}
+}
+
+gpt_merc_riot_player_effect = {
+	add_prestige_experience = {
+		value = -100
+		multiply = highest_held_title_tier
+		max = {
+			value = monthly_character_income
+			multiply = 12
+			if = { limit = { monthly_character_income > 100 } multiply = 0.1 }
+			else_if = { limit = { monthly_character_income > 90 } multiply = 0.2 }
+			else_if = { limit = { monthly_character_income > 80 } multiply = 0.3 }
+			else_if = { limit = { monthly_character_income > 70 } multiply = 0.4 }
+			else_if = { limit = { monthly_character_income > 60 } multiply = 0.5 }
+			else_if = { limit = { monthly_character_income > 50 } multiply = 0.6 }
+			else_if = { limit = { monthly_character_income > 40 } multiply = 0.7 }
+			else_if = { limit = { monthly_character_income > 30 } multiply = 0.8 }
+			else_if = { limit = { monthly_character_income > 20 } multiply = 0.9 }
+			else = { }
+			multiply = -1
+		}
+	}
+	if = {
+		limit = {
+			has_legitimacy = yes
+		}
+		add_legitimacy = {
+			value = -20
+			multiply = highest_held_title_tier
+			max = {
+				value = monthly_character_income
+				multiply = 2
+				if = { limit = { monthly_character_income > 100 } multiply = 0.1 }
+				else_if = { limit = { monthly_character_income > 90 } multiply = 0.2 }
+				else_if = { limit = { monthly_character_income > 80 } multiply = 0.3 }
+				else_if = { limit = { monthly_character_income > 70 } multiply = 0.4 }
+				else_if = { limit = { monthly_character_income > 60 } multiply = 0.5 }
+				else_if = { limit = { monthly_character_income > 50 } multiply = 0.6 }
+				else_if = { limit = { monthly_character_income > 40 } multiply = 0.7 }
+				else_if = { limit = { monthly_character_income > 30 } multiply = 0.8 }
+				else_if = { limit = { monthly_character_income > 20 } multiply = 0.9 }
+				else = { }
+				multiply = -1
+			}
+		}
+	}
+	if = {
+		limit = {
+			government_has_flag = government_has_influence
+		}
+		change_influence = {
+			value = -20
+			multiply = highest_held_title_tier
+			max = {
+				value = monthly_character_income
+				multiply = 2
+				if = { limit = { monthly_character_income > 100 } multiply = 0.1 }
+				else_if = { limit = { monthly_character_income > 90 } multiply = 0.2 }
+				else_if = { limit = { monthly_character_income > 80 } multiply = 0.3 }
+				else_if = { limit = { monthly_character_income > 70 } multiply = 0.4 }
+				else_if = { limit = { monthly_character_income > 60 } multiply = 0.5 }
+				else_if = { limit = { monthly_character_income > 50 } multiply = 0.6 }
+				else_if = { limit = { monthly_character_income > 40 } multiply = 0.7 }
+				else_if = { limit = { monthly_character_income > 30 } multiply = 0.8 }
+				else_if = { limit = { monthly_character_income > 20 } multiply = 0.9 }
+				else = { }
+				multiply = -1
+			}
+		}
+	}
+}
+

@@ -1,0 +1,5330 @@
+﻿namespace = gpt_negotiate
+
+gpt_negotiate.0001 = {
+	type = character_event
+	title = gpt_craven_ruler_mercenary_title_1
+	desc = gpt_craven_ruler_mercenary_desc_1
+	theme = war
+	left_portrait = {
+		character = root
+		triggered_animation = { trigger = { ai_boldness > 20 } animation = aggressive_sword }
+		triggered_animation = { trigger = { ai_boldness > -20 } animation = disapproval }
+		triggered_animation = { trigger = { ai_boldness <= -20 } animation = thinking }
+	}
+	
+	right_portrait = {
+		character = scope:saved_mercenary
+		animation = idle
+	}
+
+	immediate = {
+		scope:saved_mercenary = {
+			add_character_flag = { flag = gpt_already_negotiated years = 6 }
+		}
+	}
+
+	option = {
+		trigger = { stewardship >= 16 }
+		name = gpt_craven_ruler_mercenary_option_1
+		random_list = {
+			50 = {
+				modifier = { add = 5 ai_boldness > 20 }
+				modifier = { add = 5 ai_boldness > 70 }
+				modifier = { add = -5 ai_boldness < -20 }
+				modifier = { add = -5 ai_boldness < -70 }
+				modifier = { add = stewardship }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -70 } }
+				gpt_sucessful_negotiation_effect = yes
+			}
+			50 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor < -70 } }
+				gpt_failed_negotiation_effect = yes
+			}
+			5 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -70 } }
+				gpt_rivalry_negotiation_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}	
+		
+	option = {
+		trigger = { diplomacy >= 16 }
+		name = gpt_craven_ruler_mercenary_option_2
+		random_list = {
+			50 = {
+				modifier = { add = 5 ai_boldness > 20 }
+				modifier = { add = 5 ai_boldness > 70 }
+				modifier = { add = -5 ai_boldness < -20 }
+				modifier = { add = -5 ai_boldness < -70 }
+				modifier = { add = diplomacy }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed < -20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed < -45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed < -70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed > 20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed > 45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed > 70 } }
+				gpt_sucessful_negotiation_effect = yes
+			}
+			50 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_rationality > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_rationality > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_rationality > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_rationality < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_rationality < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_rationality < -70 } }
+				gpt_failed_negotiation_effect = yes
+			}
+			5 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -70 } }
+				gpt_rivalry_negotiation_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}
+
+	option = {
+		trigger = { intrigue >= 16 }
+		name = gpt_craven_ruler_mercenary_option_3
+		random_list = {
+			50 = {
+				modifier = { add = 5 ai_boldness > 20 }
+				modifier = { add = 5 ai_boldness > 70 }
+				modifier = { add = -5 ai_boldness < -20 }
+				modifier = { add = -5 ai_boldness < -70 }
+				modifier = { add = intrigue }
+				modifier = { add = 5 scope:saved_mercenary = { ai_sociability > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_sociability > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_sociability > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_sociability < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_sociability < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_sociability < -70 } }
+				gpt_sucessful_negotiation_effect = yes
+			}
+			50 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_compassion > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_compassion > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_compassion > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_compassion < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_compassion < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_compassion < -70 } }
+				gpt_failed_negotiation_effect = yes
+			}
+			5 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -70 } }
+				gpt_rivalry_negotiation_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}
+
+	option = {
+		trigger = { learning >= 16 }
+		name = gpt_craven_ruler_mercenary_option_4
+		random_list = {
+			50 = {
+				modifier = { add = 5 ai_boldness > 20 }
+				modifier = { add = 5 ai_boldness > 70 }
+				modifier = { add = -5 ai_boldness < -20 }
+				modifier = { add = -5 ai_boldness < -70 }
+				modifier = { add = learning }
+				modifier = { add = 5 scope:saved_mercenary = { ai_zeal > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_zeal > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_zeal > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_zeal < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_zeal < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_zeal < -70 } }
+				gpt_sucessful_negotiation_effect = yes
+			}
+			50 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_rationality > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_rationality > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_rationality > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_rationality < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_rationality < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_rationality < -70 } }
+				gpt_failed_negotiation_effect = yes
+			}
+			5 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -70 } }
+				gpt_rivalry_negotiation_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}
+
+	option = {
+		trigger = { martial >= 16 }
+		name = gpt_craven_ruler_mercenary_option_5
+		random_list = {
+			50 = {
+				modifier = { add = 5 ai_boldness > 20 }
+				modifier = { add = 5 ai_boldness > 70 }
+				modifier = { add = -5 ai_boldness < -20 }
+				modifier = { add = -5 ai_boldness < -70 }
+				modifier = { add = martial }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness < -20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness < -45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness < -70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness > 20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness > 45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness > 70 } }
+				gpt_sucessful_negotiation_effect = yes
+			}
+			50 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 70 } }
+				gpt_failed_negotiation_effect = yes
+			}
+			5 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -70 } }
+				gpt_rivalry_negotiation_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}
+
+	option = {
+		name = gpt_craven_ruler_mercenary_option_6
+		gpt_tied_negotiation_effect = yes
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}
+}
+gpt_negotiate.0002 = {
+	type = character_event
+	title = gpt_craven_ruler_mercenary_title_2
+	desc = gpt_craven_ruler_mercenary_desc_2
+	theme = war
+	left_portrait = {
+		character = root
+		triggered_animation = { trigger = { ai_boldness > 20 } animation = aggressive_sword }
+		triggered_animation = { trigger = { ai_boldness > -20 } animation = disapproval }
+		triggered_animation = { trigger = { ai_boldness <= -20 } animation = thinking }
+	}
+	
+	right_portrait = {
+		character = scope:saved_mercenary
+		animation = idle
+	}
+
+	immediate = {
+		scope:saved_mercenary = {
+			add_character_flag = { flag = gpt_already_negotiated years = 6 }
+		}
+	}
+		
+	option = {
+		trigger = { stewardship >= 16 }
+		name = gpt_craven_ruler_mercenary_option_1
+		random_list = {
+			50 = {
+				modifier = { add = 5 ai_boldness > 20 }
+				modifier = { add = 5 ai_boldness > 70 }
+				modifier = { add = -5 ai_boldness < -20 }
+				modifier = { add = -5 ai_boldness < -70 }
+				modifier = { add = stewardship }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -70 } }
+				gpt_sucessful_negotiation_effect = yes
+			}
+			50 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor < -70 } }
+				gpt_failed_negotiation_effect = yes
+			}
+			5 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -70 } }
+				gpt_rivalry_negotiation_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}	
+		
+	option = {
+		trigger = { diplomacy >= 16 }
+		name = gpt_craven_ruler_mercenary_option_2
+		random_list = {
+			50 = {
+				modifier = { add = 5 ai_boldness > 20 }
+				modifier = { add = 5 ai_boldness > 70 }
+				modifier = { add = -5 ai_boldness < -20 }
+				modifier = { add = -5 ai_boldness < -70 }
+				modifier = { add = diplomacy }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed < -20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed < -45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed < -70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed > 20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed > 45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed > 70 } }
+				gpt_sucessful_negotiation_effect = yes
+			}
+			50 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_rationality > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_rationality > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_rationality > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_rationality < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_rationality < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_rationality < -70 } }
+				gpt_failed_negotiation_effect = yes
+			}
+			5 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -70 } }
+				gpt_rivalry_negotiation_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}
+
+	option = {
+		trigger = { intrigue >= 16 }
+		name = gpt_craven_ruler_mercenary_option_3
+		random_list = {
+			50 = {
+				modifier = { add = 5 ai_boldness > 20 }
+				modifier = { add = 5 ai_boldness > 70 }
+				modifier = { add = -5 ai_boldness < -20 }
+				modifier = { add = -5 ai_boldness < -70 }
+				modifier = { add = intrigue }
+				modifier = { add = 5 scope:saved_mercenary = { ai_sociability > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_sociability > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_sociability > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_sociability < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_sociability < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_sociability < -70 } }
+				gpt_sucessful_negotiation_effect = yes
+			}
+			50 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_compassion > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_compassion > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_compassion > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_compassion < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_compassion < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_compassion < -70 } }
+				gpt_failed_negotiation_effect = yes
+			}
+			5 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -70 } }
+				gpt_rivalry_negotiation_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}
+
+	option = {
+		trigger = { learning >= 16 }
+		name = gpt_craven_ruler_mercenary_option_4
+		random_list = {
+			50 = {
+				modifier = { add = 5 ai_boldness > 20 }
+				modifier = { add = 5 ai_boldness > 70 }
+				modifier = { add = -5 ai_boldness < -20 }
+				modifier = { add = -5 ai_boldness < -70 }
+				modifier = { add = learning }
+				modifier = { add = 5 scope:saved_mercenary = { ai_zeal > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_zeal > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_zeal > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_zeal < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_zeal < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_zeal < -70 } }
+				gpt_sucessful_negotiation_effect = yes
+			}
+			50 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_rationality > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_rationality > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_rationality > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_rationality < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_rationality < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_rationality < -70 } }
+				gpt_failed_negotiation_effect = yes
+			}
+			5 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -70 } }
+				gpt_rivalry_negotiation_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}
+
+	option = {
+		trigger = { martial >= 16 }
+		name = gpt_craven_ruler_mercenary_option_5
+		random_list = {
+			50 = {
+				modifier = { add = 5 ai_boldness > 20 }
+				modifier = { add = 5 ai_boldness > 70 }
+				modifier = { add = -5 ai_boldness < -20 }
+				modifier = { add = -5 ai_boldness < -70 }
+				modifier = { add = martial }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness < -20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness < -45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness < -70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness > 20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness > 45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness > 70 } }
+				gpt_sucessful_negotiation_effect = yes
+			}
+			50 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 70 } }
+				gpt_failed_negotiation_effect = yes
+			}
+			5 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -70 } }
+				gpt_rivalry_negotiation_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}
+
+	option = {
+		name = gpt_craven_ruler_mercenary_option_6
+		gpt_tied_negotiation_effect = yes
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}
+}
+gpt_negotiate.0003 = {
+	type = character_event
+	title = gpt_craven_ruler_mercenary_title_3
+	desc = gpt_craven_ruler_mercenary_desc_3
+	theme = war
+	left_portrait = {
+		character = root
+		triggered_animation = { trigger = { ai_boldness > 20 } animation = aggressive_sword }
+		triggered_animation = { trigger = { ai_boldness > -20 } animation = disapproval }
+		triggered_animation = { trigger = { ai_boldness <= -20 } animation = thinking }
+	}
+	
+	right_portrait = {
+		character = scope:saved_mercenary
+		animation = idle
+	}
+
+	immediate = {
+		scope:saved_mercenary = {
+			add_character_flag = { flag = gpt_already_negotiated years = 6 }
+		}
+	}
+		
+	option = {
+		trigger = { stewardship >= 16 }
+		name = gpt_craven_ruler_mercenary_option_1
+		random_list = {
+			50 = {
+				modifier = { add = 5 ai_boldness > 20 }
+				modifier = { add = 5 ai_boldness > 70 }
+				modifier = { add = -5 ai_boldness < -20 }
+				modifier = { add = -5 ai_boldness < -70 }
+				modifier = { add = stewardship }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -70 } }
+				gpt_sucessful_negotiation_effect = yes
+			}
+			50 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor < -70 } }
+				gpt_failed_negotiation_effect = yes
+			}
+			5 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -70 } }
+				gpt_rivalry_negotiation_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}	
+		
+	option = {
+		trigger = { diplomacy >= 16 }
+		name = gpt_craven_ruler_mercenary_option_2
+		random_list = {
+			50 = {
+				modifier = { add = 5 ai_boldness > 20 }
+				modifier = { add = 5 ai_boldness > 70 }
+				modifier = { add = -5 ai_boldness < -20 }
+				modifier = { add = -5 ai_boldness < -70 }
+				modifier = { add = diplomacy }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed < -20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed < -45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed < -70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed > 20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed > 45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed > 70 } }
+				gpt_sucessful_negotiation_effect = yes
+			}
+			50 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_rationality > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_rationality > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_rationality > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_rationality < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_rationality < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_rationality < -70 } }
+				gpt_failed_negotiation_effect = yes
+			}
+			5 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -70 } }
+				gpt_rivalry_negotiation_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}
+
+	option = {
+		trigger = { intrigue >= 16 }
+		name = gpt_craven_ruler_mercenary_option_3
+		random_list = {
+			50 = {
+				modifier = { add = 5 ai_boldness > 20 }
+				modifier = { add = 5 ai_boldness > 70 }
+				modifier = { add = -5 ai_boldness < -20 }
+				modifier = { add = -5 ai_boldness < -70 }
+				modifier = { add = intrigue }
+				modifier = { add = 5 scope:saved_mercenary = { ai_sociability > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_sociability > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_sociability > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_sociability < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_sociability < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_sociability < -70 } }
+				gpt_sucessful_negotiation_effect = yes
+			}
+			50 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_compassion > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_compassion > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_compassion > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_compassion < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_compassion < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_compassion < -70 } }
+				gpt_failed_negotiation_effect = yes
+			}
+			5 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -70 } }
+				gpt_rivalry_negotiation_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}
+
+	option = {
+		trigger = { learning >= 16 }
+		name = gpt_craven_ruler_mercenary_option_4
+		random_list = {
+			50 = {
+				modifier = { add = 5 ai_boldness > 20 }
+				modifier = { add = 5 ai_boldness > 70 }
+				modifier = { add = -5 ai_boldness < -20 }
+				modifier = { add = -5 ai_boldness < -70 }
+				modifier = { add = learning }
+				modifier = { add = 5 scope:saved_mercenary = { ai_zeal > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_zeal > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_zeal > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_zeal < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_zeal < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_zeal < -70 } }
+				gpt_sucessful_negotiation_effect = yes
+			}
+			50 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_rationality > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_rationality > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_rationality > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_rationality < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_rationality < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_rationality < -70 } }
+				gpt_failed_negotiation_effect = yes
+			}
+			5 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -70 } }
+				gpt_rivalry_negotiation_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}
+
+	option = {
+		trigger = { martial >= 16 }
+		name = gpt_craven_ruler_mercenary_option_5
+		random_list = {
+			50 = {
+				modifier = { add = 5 ai_boldness > 20 }
+				modifier = { add = 5 ai_boldness > 70 }
+				modifier = { add = -5 ai_boldness < -20 }
+				modifier = { add = -5 ai_boldness < -70 }
+				modifier = { add = martial }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness < -20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness < -45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness < -70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness > 20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness > 45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness > 70 } }
+				gpt_sucessful_negotiation_effect = yes
+			}
+			50 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 70 } }
+				gpt_failed_negotiation_effect = yes
+			}
+			5 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -70 } }
+				gpt_rivalry_negotiation_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}
+
+	option = {
+		name = gpt_craven_ruler_mercenary_option_6
+		gpt_tied_negotiation_effect = yes
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}
+}
+
+gpt_negotiate.0004 = {
+	type = character_event
+	title = gpt_pragmatic_ruler_mercenary_title_1
+	desc = gpt_pragmatic_ruler_mercenary_desc_1
+	theme = war
+	left_portrait = {
+		character = root
+		triggered_animation = { trigger = { ai_boldness > 20 } animation = aggressive_sword }
+		triggered_animation = { trigger = { ai_boldness > -20 } animation = disapproval }
+		triggered_animation = { trigger = { ai_boldness <= -20 } animation = thinking }
+	}
+	
+	right_portrait = {
+		character = scope:saved_mercenary
+		animation = idle
+	}
+
+	immediate = {
+		scope:saved_mercenary = {
+			add_character_flag = { flag = gpt_already_negotiated years = 6 }
+		}
+	}
+		
+	option = {
+		trigger = { stewardship >= 16 }
+		name = gpt_pragmatic_ruler_mercenary_option_1
+		random_list = {
+			50 = {
+				modifier = { add = 5 ai_boldness > 20 }
+				modifier = { add = 5 ai_boldness > 70 }
+				modifier = { add = -5 ai_boldness < -20 }
+				modifier = { add = -5 ai_boldness < -70 }
+				modifier = { add = stewardship }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -70 } }
+				gpt_sucessful_negotiation_effect = yes
+			}
+			50 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor < -70 } }
+				gpt_failed_negotiation_effect = yes
+			}
+			5 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -70 } }
+				gpt_rivalry_negotiation_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}	
+		
+	option = {
+		trigger = { diplomacy >= 16 }
+		name = gpt_pragmatic_ruler_mercenary_option_2
+		random_list = {
+			50 = {
+				modifier = { add = 5 ai_boldness > 20 }
+				modifier = { add = 5 ai_boldness > 70 }
+				modifier = { add = -5 ai_boldness < -20 }
+				modifier = { add = -5 ai_boldness < -70 }
+				modifier = { add = diplomacy }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed < -20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed < -45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed < -70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed > 20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed > 45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed > 70 } }
+				gpt_sucessful_negotiation_effect = yes
+			}
+			50 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_rationality > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_rationality > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_rationality > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_rationality < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_rationality < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_rationality < -70 } }
+				gpt_failed_negotiation_effect = yes
+			}
+			5 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -70 } }
+				gpt_rivalry_negotiation_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}
+
+	option = {
+		trigger = { intrigue >= 16 }
+		name = gpt_pragmatic_ruler_mercenary_option_3
+		random_list = {
+			50 = {
+				modifier = { add = 5 ai_boldness > 20 }
+				modifier = { add = 5 ai_boldness > 70 }
+				modifier = { add = -5 ai_boldness < -20 }
+				modifier = { add = -5 ai_boldness < -70 }
+				modifier = { add = intrigue }
+				modifier = { add = 5 scope:saved_mercenary = { ai_sociability > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_sociability > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_sociability > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_sociability < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_sociability < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_sociability < -70 } }
+				gpt_sucessful_negotiation_effect = yes
+			}
+			50 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_compassion > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_compassion > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_compassion > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_compassion < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_compassion < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_compassion < -70 } }
+				gpt_failed_negotiation_effect = yes
+			}
+			5 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -70 } }
+				gpt_rivalry_negotiation_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}
+
+	option = {
+		trigger = { learning >= 16 }
+		name = gpt_pragmatic_ruler_mercenary_option_4
+		random_list = {
+			50 = {
+				modifier = { add = 5 ai_boldness > 20 }
+				modifier = { add = 5 ai_boldness > 70 }
+				modifier = { add = -5 ai_boldness < -20 }
+				modifier = { add = -5 ai_boldness < -70 }
+				modifier = { add = learning }
+				modifier = { add = 5 scope:saved_mercenary = { ai_zeal > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_zeal > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_zeal > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_zeal < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_zeal < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_zeal < -70 } }
+				gpt_sucessful_negotiation_effect = yes
+			}
+			50 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_rationality > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_rationality > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_rationality > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_rationality < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_rationality < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_rationality < -70 } }
+				gpt_failed_negotiation_effect = yes
+			}
+			5 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -70 } }
+				gpt_rivalry_negotiation_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}
+
+	option = {
+		trigger = { martial >= 16 }
+		name = gpt_pragmatic_ruler_mercenary_option_5
+		random_list = {
+			50 = {
+				modifier = { add = 5 ai_boldness > 20 }
+				modifier = { add = 5 ai_boldness > 70 }
+				modifier = { add = -5 ai_boldness < -20 }
+				modifier = { add = -5 ai_boldness < -70 }
+				modifier = { add = martial }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness < -20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness < -45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness < -70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness > 20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness > 45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness > 70 } }
+				gpt_sucessful_negotiation_effect = yes
+			}
+			50 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 70 } }
+				gpt_failed_negotiation_effect = yes
+			}
+			5 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -70 } }
+				gpt_rivalry_negotiation_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}
+
+	option = {
+		name = gpt_pragmatic_ruler_mercenary_option_6
+		gpt_tied_negotiation_effect = yes
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}
+}
+gpt_negotiate.0005 = {
+	type = character_event
+	title = gpt_pragmatic_ruler_mercenary_title_2
+	desc = gpt_pragmatic_ruler_mercenary_desc_2
+	theme = war
+	left_portrait = {
+		character = root
+		triggered_animation = { trigger = { ai_boldness > 20 } animation = aggressive_sword }
+		triggered_animation = { trigger = { ai_boldness > -20 } animation = disapproval }
+		triggered_animation = { trigger = { ai_boldness <= -20 } animation = thinking }
+	}
+	
+	right_portrait = {
+		character = scope:saved_mercenary
+		animation = idle
+	}
+
+	immediate = {
+		scope:saved_mercenary = {
+			add_character_flag = { flag = gpt_already_negotiated years = 6 }
+		}
+	}
+		
+	option = {
+		trigger = { stewardship >= 16 }
+		name = gpt_pragmatic_ruler_mercenary_option_1
+		random_list = {
+			50 = {
+				modifier = { add = 5 ai_boldness > 20 }
+				modifier = { add = 5 ai_boldness > 70 }
+				modifier = { add = -5 ai_boldness < -20 }
+				modifier = { add = -5 ai_boldness < -70 }
+				modifier = { add = stewardship }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -70 } }
+				gpt_sucessful_negotiation_effect = yes
+			}
+			50 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor < -70 } }
+				gpt_failed_negotiation_effect = yes
+			}
+			5 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -70 } }
+				gpt_rivalry_negotiation_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}	
+		
+	option = {
+		trigger = { diplomacy >= 16 }
+		name = gpt_pragmatic_ruler_mercenary_option_2
+		random_list = {
+			50 = {
+				modifier = { add = 5 ai_boldness > 20 }
+				modifier = { add = 5 ai_boldness > 70 }
+				modifier = { add = -5 ai_boldness < -20 }
+				modifier = { add = -5 ai_boldness < -70 }
+				modifier = { add = diplomacy }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed < -20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed < -45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed < -70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed > 20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed > 45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed > 70 } }
+				gpt_sucessful_negotiation_effect = yes
+			}
+			50 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_rationality > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_rationality > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_rationality > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_rationality < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_rationality < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_rationality < -70 } }
+				gpt_failed_negotiation_effect = yes
+			}
+			5 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -70 } }
+				gpt_rivalry_negotiation_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}
+
+	option = {
+		trigger = { intrigue >= 16 }
+		name = gpt_pragmatic_ruler_mercenary_option_3
+		random_list = {
+			50 = {
+				modifier = { add = 5 ai_boldness > 20 }
+				modifier = { add = 5 ai_boldness > 70 }
+				modifier = { add = -5 ai_boldness < -20 }
+				modifier = { add = -5 ai_boldness < -70 }
+				modifier = { add = intrigue }
+				modifier = { add = 5 scope:saved_mercenary = { ai_sociability > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_sociability > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_sociability > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_sociability < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_sociability < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_sociability < -70 } }
+				gpt_sucessful_negotiation_effect = yes
+			}
+			50 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_compassion > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_compassion > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_compassion > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_compassion < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_compassion < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_compassion < -70 } }
+				gpt_failed_negotiation_effect = yes
+			}
+			5 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -70 } }
+				gpt_rivalry_negotiation_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}
+
+	option = {
+		trigger = { learning >= 16 }
+		name = gpt_pragmatic_ruler_mercenary_option_4
+		random_list = {
+			50 = {
+				modifier = { add = 5 ai_boldness > 20 }
+				modifier = { add = 5 ai_boldness > 70 }
+				modifier = { add = -5 ai_boldness < -20 }
+				modifier = { add = -5 ai_boldness < -70 }
+				modifier = { add = learning }
+				modifier = { add = 5 scope:saved_mercenary = { ai_zeal > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_zeal > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_zeal > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_zeal < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_zeal < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_zeal < -70 } }
+				gpt_sucessful_negotiation_effect = yes
+			}
+			50 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_rationality > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_rationality > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_rationality > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_rationality < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_rationality < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_rationality < -70 } }
+				gpt_failed_negotiation_effect = yes
+			}
+			5 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -70 } }
+				gpt_rivalry_negotiation_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}
+
+	option = {
+		trigger = { martial >= 16 }
+		name = gpt_pragmatic_ruler_mercenary_option_5
+		random_list = {
+			50 = {
+				modifier = { add = 5 ai_boldness > 20 }
+				modifier = { add = 5 ai_boldness > 70 }
+				modifier = { add = -5 ai_boldness < -20 }
+				modifier = { add = -5 ai_boldness < -70 }
+				modifier = { add = martial }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness < -20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness < -45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness < -70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness > 20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness > 45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness > 70 } }
+				gpt_sucessful_negotiation_effect = yes
+			}
+			50 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 70 } }
+				gpt_failed_negotiation_effect = yes
+			}
+			5 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -70 } }
+				gpt_rivalry_negotiation_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}
+
+	option = {
+		name = gpt_pragmatic_ruler_mercenary_option_6
+		gpt_tied_negotiation_effect = yes
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}
+}
+gpt_negotiate.0006 = {
+	type = character_event
+	title = gpt_pragmatic_ruler_mercenary_title_3
+	desc = gpt_pragmatic_ruler_mercenary_desc_3
+	theme = war
+	left_portrait = {
+		character = root
+		triggered_animation = { trigger = { ai_boldness > 20 } animation = aggressive_sword }
+		triggered_animation = { trigger = { ai_boldness > -20 } animation = disapproval }
+		triggered_animation = { trigger = { ai_boldness <= -20 } animation = thinking }
+	}
+	
+	right_portrait = {
+		character = scope:saved_mercenary
+		animation = idle
+	}
+
+	immediate = {
+		scope:saved_mercenary = {
+			add_character_flag = { flag = gpt_already_negotiated years = 6 }
+		}
+	}
+		
+	option = {
+		trigger = { stewardship >= 16 }
+		name = gpt_pragmatic_ruler_mercenary_option_1
+		random_list = {
+			50 = {
+				modifier = { add = 5 ai_boldness > 20 }
+				modifier = { add = 5 ai_boldness > 70 }
+				modifier = { add = -5 ai_boldness < -20 }
+				modifier = { add = -5 ai_boldness < -70 }
+				modifier = { add = stewardship }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -70 } }
+				gpt_sucessful_negotiation_effect = yes
+			}
+			50 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor < -70 } }
+				gpt_failed_negotiation_effect = yes
+			}
+			5 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -70 } }
+				gpt_rivalry_negotiation_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}	
+		
+	option = {
+		trigger = { diplomacy >= 16 }
+		name = gpt_pragmatic_ruler_mercenary_option_2
+		random_list = {
+			50 = {
+				modifier = { add = 5 ai_boldness > 20 }
+				modifier = { add = 5 ai_boldness > 70 }
+				modifier = { add = -5 ai_boldness < -20 }
+				modifier = { add = -5 ai_boldness < -70 }
+				modifier = { add = diplomacy }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed < -20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed < -45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed < -70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed > 20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed > 45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed > 70 } }
+				gpt_sucessful_negotiation_effect = yes
+			}
+			50 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_rationality > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_rationality > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_rationality > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_rationality < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_rationality < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_rationality < -70 } }
+				gpt_failed_negotiation_effect = yes
+			}
+			5 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -70 } }
+				gpt_rivalry_negotiation_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}
+
+	option = {
+		trigger = { intrigue >= 16 }
+		name = gpt_pragmatic_ruler_mercenary_option_3
+		random_list = {
+			50 = {
+				modifier = { add = 5 ai_boldness > 20 }
+				modifier = { add = 5 ai_boldness > 70 }
+				modifier = { add = -5 ai_boldness < -20 }
+				modifier = { add = -5 ai_boldness < -70 }
+				modifier = { add = intrigue }
+				modifier = { add = 5 scope:saved_mercenary = { ai_sociability > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_sociability > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_sociability > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_sociability < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_sociability < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_sociability < -70 } }
+				gpt_sucessful_negotiation_effect = yes
+			}
+			50 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_compassion > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_compassion > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_compassion > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_compassion < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_compassion < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_compassion < -70 } }
+				gpt_failed_negotiation_effect = yes
+			}
+			5 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -70 } }
+				gpt_rivalry_negotiation_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}
+
+	option = {
+		trigger = { learning >= 16 }
+		name = gpt_pragmatic_ruler_mercenary_option_4
+		random_list = {
+			50 = {
+				modifier = { add = 5 ai_boldness > 20 }
+				modifier = { add = 5 ai_boldness > 70 }
+				modifier = { add = -5 ai_boldness < -20 }
+				modifier = { add = -5 ai_boldness < -70 }
+				modifier = { add = learning }
+				modifier = { add = 5 scope:saved_mercenary = { ai_zeal > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_zeal > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_zeal > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_zeal < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_zeal < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_zeal < -70 } }
+				gpt_sucessful_negotiation_effect = yes
+			}
+			50 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_rationality > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_rationality > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_rationality > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_rationality < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_rationality < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_rationality < -70 } }
+				gpt_failed_negotiation_effect = yes
+			}
+			5 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -70 } }
+				gpt_rivalry_negotiation_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}
+
+	option = {
+		trigger = { martial >= 16 }
+		name = gpt_pragmatic_ruler_mercenary_option_5
+		random_list = {
+			50 = {
+				modifier = { add = 5 ai_boldness > 20 }
+				modifier = { add = 5 ai_boldness > 70 }
+				modifier = { add = -5 ai_boldness < -20 }
+				modifier = { add = -5 ai_boldness < -70 }
+				modifier = { add = martial }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness < -20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness < -45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness < -70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness > 20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness > 45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness > 70 } }
+				gpt_sucessful_negotiation_effect = yes
+			}
+			50 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 70 } }
+				gpt_failed_negotiation_effect = yes
+			}
+			5 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -70 } }
+				gpt_rivalry_negotiation_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}
+
+	option = {
+		name = gpt_pragmatic_ruler_mercenary_option_6
+		gpt_tied_negotiation_effect = yes
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}
+}
+
+gpt_negotiate.0007 = {
+	type = character_event
+	title = gpt_bold_ruler_mercenary_title_1
+	desc = gpt_bold_ruler_mercenary_desc_1
+	theme = war
+	left_portrait = {
+		character = root
+		triggered_animation = { trigger = { ai_boldness > 20 } animation = aggressive_sword }
+		triggered_animation = { trigger = { ai_boldness > -20 } animation = disapproval }
+		triggered_animation = { trigger = { ai_boldness <= -20 } animation = thinking }
+	}
+	
+	right_portrait = {
+		character = scope:saved_mercenary
+		animation = idle
+	}
+
+	immediate = {
+		scope:saved_mercenary = {
+			add_character_flag = { flag = gpt_already_negotiated years = 6 }
+		}
+	}
+		
+	option = {
+		trigger = { stewardship >= 16 }
+		name = gpt_bold_ruler_mercenary_option_1
+		random_list = {
+			50 = {
+				modifier = { add = 5 ai_boldness > 20 }
+				modifier = { add = 5 ai_boldness > 70 }
+				modifier = { add = -5 ai_boldness < -20 }
+				modifier = { add = -5 ai_boldness < -70 }
+				modifier = { add = stewardship }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -70 } }
+				gpt_sucessful_negotiation_effect = yes
+			}
+			50 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor < -70 } }
+				gpt_failed_negotiation_effect = yes
+			}
+			5 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -70 } }
+				gpt_rivalry_negotiation_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}	
+		
+	option = {
+		trigger = { diplomacy >= 16 }
+		name = gpt_bold_ruler_mercenary_option_2
+		random_list = {
+			50 = {
+				modifier = { add = 5 ai_boldness > 20 }
+				modifier = { add = 5 ai_boldness > 70 }
+				modifier = { add = -5 ai_boldness < -20 }
+				modifier = { add = -5 ai_boldness < -70 }
+				modifier = { add = diplomacy }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed < -20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed < -45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed < -70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed > 20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed > 45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed > 70 } }
+				gpt_sucessful_negotiation_effect = yes
+			}
+			50 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_rationality > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_rationality > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_rationality > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_rationality < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_rationality < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_rationality < -70 } }
+				gpt_failed_negotiation_effect = yes
+			}
+			5 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -70 } }
+				gpt_rivalry_negotiation_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}
+
+	option = {
+		trigger = { intrigue >= 16 }
+		name = gpt_bold_ruler_mercenary_option_3
+		random_list = {
+			50 = {
+				modifier = { add = 5 ai_boldness > 20 }
+				modifier = { add = 5 ai_boldness > 70 }
+				modifier = { add = -5 ai_boldness < -20 }
+				modifier = { add = -5 ai_boldness < -70 }
+				modifier = { add = intrigue }
+				modifier = { add = 5 scope:saved_mercenary = { ai_sociability > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_sociability > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_sociability > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_sociability < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_sociability < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_sociability < -70 } }
+				gpt_sucessful_negotiation_effect = yes
+			}
+			50 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_compassion > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_compassion > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_compassion > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_compassion < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_compassion < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_compassion < -70 } }
+				gpt_failed_negotiation_effect = yes
+			}
+			5 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -70 } }
+				gpt_rivalry_negotiation_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}
+
+	option = {
+		trigger = { learning >= 16 }
+		name = gpt_bold_ruler_mercenary_option_4
+		random_list = {
+			50 = {
+				modifier = { add = 5 ai_boldness > 20 }
+				modifier = { add = 5 ai_boldness > 70 }
+				modifier = { add = -5 ai_boldness < -20 }
+				modifier = { add = -5 ai_boldness < -70 }
+				modifier = { add = learning }
+				modifier = { add = 5 scope:saved_mercenary = { ai_zeal > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_zeal > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_zeal > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_zeal < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_zeal < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_zeal < -70 } }
+				gpt_sucessful_negotiation_effect = yes
+			}
+			50 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_rationality > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_rationality > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_rationality > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_rationality < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_rationality < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_rationality < -70 } }
+				gpt_failed_negotiation_effect = yes
+			}
+			5 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -70 } }
+				gpt_rivalry_negotiation_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}
+
+	option = {
+		trigger = { martial >= 16 }
+		name = gpt_bold_ruler_mercenary_option_5
+		random_list = {
+			50 = {
+				modifier = { add = 5 ai_boldness > 20 }
+				modifier = { add = 5 ai_boldness > 70 }
+				modifier = { add = -5 ai_boldness < -20 }
+				modifier = { add = -5 ai_boldness < -70 }
+				modifier = { add = martial }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness < -20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness < -45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness < -70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness > 20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness > 45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness > 70 } }
+				gpt_sucessful_negotiation_effect = yes
+			}
+			50 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 70 } }
+				gpt_failed_negotiation_effect = yes
+			}
+			5 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -70 } }
+				gpt_rivalry_negotiation_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}
+
+	option = {
+		name = gpt_bold_ruler_mercenary_option_6
+		gpt_tied_negotiation_effect = yes
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}
+}
+gpt_negotiate.0008 = {
+	type = character_event
+	title = gpt_bold_ruler_mercenary_title_2
+	desc = gpt_bold_ruler_mercenary_desc_2
+	theme = war
+	left_portrait = {
+		character = root
+		triggered_animation = { trigger = { ai_boldness > 20 } animation = aggressive_sword }
+		triggered_animation = { trigger = { ai_boldness > -20 } animation = disapproval }
+		triggered_animation = { trigger = { ai_boldness <= -20 } animation = thinking }
+	}
+	
+	right_portrait = {
+		character = scope:saved_mercenary
+		animation = idle
+	}
+
+	immediate = {
+		scope:saved_mercenary = {
+			add_character_flag = { flag = gpt_already_negotiated years = 6 }
+		}
+	}
+		
+	option = {
+		trigger = { stewardship >= 16 }
+		name = gpt_bold_ruler_mercenary_option_1
+		random_list = {
+			50 = {
+				modifier = { add = 5 ai_boldness > 20 }
+				modifier = { add = 5 ai_boldness > 70 }
+				modifier = { add = -5 ai_boldness < -20 }
+				modifier = { add = -5 ai_boldness < -70 }
+				modifier = { add = stewardship }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -70 } }
+				gpt_sucessful_negotiation_effect = yes
+			}
+			50 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor < -70 } }
+				gpt_failed_negotiation_effect = yes
+			}
+			5 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -70 } }
+				gpt_rivalry_negotiation_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}	
+		
+	option = {
+		trigger = { diplomacy >= 16 }
+		name = gpt_bold_ruler_mercenary_option_2
+		random_list = {
+			50 = {
+				modifier = { add = 5 ai_boldness > 20 }
+				modifier = { add = 5 ai_boldness > 70 }
+				modifier = { add = -5 ai_boldness < -20 }
+				modifier = { add = -5 ai_boldness < -70 }
+				modifier = { add = diplomacy }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed < -20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed < -45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed < -70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed > 20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed > 45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed > 70 } }
+				gpt_sucessful_negotiation_effect = yes
+			}
+			50 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_rationality > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_rationality > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_rationality > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_rationality < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_rationality < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_rationality < -70 } }
+				gpt_failed_negotiation_effect = yes
+			}
+			5 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -70 } }
+				gpt_rivalry_negotiation_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}
+
+	option = {
+		trigger = { intrigue >= 16 }
+		name = gpt_bold_ruler_mercenary_option_3
+		random_list = {
+			50 = {
+				modifier = { add = 5 ai_boldness > 20 }
+				modifier = { add = 5 ai_boldness > 70 }
+				modifier = { add = -5 ai_boldness < -20 }
+				modifier = { add = -5 ai_boldness < -70 }
+				modifier = { add = intrigue }
+				modifier = { add = 5 scope:saved_mercenary = { ai_sociability > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_sociability > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_sociability > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_sociability < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_sociability < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_sociability < -70 } }
+				gpt_sucessful_negotiation_effect = yes
+			}
+			50 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_compassion > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_compassion > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_compassion > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_compassion < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_compassion < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_compassion < -70 } }
+				gpt_failed_negotiation_effect = yes
+			}
+			5 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -70 } }
+				gpt_rivalry_negotiation_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}
+
+	option = {
+		trigger = { learning >= 16 }
+		name = gpt_bold_ruler_mercenary_option_4
+		random_list = {
+			50 = {
+				modifier = { add = 5 ai_boldness > 20 }
+				modifier = { add = 5 ai_boldness > 70 }
+				modifier = { add = -5 ai_boldness < -20 }
+				modifier = { add = -5 ai_boldness < -70 }
+				modifier = { add = learning }
+				modifier = { add = 5 scope:saved_mercenary = { ai_zeal > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_zeal > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_zeal > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_zeal < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_zeal < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_zeal < -70 } }
+				gpt_sucessful_negotiation_effect = yes
+			}
+			50 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_rationality > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_rationality > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_rationality > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_rationality < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_rationality < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_rationality < -70 } }
+				gpt_failed_negotiation_effect = yes
+			}
+			5 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -70 } }
+				gpt_rivalry_negotiation_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}
+
+	option = {
+		trigger = { martial >= 16 }
+		name = gpt_bold_ruler_mercenary_option_5
+		random_list = {
+			50 = {
+				modifier = { add = 5 ai_boldness > 20 }
+				modifier = { add = 5 ai_boldness > 70 }
+				modifier = { add = -5 ai_boldness < -20 }
+				modifier = { add = -5 ai_boldness < -70 }
+				modifier = { add = martial }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness < -20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness < -45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness < -70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness > 20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness > 45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness > 70 } }
+				gpt_sucessful_negotiation_effect = yes
+			}
+			50 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 70 } }
+				gpt_failed_negotiation_effect = yes
+			}
+			5 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -70 } }
+				gpt_rivalry_negotiation_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}
+
+	option = {
+		name = gpt_bold_ruler_mercenary_option_6
+		gpt_tied_negotiation_effect = yes
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}
+}
+gpt_negotiate.0009 = {
+	type = character_event
+	title = gpt_bold_ruler_mercenary_title_3
+	desc = gpt_bold_ruler_mercenary_desc_3
+	theme = war
+	left_portrait = {
+		character = root
+		triggered_animation = { trigger = { ai_boldness > 20 } animation = aggressive_sword }
+		triggered_animation = { trigger = { ai_boldness > -20 } animation = disapproval }
+		triggered_animation = { trigger = { ai_boldness <= -20 } animation = thinking }
+	}
+	
+	right_portrait = {
+		character = scope:saved_mercenary
+		animation = idle
+	}
+
+	immediate = {
+		scope:saved_mercenary = {
+			add_character_flag = { flag = gpt_already_negotiated years = 6 }
+		}
+	}
+		
+	option = {
+		trigger = { stewardship >= 16 }
+		name = gpt_bold_ruler_mercenary_option_1
+		random_list = {
+			50 = {
+				modifier = { add = 5 ai_boldness > 20 }
+				modifier = { add = 5 ai_boldness > 70 }
+				modifier = { add = -5 ai_boldness < -20 }
+				modifier = { add = -5 ai_boldness < -70 }
+				modifier = { add = stewardship }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -70 } }
+				gpt_sucessful_negotiation_effect = yes
+			}
+			50 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor < -70 } }
+				gpt_failed_negotiation_effect = yes
+			}
+			5 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -70 } }
+				gpt_rivalry_negotiation_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}	
+		
+	option = {
+		trigger = { diplomacy >= 16 }
+		name = gpt_bold_ruler_mercenary_option_2
+		random_list = {
+			50 = {
+				modifier = { add = 5 ai_boldness > 20 }
+				modifier = { add = 5 ai_boldness > 70 }
+				modifier = { add = -5 ai_boldness < -20 }
+				modifier = { add = -5 ai_boldness < -70 }
+				modifier = { add = diplomacy }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed < -20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed < -45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed < -70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed > 20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed > 45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed > 70 } }
+				gpt_sucessful_negotiation_effect = yes
+			}
+			50 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_rationality > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_rationality > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_rationality > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_rationality < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_rationality < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_rationality < -70 } }
+				gpt_failed_negotiation_effect = yes
+			}
+			5 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -70 } }
+				gpt_rivalry_negotiation_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}
+
+	option = {
+		trigger = { intrigue >= 16 }
+		name = gpt_bold_ruler_mercenary_option_3
+		random_list = {
+			50 = {
+				modifier = { add = 5 ai_boldness > 20 }
+				modifier = { add = 5 ai_boldness > 70 }
+				modifier = { add = -5 ai_boldness < -20 }
+				modifier = { add = -5 ai_boldness < -70 }
+				modifier = { add = intrigue }
+				modifier = { add = 5 scope:saved_mercenary = { ai_sociability > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_sociability > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_sociability > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_sociability < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_sociability < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_sociability < -70 } }
+				gpt_sucessful_negotiation_effect = yes
+			}
+			50 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_compassion > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_compassion > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_compassion > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_compassion < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_compassion < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_compassion < -70 } }
+				gpt_failed_negotiation_effect = yes
+			}
+			5 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -70 } }
+				gpt_rivalry_negotiation_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}
+
+	option = {
+		trigger = { learning >= 16 }
+		name = gpt_bold_ruler_mercenary_option_4
+		random_list = {
+			50 = {
+				modifier = { add = 5 ai_boldness > 20 }
+				modifier = { add = 5 ai_boldness > 70 }
+				modifier = { add = -5 ai_boldness < -20 }
+				modifier = { add = -5 ai_boldness < -70 }
+				modifier = { add = learning }
+				modifier = { add = 5 scope:saved_mercenary = { ai_zeal > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_zeal > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_zeal > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_zeal < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_zeal < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_zeal < -70 } }
+				gpt_sucessful_negotiation_effect = yes
+			}
+			50 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_rationality > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_rationality > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_rationality > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_rationality < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_rationality < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_rationality < -70 } }
+				gpt_failed_negotiation_effect = yes
+			}
+			5 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness < -70 } }
+				gpt_rivalry_negotiation_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}
+
+	option = {
+		trigger = { martial >= 16 }
+		name = gpt_bold_ruler_mercenary_option_5
+		random_list = {
+			50 = {
+				modifier = { add = 5 ai_boldness > 20 }
+				modifier = { add = 5 ai_boldness > 70 }
+				modifier = { add = -5 ai_boldness < -20 }
+				modifier = { add = -5 ai_boldness < -70 }
+				modifier = { add = martial }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness < -20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness < -45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_boldness < -70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness > 20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness > 45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_boldness > 70 } }
+				gpt_sucessful_negotiation_effect = yes
+			}
+			50 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 70 } }
+				gpt_failed_negotiation_effect = yes
+			}
+			5 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -70 } }
+				gpt_rivalry_negotiation_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}
+
+	option = {
+		name = gpt_bold_ruler_mercenary_option_6
+		gpt_tied_negotiation_effect = yes
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}
+}
+
+
+
+
+#High Greed
+gpt_negotiate.0041 = {
+	type = character_event
+	title = gpt_mercenary_pillage_title_1
+	desc = gpt_mercenary_pillage_desc_1
+	theme = war
+ #	window = big_event_window
+
+	right_portrait = {
+		character = scope:saved_mercenary
+		triggered_animation = { trigger = { scope:saved_mercenary.ai_greed > 20 } animation = menacing }
+		triggered_animation = { trigger = { scope:saved_mercenary.ai_greed > -20 } animation = steward }
+		triggered_animation = { trigger = { scope:saved_mercenary.ai_greed <= -20 } animation = wedding_drunk }
+	}
+
+	immediate = {
+		scope:saved_mercenary = {
+			add_character_flag = { flag = gpt_merc_riot_cd years = 4 }
+		}
+	}
+
+	option = {
+		name = gpt_mercenary_pillage_option_1
+		stress_impact = {
+			craven = 12
+			shy = 8
+			trusting = 8
+		}
+		stress_impact = {
+			brave = -6
+			honest = -6
+		}
+		random_list = {
+			50 = {
+				modifier = { add = 5 ai_boldness > 20 }
+				modifier = { add = 5 ai_boldness > 70 }
+				modifier = { add = -5 ai_boldness < -20 }
+				modifier = { add = -5 ai_boldness < -70 }
+				modifier = { add = stewardship }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -70 } }
+				gpt_merc_riot_sucessful_negotiation_effect = yes
+			}
+			50 = {
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 70 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -70 } }
+				gpt_merc_riot_failed_negotiation_effect = yes
+			}
+			5 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -70 } }
+				gpt_rivalry_merc_negotiation_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}		
+
+	option = {
+		name = gpt_mercenary_pillage_option_2
+		stress_impact = {
+			greedy = 12
+			zealous = 8
+			brave = 8
+		}
+		stress_impact = {
+			craven = -6
+			content = -6
+		}
+		pay_short_term_gold = {
+			target = scope:saved_mercenary
+			gold = gpt_merc_riot_gold
+		}
+	}
+
+	option = {
+		trigger = { dread >= 40 }
+		name = gpt_mercenary_pillage_option_3
+		stress_impact = {
+			compassionate = 12
+			forgiving = 16
+			lazy = 12
+		}
+		stress_impact = {
+			sadistic = -6
+			vengeful = -8
+		}
+		add_dread = 10
+		add_tyranny = 12
+		scope:saved_mercenary = {
+			add_opinion = {
+				modifier = irritated_opinion
+				target = root
+				opinion = -20
+			}
+		}
+	}
+
+	option = {
+		name = gpt_mercenary_pillage_option_4
+		stress_impact = {
+			vengeful = 12
+			wrathful = 8
+			paranoid = 6
+		}
+		stress_impact = {
+			lazy = -6
+			arbitrary = -6
+		}
+		gpt_merc_riot_negative_effect = yes
+	}
+}
+gpt_negotiate.0042 = {
+	type = character_event
+	title = gpt_mercenary_pillage_title_2
+	desc = gpt_mercenary_pillage_desc_2
+	theme = war
+ #	window = big_event_window
+
+	right_portrait = {
+		character = scope:saved_mercenary
+		triggered_animation = { trigger = { scope:saved_mercenary.ai_greed > 20 } animation = menacing }
+		triggered_animation = { trigger = { scope:saved_mercenary.ai_greed > -20 } animation = steward }
+		triggered_animation = { trigger = { scope:saved_mercenary.ai_greed <= -20 } animation = wedding_drunk }
+	}
+
+	immediate = {
+		scope:saved_mercenary = {
+			add_character_flag = { flag = gpt_merc_riot_cd years = 4 }
+		}
+	}
+
+	option = {
+		name = gpt_mercenary_pillage_option_1
+		stress_impact = {
+			craven = 12
+			shy = 8
+			trusting = 8
+		}
+		stress_impact = {
+			brave = -6
+			honest = -6
+		}
+		random_list = {
+			50 = {
+				modifier = { add = 5 ai_boldness > 20 }
+				modifier = { add = 5 ai_boldness > 70 }
+				modifier = { add = -5 ai_boldness < -20 }
+				modifier = { add = -5 ai_boldness < -70 }
+				modifier = { add = stewardship }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -70 } }
+				gpt_merc_riot_sucessful_negotiation_effect = yes
+			}
+			50 = {
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 70 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -70 } }
+				gpt_merc_riot_failed_negotiation_effect = yes
+			}
+			5 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -70 } }
+				gpt_rivalry_merc_negotiation_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}		
+
+	option = {
+		name = gpt_mercenary_pillage_option_2
+		stress_impact = {
+			greedy = 12
+			zealous = 8
+			brave = 8
+		}
+		stress_impact = {
+			craven = -6
+			content = -6
+		}
+		pay_short_term_gold = {
+			target = scope:saved_mercenary
+			gold = gpt_merc_riot_gold
+		}
+	}
+
+	option = {
+		trigger = { dread >= 40 }
+		name = gpt_mercenary_pillage_option_3
+		stress_impact = {
+			compassionate = 12
+			forgiving = 16
+			lazy = 12
+		}
+		stress_impact = {
+			sadistic = -6
+			vengeful = -8
+		}
+		add_dread = 10
+		add_tyranny = 12
+		scope:saved_mercenary = {
+			add_opinion = {
+				modifier = irritated_opinion
+				target = root
+				opinion = -20
+			}
+		}
+	}
+
+	option = {
+		name = gpt_mercenary_pillage_option_4
+		stress_impact = {
+			vengeful = 12
+			wrathful = 8
+			paranoid = 6
+		}
+		stress_impact = {
+			lazy = -6
+			arbitrary = -6
+		}
+		gpt_merc_riot_negative_effect = yes
+	}
+}
+gpt_negotiate.0043 = {
+	type = character_event
+	title = gpt_mercenary_pillage_title_3
+	desc = gpt_mercenary_pillage_desc_3
+	theme = war
+ #	window = big_event_window
+
+	right_portrait = {
+		character = scope:saved_mercenary
+		triggered_animation = { trigger = { scope:saved_mercenary.ai_greed > 20 } animation = menacing }
+		triggered_animation = { trigger = { scope:saved_mercenary.ai_greed > -20 } animation = steward }
+		triggered_animation = { trigger = { scope:saved_mercenary.ai_greed <= -20 } animation = wedding_drunk }
+	}
+
+	immediate = {
+		scope:saved_mercenary = {
+			add_character_flag = { flag = gpt_merc_riot_cd years = 4 }
+		}
+	}
+
+	option = {
+		name = gpt_mercenary_pillage_option_1
+		stress_impact = {
+			craven = 12
+			shy = 8
+			trusting = 8
+		}
+		stress_impact = {
+			brave = -6
+			honest = -6
+		}
+		random_list = {
+			50 = {
+				modifier = { add = 5 ai_boldness > 20 }
+				modifier = { add = 5 ai_boldness > 70 }
+				modifier = { add = -5 ai_boldness < -20 }
+				modifier = { add = -5 ai_boldness < -70 }
+				modifier = { add = stewardship }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -70 } }
+				gpt_merc_riot_sucessful_negotiation_effect = yes
+			}
+			50 = {
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 70 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -70 } }
+				gpt_merc_riot_failed_negotiation_effect = yes
+			}
+			5 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -70 } }
+				gpt_rivalry_merc_negotiation_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}		
+
+	option = {
+		name = gpt_mercenary_pillage_option_2
+		stress_impact = {
+			greedy = 12
+			zealous = 8
+			brave = 8
+		}
+		stress_impact = {
+			craven = -6
+			content = -6
+		}
+		pay_short_term_gold = {
+			target = scope:saved_mercenary
+			gold = gpt_merc_riot_gold
+		}
+	}
+
+	option = {
+		trigger = { dread >= 40 }
+		name = gpt_mercenary_pillage_option_3
+		stress_impact = {
+			compassionate = 12
+			forgiving = 16
+			lazy = 12
+		}
+		stress_impact = {
+			sadistic = -6
+			vengeful = -8
+		}
+		add_dread = 10
+		add_tyranny = 12
+		scope:saved_mercenary = {
+			add_opinion = {
+				modifier = irritated_opinion
+				target = root
+				opinion = -20
+			}
+		}
+	}
+
+	option = {
+		name = gpt_mercenary_pillage_option_4
+		stress_impact = {
+			vengeful = 12
+			wrathful = 8
+			paranoid = 6
+		}
+		stress_impact = {
+			lazy = -6
+			arbitrary = -6
+		}
+		gpt_merc_riot_negative_effect = yes
+	}
+}
+gpt_negotiate.0044 = {
+	type = character_event
+	title = gpt_mercenary_trade_title_1
+	desc = gpt_mercenary_trade_desc_1
+	theme = war
+ #	window = big_event_window
+
+	right_portrait = {
+		character = scope:saved_mercenary
+		triggered_animation = { trigger = { scope:saved_mercenary.ai_greed > 20 } animation = menacing }
+		triggered_animation = { trigger = { scope:saved_mercenary.ai_greed > -20 } animation = steward }
+		triggered_animation = { trigger = { scope:saved_mercenary.ai_greed <= -20 } animation = wedding_drunk }
+	}
+
+	immediate = {
+		scope:saved_mercenary = {
+			add_character_flag = { flag = gpt_merc_riot_cd years = 4 }
+		}
+	}
+
+	option = {
+		name = gpt_mercenary_pillage_option_1
+		stress_impact = {
+			craven = 12
+			shy = 8
+			trusting = 8
+		}
+		stress_impact = {
+			brave = -6
+			honest = -6
+		}
+		random_list = {
+			50 = {
+				modifier = { add = 5 ai_boldness > 20 }
+				modifier = { add = 5 ai_boldness > 70 }
+				modifier = { add = -5 ai_boldness < -20 }
+				modifier = { add = -5 ai_boldness < -70 }
+				modifier = { add = stewardship }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -70 } }
+				gpt_merc_riot_sucessful_negotiation_effect = yes
+			}
+			50 = {
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 70 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -70 } }
+				gpt_merc_riot_failed_negotiation_effect = yes
+			}
+			5 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -70 } }
+				gpt_rivalry_merc_negotiation_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}		
+
+	option = {
+		name = gpt_mercenary_pillage_option_2
+		stress_impact = {
+			greedy = 12
+			zealous = 8
+			brave = 8
+		}
+		stress_impact = {
+			craven = -6
+			content = -6
+		}
+		pay_short_term_gold = {
+			target = scope:saved_mercenary
+			gold = gpt_merc_riot_gold
+		}
+	}
+
+	option = {
+		trigger = { dread >= 40 }
+		name = gpt_mercenary_pillage_option_3
+		stress_impact = {
+			compassionate = 12
+			forgiving = 16
+			lazy = 12
+		}
+		stress_impact = {
+			sadistic = -6
+			vengeful = -8
+		}
+		add_dread = 10
+		add_tyranny = 12
+		scope:saved_mercenary = {
+			add_opinion = {
+				modifier = irritated_opinion
+				target = root
+				opinion = -20
+			}
+		}
+	}
+
+	option = {
+		name = gpt_mercenary_pillage_option_4
+		stress_impact = {
+			vengeful = 12
+			wrathful = 8
+			paranoid = 6
+		}
+		stress_impact = {
+			lazy = -6
+			arbitrary = -6
+		}
+		gpt_merc_riot_negative_effect = yes
+	}
+}
+gpt_negotiate.0045 = {
+	type = character_event
+	title = gpt_mercenary_trade_title_2
+	desc = gpt_mercenary_trade_desc_2
+	theme = war
+ #	window = big_event_window
+
+	right_portrait = {
+		character = scope:saved_mercenary
+		triggered_animation = { trigger = { scope:saved_mercenary.ai_greed > 20 } animation = menacing }
+		triggered_animation = { trigger = { scope:saved_mercenary.ai_greed > -20 } animation = steward }
+		triggered_animation = { trigger = { scope:saved_mercenary.ai_greed <= -20 } animation = wedding_drunk }
+	}
+
+	immediate = {
+		scope:saved_mercenary = {
+			add_character_flag = { flag = gpt_merc_riot_cd years = 4 }
+		}
+	}
+
+	option = {
+		name = gpt_mercenary_pillage_option_1
+		stress_impact = {
+			craven = 12
+			shy = 8
+			trusting = 8
+		}
+		stress_impact = {
+			brave = -6
+			honest = -6
+		}
+		random_list = {
+			50 = {
+				modifier = { add = 5 ai_boldness > 20 }
+				modifier = { add = 5 ai_boldness > 70 }
+				modifier = { add = -5 ai_boldness < -20 }
+				modifier = { add = -5 ai_boldness < -70 }
+				modifier = { add = stewardship }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -70 } }
+				gpt_merc_riot_sucessful_negotiation_effect = yes
+			}
+			50 = {
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 70 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -70 } }
+				gpt_merc_riot_failed_negotiation_effect = yes
+			}
+			5 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -70 } }
+				gpt_rivalry_merc_negotiation_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}		
+
+	option = {
+		name = gpt_mercenary_pillage_option_2
+		stress_impact = {
+			greedy = 12
+			zealous = 8
+			brave = 8
+		}
+		stress_impact = {
+			craven = -6
+			content = -6
+		}
+		pay_short_term_gold = {
+			target = scope:saved_mercenary
+			gold = gpt_merc_riot_gold
+		}
+	}
+
+	option = {
+		trigger = { dread >= 40 }
+		name = gpt_mercenary_pillage_option_3
+		stress_impact = {
+			compassionate = 12
+			forgiving = 16
+			lazy = 12
+		}
+		stress_impact = {
+			sadistic = -6
+			vengeful = -8
+		}
+		add_dread = 10
+		add_tyranny = 12
+		scope:saved_mercenary = {
+			add_opinion = {
+				modifier = irritated_opinion
+				target = root
+				opinion = -20
+			}
+		}
+	}
+
+	option = {
+		name = gpt_mercenary_pillage_option_4
+		stress_impact = {
+			vengeful = 12
+			wrathful = 8
+			paranoid = 6
+		}
+		stress_impact = {
+			lazy = -6
+			arbitrary = -6
+		}
+		gpt_merc_riot_negative_effect = yes
+	}
+}
+gpt_negotiate.0046 = {
+	type = character_event
+	title = gpt_mercenary_trade_title_3
+	desc = gpt_mercenary_trade_desc_3
+	theme = war
+ #	window = big_event_window
+
+	right_portrait = {
+		character = scope:saved_mercenary
+		triggered_animation = { trigger = { scope:saved_mercenary.ai_greed > 20 } animation = menacing }
+		triggered_animation = { trigger = { scope:saved_mercenary.ai_greed > -20 } animation = steward }
+		triggered_animation = { trigger = { scope:saved_mercenary.ai_greed <= -20 } animation = wedding_drunk }
+	}
+
+	immediate = {
+		scope:saved_mercenary = {
+			add_character_flag = { flag = gpt_merc_riot_cd years = 4 }
+		}
+	}
+
+	option = {
+		name = gpt_mercenary_pillage_option_1
+		stress_impact = {
+			craven = 12
+			shy = 8
+			trusting = 8
+		}
+		stress_impact = {
+			brave = -6
+			honest = -6
+		}
+		random_list = {
+			50 = {
+				modifier = { add = 5 ai_boldness > 20 }
+				modifier = { add = 5 ai_boldness > 70 }
+				modifier = { add = -5 ai_boldness < -20 }
+				modifier = { add = -5 ai_boldness < -70 }
+				modifier = { add = stewardship }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -70 } }
+				gpt_merc_riot_sucessful_negotiation_effect = yes
+			}
+			50 = {
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 70 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -70 } }
+				gpt_merc_riot_failed_negotiation_effect = yes
+			}
+			5 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -70 } }
+				gpt_rivalry_merc_negotiation_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}		
+
+	option = {
+		name = gpt_mercenary_pillage_option_2
+		stress_impact = {
+			greedy = 12
+			zealous = 8
+			brave = 8
+		}
+		stress_impact = {
+			craven = -6
+			content = -6
+		}
+		pay_short_term_gold = {
+			target = scope:saved_mercenary
+			gold = gpt_merc_riot_gold
+		}
+	}
+
+	option = {
+		trigger = { dread >= 40 }
+		name = gpt_mercenary_pillage_option_3
+		stress_impact = {
+			compassionate = 12
+			forgiving = 16
+			lazy = 12
+		}
+		stress_impact = {
+			sadistic = -6
+			vengeful = -8
+		}
+		add_dread = 10
+		add_tyranny = 12
+		scope:saved_mercenary = {
+			add_opinion = {
+				modifier = irritated_opinion
+				target = root
+				opinion = -20
+			}
+		}
+	}
+
+	option = {
+		name = gpt_mercenary_pillage_option_4
+		stress_impact = {
+			vengeful = 12
+			wrathful = 8
+			paranoid = 6
+		}
+		stress_impact = {
+			lazy = -6
+			arbitrary = -6
+		}
+		gpt_merc_riot_negative_effect = yes
+	}
+}
+
+#Mid Greed
+gpt_negotiate.0051 = {
+	type = character_event
+	title = gpt_mercenary_diplomatic_title_1
+	desc = gpt_mercenary_diplomatic_desc_1
+	theme = war
+ #	window = big_event_window
+
+	right_portrait = {
+		character = scope:saved_mercenary
+		triggered_animation = { trigger = { scope:saved_mercenary.ai_greed > 20 } animation = menacing }
+		triggered_animation = { trigger = { scope:saved_mercenary.ai_greed > -20 } animation = steward }
+		triggered_animation = { trigger = { scope:saved_mercenary.ai_greed <= -20 } animation = wedding_drunk }
+	}
+
+	immediate = {
+		scope:saved_mercenary = {
+			add_character_flag = { flag = gpt_merc_riot_cd years = 4 }
+		}
+	}
+
+	option = {
+		name = gpt_mercenary_pillage_option_1
+		stress_impact = {
+			craven = 12
+			shy = 8
+			trusting = 8
+		}
+		stress_impact = {
+			brave = -6
+			honest = -6
+		}
+		random_list = {
+			50 = {
+				modifier = { add = 5 ai_boldness > 20 }
+				modifier = { add = 5 ai_boldness > 70 }
+				modifier = { add = -5 ai_boldness < -20 }
+				modifier = { add = -5 ai_boldness < -70 }
+				modifier = { add = stewardship }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -70 } }
+				gpt_merc_riot_sucessful_negotiation_effect = yes
+			}
+			50 = {
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 70 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -70 } }
+				gpt_merc_riot_failed_negotiation_effect = yes
+			}
+			5 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -70 } }
+				gpt_rivalry_merc_negotiation_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}		
+
+	option = {
+		name = gpt_mercenary_pillage_option_2
+		stress_impact = {
+			greedy = 12
+			zealous = 8
+			brave = 8
+		}
+		stress_impact = {
+			craven = -6
+			content = -6
+		}
+		pay_short_term_gold = {
+			target = scope:saved_mercenary
+			gold = gpt_merc_riot_gold
+		}
+	}
+
+	option = {
+		trigger = { dread >= 40 }
+		name = gpt_mercenary_pillage_option_3
+		stress_impact = {
+			compassionate = 12
+			forgiving = 16
+			lazy = 12
+		}
+		stress_impact = {
+			sadistic = -6
+			vengeful = -8
+		}
+		add_dread = 10
+		add_tyranny = 12
+		scope:saved_mercenary = {
+			add_opinion = {
+				modifier = irritated_opinion
+				target = root
+				opinion = -20
+			}
+		}
+	}
+
+	option = {
+		name = gpt_mercenary_pillage_option_4
+		stress_impact = {
+			vengeful = 12
+			wrathful = 8
+			paranoid = 6
+		}
+		stress_impact = {
+			lazy = -6
+			arbitrary = -6
+		}
+		gpt_merc_riot_negative_effect = yes
+	}
+}
+gpt_negotiate.0052 = {
+	type = character_event
+	title = gpt_mercenary_diplomatic_title_2
+	desc = gpt_mercenary_diplomatic_desc_2
+	theme = war
+ #	window = big_event_window
+
+	right_portrait = {
+		character = scope:saved_mercenary
+		triggered_animation = { trigger = { scope:saved_mercenary.ai_greed > 20 } animation = menacing }
+		triggered_animation = { trigger = { scope:saved_mercenary.ai_greed > -20 } animation = steward }
+		triggered_animation = { trigger = { scope:saved_mercenary.ai_greed <= -20 } animation = wedding_drunk }
+	}
+
+	immediate = {
+		scope:saved_mercenary = {
+			add_character_flag = { flag = gpt_merc_riot_cd years = 4 }
+		}
+	}
+
+	option = {
+		name = gpt_mercenary_pillage_option_1
+		stress_impact = {
+			craven = 12
+			shy = 8
+			trusting = 8
+		}
+		stress_impact = {
+			brave = -6
+			honest = -6
+		}
+		random_list = {
+			50 = {
+				modifier = { add = 5 ai_boldness > 20 }
+				modifier = { add = 5 ai_boldness > 70 }
+				modifier = { add = -5 ai_boldness < -20 }
+				modifier = { add = -5 ai_boldness < -70 }
+				modifier = { add = stewardship }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -70 } }
+				gpt_merc_riot_sucessful_negotiation_effect = yes
+			}
+			50 = {
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 70 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -70 } }
+				gpt_merc_riot_failed_negotiation_effect = yes
+			}
+			5 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -70 } }
+				gpt_rivalry_merc_negotiation_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}		
+
+	option = {
+		name = gpt_mercenary_pillage_option_2
+		stress_impact = {
+			greedy = 12
+			zealous = 8
+			brave = 8
+		}
+		stress_impact = {
+			craven = -6
+			content = -6
+		}
+		pay_short_term_gold = {
+			target = scope:saved_mercenary
+			gold = gpt_merc_riot_gold
+		}
+	}
+
+	option = {
+		trigger = { dread >= 40 }
+		name = gpt_mercenary_pillage_option_3
+		stress_impact = {
+			compassionate = 12
+			forgiving = 16
+			lazy = 12
+		}
+		stress_impact = {
+			sadistic = -6
+			vengeful = -8
+		}
+		add_dread = 10
+		add_tyranny = 12
+		scope:saved_mercenary = {
+			add_opinion = {
+				modifier = irritated_opinion
+				target = root
+				opinion = -20
+			}
+		}
+	}
+
+	option = {
+		name = gpt_mercenary_pillage_option_4
+		stress_impact = {
+			vengeful = 12
+			wrathful = 8
+			paranoid = 6
+		}
+		stress_impact = {
+			lazy = -6
+			arbitrary = -6
+		}
+		gpt_merc_riot_negative_effect = yes
+	}
+}
+gpt_negotiate.0053 = {
+	type = character_event
+	title = gpt_mercenary_smuggling_title_1
+	desc = gpt_mercenary_smuggling_desc_1
+	theme = war
+ #	window = big_event_window
+
+	right_portrait = {
+		character = scope:saved_mercenary
+		triggered_animation = { trigger = { scope:saved_mercenary.ai_greed > 20 } animation = menacing }
+		triggered_animation = { trigger = { scope:saved_mercenary.ai_greed > -20 } animation = steward }
+		triggered_animation = { trigger = { scope:saved_mercenary.ai_greed <= -20 } animation = wedding_drunk }
+	}
+
+	immediate = {
+		scope:saved_mercenary = {
+			add_character_flag = { flag = gpt_merc_riot_cd years = 4 }
+		}
+	}
+
+	option = {
+		name = gpt_mercenary_pillage_option_1
+		stress_impact = {
+			craven = 12
+			shy = 8
+			trusting = 8
+		}
+		stress_impact = {
+			brave = -6
+			honest = -6
+		}
+		random_list = {
+			50 = {
+				modifier = { add = 5 ai_boldness > 20 }
+				modifier = { add = 5 ai_boldness > 70 }
+				modifier = { add = -5 ai_boldness < -20 }
+				modifier = { add = -5 ai_boldness < -70 }
+				modifier = { add = stewardship }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -70 } }
+				gpt_merc_riot_sucessful_negotiation_effect = yes
+			}
+			50 = {
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 70 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -70 } }
+				gpt_merc_riot_failed_negotiation_effect = yes
+			}
+			5 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -70 } }
+				gpt_rivalry_merc_negotiation_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}		
+
+	option = {
+		name = gpt_mercenary_pillage_option_2
+		stress_impact = {
+			greedy = 12
+			zealous = 8
+			brave = 8
+		}
+		stress_impact = {
+			craven = -6
+			content = -6
+		}
+		pay_short_term_gold = {
+			target = scope:saved_mercenary
+			gold = gpt_merc_riot_gold
+		}
+	}
+
+	option = {
+		trigger = { dread >= 40 }
+		name = gpt_mercenary_pillage_option_3
+		stress_impact = {
+			compassionate = 12
+			forgiving = 16
+			lazy = 12
+		}
+		stress_impact = {
+			sadistic = -6
+			vengeful = -8
+		}
+		add_dread = 10
+		add_tyranny = 12
+		scope:saved_mercenary = {
+			add_opinion = {
+				modifier = irritated_opinion
+				target = root
+				opinion = -20
+			}
+		}
+	}
+
+	option = {
+		name = gpt_mercenary_pillage_option_4
+		stress_impact = {
+			vengeful = 12
+			wrathful = 8
+			paranoid = 6
+		}
+		stress_impact = {
+			lazy = -6
+			arbitrary = -6
+		}
+		gpt_merc_riot_negative_effect = yes
+	}
+}
+gpt_negotiate.0054 = {
+	type = character_event
+	title = gpt_mercenary_smuggling_title_2
+	desc = gpt_mercenary_smuggling_desc_2
+	theme = war
+ #	window = big_event_window
+
+	right_portrait = {
+		character = scope:saved_mercenary
+		triggered_animation = { trigger = { scope:saved_mercenary.ai_greed > 20 } animation = menacing }
+		triggered_animation = { trigger = { scope:saved_mercenary.ai_greed > -20 } animation = steward }
+		triggered_animation = { trigger = { scope:saved_mercenary.ai_greed <= -20 } animation = wedding_drunk }
+	}
+
+	immediate = {
+		scope:saved_mercenary = {
+			add_character_flag = { flag = gpt_merc_riot_cd years = 4 }
+		}
+	}
+
+	option = {
+		name = gpt_mercenary_pillage_option_1
+		stress_impact = {
+			craven = 12
+			shy = 8
+			trusting = 8
+		}
+		stress_impact = {
+			brave = -6
+			honest = -6
+		}
+		random_list = {
+			50 = {
+				modifier = { add = 5 ai_boldness > 20 }
+				modifier = { add = 5 ai_boldness > 70 }
+				modifier = { add = -5 ai_boldness < -20 }
+				modifier = { add = -5 ai_boldness < -70 }
+				modifier = { add = stewardship }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -70 } }
+				gpt_merc_riot_sucessful_negotiation_effect = yes
+			}
+			50 = {
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 70 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -70 } }
+				gpt_merc_riot_failed_negotiation_effect = yes
+			}
+			5 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -70 } }
+				gpt_rivalry_merc_negotiation_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}		
+
+	option = {
+		name = gpt_mercenary_pillage_option_2
+		stress_impact = {
+			greedy = 12
+			zealous = 8
+			brave = 8
+		}
+		stress_impact = {
+			craven = -6
+			content = -6
+		}
+		pay_short_term_gold = {
+			target = scope:saved_mercenary
+			gold = gpt_merc_riot_gold
+		}
+	}
+
+	option = {
+		trigger = { dread >= 40 }
+		name = gpt_mercenary_pillage_option_3
+		stress_impact = {
+			compassionate = 12
+			forgiving = 16
+			lazy = 12
+		}
+		stress_impact = {
+			sadistic = -6
+			vengeful = -8
+		}
+		add_dread = 10
+		add_tyranny = 12
+		scope:saved_mercenary = {
+			add_opinion = {
+				modifier = irritated_opinion
+				target = root
+				opinion = -20
+			}
+		}
+	}
+
+	option = {
+		name = gpt_mercenary_pillage_option_4
+		stress_impact = {
+			vengeful = 12
+			wrathful = 8
+			paranoid = 6
+		}
+		stress_impact = {
+			lazy = -6
+			arbitrary = -6
+		}
+		gpt_merc_riot_negative_effect = yes
+	}
+}
+gpt_negotiate.0055 = {
+	type = character_event
+	title = gpt_mercenary_smuggling_title_3
+	desc = gpt_mercenary_smuggling_desc_3
+	theme = war
+ #	window = big_event_window
+
+	right_portrait = {
+		character = scope:saved_mercenary
+		triggered_animation = { trigger = { scope:saved_mercenary.ai_greed > 20 } animation = menacing }
+		triggered_animation = { trigger = { scope:saved_mercenary.ai_greed > -20 } animation = steward }
+		triggered_animation = { trigger = { scope:saved_mercenary.ai_greed <= -20 } animation = wedding_drunk }
+	}
+
+	immediate = {
+		scope:saved_mercenary = {
+			add_character_flag = { flag = gpt_merc_riot_cd years = 4 }
+		}
+	}
+
+	option = {
+		name = gpt_mercenary_pillage_option_1
+		stress_impact = {
+			craven = 12
+			shy = 8
+			trusting = 8
+		}
+		stress_impact = {
+			brave = -6
+			honest = -6
+		}
+		random_list = {
+			50 = {
+				modifier = { add = 5 ai_boldness > 20 }
+				modifier = { add = 5 ai_boldness > 70 }
+				modifier = { add = -5 ai_boldness < -20 }
+				modifier = { add = -5 ai_boldness < -70 }
+				modifier = { add = stewardship }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -70 } }
+				gpt_merc_riot_sucessful_negotiation_effect = yes
+			}
+			50 = {
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 70 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -70 } }
+				gpt_merc_riot_failed_negotiation_effect = yes
+			}
+			5 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -70 } }
+				gpt_rivalry_merc_negotiation_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}		
+
+	option = {
+		name = gpt_mercenary_pillage_option_2
+		stress_impact = {
+			greedy = 12
+			zealous = 8
+			brave = 8
+		}
+		stress_impact = {
+			craven = -6
+			content = -6
+		}
+		pay_short_term_gold = {
+			target = scope:saved_mercenary
+			gold = gpt_merc_riot_gold
+		}
+	}
+
+	option = {
+		trigger = { dread >= 40 }
+		name = gpt_mercenary_pillage_option_3
+		stress_impact = {
+			compassionate = 12
+			forgiving = 16
+			lazy = 12
+		}
+		stress_impact = {
+			sadistic = -6
+			vengeful = -8
+		}
+		add_dread = 10
+		add_tyranny = 12
+		scope:saved_mercenary = {
+			add_opinion = {
+				modifier = irritated_opinion
+				target = root
+				opinion = -20
+			}
+		}
+	}
+
+	option = {
+		name = gpt_mercenary_pillage_option_4
+		stress_impact = {
+			vengeful = 12
+			wrathful = 8
+			paranoid = 6
+		}
+		stress_impact = {
+			lazy = -6
+			arbitrary = -6
+		}
+		gpt_merc_riot_negative_effect = yes
+	}
+}
+
+#Low Greed
+gpt_negotiate.0061 = {
+	type = character_event
+	title = gpt_mercenary_damage_title_1
+	desc = gpt_mercenary_damage_desc_1
+	theme = war
+ #	window = big_event_window
+
+	right_portrait = {
+		character = scope:saved_mercenary
+		triggered_animation = { trigger = { scope:saved_mercenary.ai_greed > 20 } animation = menacing }
+		triggered_animation = { trigger = { scope:saved_mercenary.ai_greed > -20 } animation = steward }
+		triggered_animation = { trigger = { scope:saved_mercenary.ai_greed <= -20 } animation = wedding_drunk }
+	}
+
+	immediate = {
+		scope:saved_mercenary = {
+			add_character_flag = { flag = gpt_merc_riot_cd years = 4 }
+		}
+	}
+
+	option = {
+		name = gpt_mercenary_pillage_option_1
+		stress_impact = {
+			craven = 12
+			shy = 8
+			trusting = 8
+		}
+		stress_impact = {
+			brave = -6
+			honest = -6
+		}
+		random_list = {
+			50 = {
+				modifier = { add = 5 ai_boldness > 20 }
+				modifier = { add = 5 ai_boldness > 70 }
+				modifier = { add = -5 ai_boldness < -20 }
+				modifier = { add = -5 ai_boldness < -70 }
+				modifier = { add = stewardship }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -70 } }
+				gpt_merc_riot_sucessful_negotiation_effect = yes
+			}
+			50 = {
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 70 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -70 } }
+				gpt_merc_riot_failed_negotiation_effect = yes
+			}
+			5 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -70 } }
+				gpt_rivalry_merc_negotiation_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}		
+
+	option = {
+		name = gpt_mercenary_pillage_option_2
+		stress_impact = {
+			greedy = 12
+			zealous = 8
+			brave = 8
+		}
+		stress_impact = {
+			craven = -6
+			content = -6
+		}
+		pay_short_term_gold = {
+			target = scope:saved_mercenary
+			gold = gpt_merc_riot_gold
+		}
+	}
+
+	option = {
+		trigger = { dread >= 40 }
+		name = gpt_mercenary_pillage_option_3
+		stress_impact = {
+			compassionate = 12
+			forgiving = 16
+			lazy = 12
+		}
+		stress_impact = {
+			sadistic = -6
+			vengeful = -8
+		}
+		add_dread = 10
+		add_tyranny = 12
+		scope:saved_mercenary = {
+			add_opinion = {
+				modifier = irritated_opinion
+				target = root
+				opinion = -20
+			}
+		}
+	}
+
+	option = {
+		name = gpt_mercenary_pillage_option_4
+		stress_impact = {
+			vengeful = 12
+			wrathful = 8
+			paranoid = 6
+		}
+		stress_impact = {
+			lazy = -6
+			arbitrary = -6
+		}
+		gpt_merc_riot_negative_effect = yes
+	}
+}
+gpt_negotiate.0062 = {
+	type = character_event
+	title = gpt_mercenary_damage_title_2
+	desc = gpt_mercenary_damage_desc_2
+	theme = war
+ #	window = big_event_window
+
+	right_portrait = {
+		character = scope:saved_mercenary
+		triggered_animation = { trigger = { scope:saved_mercenary.ai_greed > 20 } animation = menacing }
+		triggered_animation = { trigger = { scope:saved_mercenary.ai_greed > -20 } animation = steward }
+		triggered_animation = { trigger = { scope:saved_mercenary.ai_greed <= -20 } animation = wedding_drunk }
+	}
+
+	immediate = {
+		scope:saved_mercenary = {
+			add_character_flag = { flag = gpt_merc_riot_cd years = 4 }
+		}
+	}
+
+	option = {
+		name = gpt_mercenary_pillage_option_1
+		stress_impact = {
+			craven = 12
+			shy = 8
+			trusting = 8
+		}
+		stress_impact = {
+			brave = -6
+			honest = -6
+		}
+		random_list = {
+			50 = {
+				modifier = { add = 5 ai_boldness > 20 }
+				modifier = { add = 5 ai_boldness > 70 }
+				modifier = { add = -5 ai_boldness < -20 }
+				modifier = { add = -5 ai_boldness < -70 }
+				modifier = { add = stewardship }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -70 } }
+				gpt_merc_riot_sucessful_negotiation_effect = yes
+			}
+			50 = {
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 70 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -70 } }
+				gpt_merc_riot_failed_negotiation_effect = yes
+			}
+			5 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -70 } }
+				gpt_rivalry_merc_negotiation_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}		
+
+	option = {
+		name = gpt_mercenary_pillage_option_2
+		stress_impact = {
+			greedy = 12
+			zealous = 8
+			brave = 8
+		}
+		stress_impact = {
+			craven = -6
+			content = -6
+		}
+		pay_short_term_gold = {
+			target = scope:saved_mercenary
+			gold = gpt_merc_riot_gold
+		}
+	}
+
+	option = {
+		trigger = { dread >= 40 }
+		name = gpt_mercenary_pillage_option_3
+		stress_impact = {
+			compassionate = 12
+			forgiving = 16
+			lazy = 12
+		}
+		stress_impact = {
+			sadistic = -6
+			vengeful = -8
+		}
+		add_dread = 10
+		add_tyranny = 12
+		scope:saved_mercenary = {
+			add_opinion = {
+				modifier = irritated_opinion
+				target = root
+				opinion = -20
+			}
+		}
+	}
+
+	option = {
+		name = gpt_mercenary_pillage_option_4
+		stress_impact = {
+			vengeful = 12
+			wrathful = 8
+			paranoid = 6
+		}
+		stress_impact = {
+			lazy = -6
+			arbitrary = -6
+		}
+		gpt_merc_riot_negative_effect = yes
+	}
+}
+gpt_negotiate.0063 = {
+	type = character_event
+	title = gpt_mercenary_damage_title_3
+	desc = gpt_mercenary_damage_desc_3
+	theme = war
+ #	window = big_event_window
+
+	right_portrait = {
+		character = scope:saved_mercenary
+		triggered_animation = { trigger = { scope:saved_mercenary.ai_greed > 20 } animation = menacing }
+		triggered_animation = { trigger = { scope:saved_mercenary.ai_greed > -20 } animation = steward }
+		triggered_animation = { trigger = { scope:saved_mercenary.ai_greed <= -20 } animation = wedding_drunk }
+	}
+
+	immediate = {
+		scope:saved_mercenary = {
+			add_character_flag = { flag = gpt_merc_riot_cd years = 4 }
+		}
+	}
+
+	option = {
+		name = gpt_mercenary_pillage_option_1
+		stress_impact = {
+			craven = 12
+			shy = 8
+			trusting = 8
+		}
+		stress_impact = {
+			brave = -6
+			honest = -6
+		}
+		random_list = {
+			50 = {
+				modifier = { add = 5 ai_boldness > 20 }
+				modifier = { add = 5 ai_boldness > 70 }
+				modifier = { add = -5 ai_boldness < -20 }
+				modifier = { add = -5 ai_boldness < -70 }
+				modifier = { add = stewardship }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -70 } }
+				gpt_merc_riot_sucessful_negotiation_effect = yes
+			}
+			50 = {
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 70 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -70 } }
+				gpt_merc_riot_failed_negotiation_effect = yes
+			}
+			5 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -70 } }
+				gpt_rivalry_merc_negotiation_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}		
+
+	option = {
+		name = gpt_mercenary_pillage_option_2
+		stress_impact = {
+			greedy = 12
+			zealous = 8
+			brave = 8
+		}
+		stress_impact = {
+			craven = -6
+			content = -6
+		}
+		pay_short_term_gold = {
+			target = scope:saved_mercenary
+			gold = gpt_merc_riot_gold
+		}
+	}
+
+	option = {
+		trigger = { dread >= 40 }
+		name = gpt_mercenary_pillage_option_3
+		stress_impact = {
+			compassionate = 12
+			forgiving = 16
+			lazy = 12
+		}
+		stress_impact = {
+			sadistic = -6
+			vengeful = -8
+		}
+		add_dread = 10
+		add_tyranny = 12
+		scope:saved_mercenary = {
+			add_opinion = {
+				modifier = irritated_opinion
+				target = root
+				opinion = -20
+			}
+		}
+	}
+
+	option = {
+		name = gpt_mercenary_pillage_option_4
+		stress_impact = {
+			vengeful = 12
+			wrathful = 8
+			paranoid = 6
+		}
+		stress_impact = {
+			lazy = -6
+			arbitrary = -6
+		}
+		gpt_merc_riot_negative_effect = yes
+	}
+}
+gpt_negotiate.0064 = {
+	type = character_event
+	title = gpt_mercenary_disorder_title_1
+	desc = gpt_mercenary_disorder_desc_1
+	theme = war
+ #	window = big_event_window
+
+	right_portrait = {
+		character = scope:saved_mercenary
+		triggered_animation = { trigger = { scope:saved_mercenary.ai_greed > 20 } animation = menacing }
+		triggered_animation = { trigger = { scope:saved_mercenary.ai_greed > -20 } animation = steward }
+		triggered_animation = { trigger = { scope:saved_mercenary.ai_greed <= -20 } animation = wedding_drunk }
+	}
+
+	immediate = {
+		scope:saved_mercenary = {
+			add_character_flag = { flag = gpt_merc_riot_cd years = 4 }
+		}
+	}
+
+	option = {
+		name = gpt_mercenary_pillage_option_1
+		stress_impact = {
+			craven = 12
+			shy = 8
+			trusting = 8
+		}
+		stress_impact = {
+			brave = -6
+			honest = -6
+		}
+		random_list = {
+			50 = {
+				modifier = { add = 5 ai_boldness > 20 }
+				modifier = { add = 5 ai_boldness > 70 }
+				modifier = { add = -5 ai_boldness < -20 }
+				modifier = { add = -5 ai_boldness < -70 }
+				modifier = { add = stewardship }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -70 } }
+				gpt_merc_riot_sucessful_negotiation_effect = yes
+			}
+			50 = {
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 70 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -70 } }
+				gpt_merc_riot_failed_negotiation_effect = yes
+			}
+			5 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -70 } }
+				gpt_rivalry_merc_negotiation_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}		
+
+	option = {
+		name = gpt_mercenary_pillage_option_2
+		stress_impact = {
+			greedy = 12
+			zealous = 8
+			brave = 8
+		}
+		stress_impact = {
+			craven = -6
+			content = -6
+		}
+		pay_short_term_gold = {
+			target = scope:saved_mercenary
+			gold = gpt_merc_riot_gold
+		}
+	}
+
+	option = {
+		trigger = { dread >= 40 }
+		name = gpt_mercenary_pillage_option_3
+		stress_impact = {
+			compassionate = 12
+			forgiving = 16
+			lazy = 12
+		}
+		stress_impact = {
+			sadistic = -6
+			vengeful = -8
+		}
+		add_dread = 10
+		add_tyranny = 12
+		scope:saved_mercenary = {
+			add_opinion = {
+				modifier = irritated_opinion
+				target = root
+				opinion = -20
+			}
+		}
+	}
+
+	option = {
+		name = gpt_mercenary_pillage_option_4
+		stress_impact = {
+			vengeful = 12
+			wrathful = 8
+			paranoid = 6
+		}
+		stress_impact = {
+			lazy = -6
+			arbitrary = -6
+		}
+		gpt_merc_riot_negative_effect = yes
+	}
+}
+gpt_negotiate.0065 = {
+	type = character_event
+	title = gpt_mercenary_disorder_title_2
+	desc = gpt_mercenary_disorder_desc_2
+	theme = war
+ #	window = big_event_window
+
+	right_portrait = {
+		character = scope:saved_mercenary
+		triggered_animation = { trigger = { scope:saved_mercenary.ai_greed > 20 } animation = menacing }
+		triggered_animation = { trigger = { scope:saved_mercenary.ai_greed > -20 } animation = steward }
+		triggered_animation = { trigger = { scope:saved_mercenary.ai_greed <= -20 } animation = wedding_drunk }
+	}
+
+	immediate = {
+		scope:saved_mercenary = {
+			add_character_flag = { flag = gpt_merc_riot_cd years = 4 }
+		}
+	}
+
+	option = {
+		name = gpt_mercenary_pillage_option_1
+		stress_impact = {
+			craven = 12
+			shy = 8
+			trusting = 8
+		}
+		stress_impact = {
+			brave = -6
+			honest = -6
+		}
+		random_list = {
+			50 = {
+				modifier = { add = 5 ai_boldness > 20 }
+				modifier = { add = 5 ai_boldness > 70 }
+				modifier = { add = -5 ai_boldness < -20 }
+				modifier = { add = -5 ai_boldness < -70 }
+				modifier = { add = stewardship }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -70 } }
+				gpt_merc_riot_sucessful_negotiation_effect = yes
+			}
+			50 = {
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 70 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -70 } }
+				gpt_merc_riot_failed_negotiation_effect = yes
+			}
+			5 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -70 } }
+				gpt_rivalry_merc_negotiation_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}		
+
+	option = {
+		name = gpt_mercenary_pillage_option_2
+		stress_impact = {
+			greedy = 12
+			zealous = 8
+			brave = 8
+		}
+		stress_impact = {
+			craven = -6
+			content = -6
+		}
+		pay_short_term_gold = {
+			target = scope:saved_mercenary
+			gold = gpt_merc_riot_gold
+		}
+	}
+
+	option = {
+		trigger = { dread >= 40 }
+		name = gpt_mercenary_pillage_option_3
+		stress_impact = {
+			compassionate = 12
+			forgiving = 16
+			lazy = 12
+		}
+		stress_impact = {
+			sadistic = -6
+			vengeful = -8
+		}
+		add_dread = 10
+		add_tyranny = 12
+		scope:saved_mercenary = {
+			add_opinion = {
+				modifier = irritated_opinion
+				target = root
+				opinion = -20
+			}
+		}
+	}
+
+	option = {
+		name = gpt_mercenary_pillage_option_4
+		stress_impact = {
+			vengeful = 12
+			wrathful = 8
+			paranoid = 6
+		}
+		stress_impact = {
+			lazy = -6
+			arbitrary = -6
+		}
+		gpt_merc_riot_negative_effect = yes
+	}
+}
+
+#Hostile Faith
+gpt_negotiate.0071 = {
+	type = character_event
+	title = gpt_mercenary_diplomatic_title_3
+	desc = gpt_mercenary_diplomatic_desc_3
+	theme = war
+ #	window = big_event_window
+
+	right_portrait = {
+		character = scope:saved_mercenary
+		triggered_animation = { trigger = { scope:saved_mercenary.ai_greed > 20 } animation = menacing }
+		triggered_animation = { trigger = { scope:saved_mercenary.ai_greed > -20 } animation = steward }
+		triggered_animation = { trigger = { scope:saved_mercenary.ai_greed <= -20 } animation = wedding_drunk }
+	}
+
+	immediate = {
+		scope:saved_mercenary = {
+			add_character_flag = { flag = gpt_merc_riot_cd years = 4 }
+		}
+	}
+
+	option = {
+		name = gpt_mercenary_pillage_option_1
+		stress_impact = {
+			craven = 12
+			shy = 8
+			trusting = 8
+		}
+		stress_impact = {
+			brave = -6
+			honest = -6
+		}
+		random_list = {
+			50 = {
+				modifier = { add = 5 ai_boldness > 20 }
+				modifier = { add = 5 ai_boldness > 70 }
+				modifier = { add = -5 ai_boldness < -20 }
+				modifier = { add = -5 ai_boldness < -70 }
+				modifier = { add = stewardship }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -70 } }
+				gpt_merc_riot_sucessful_negotiation_effect = yes
+			}
+			50 = {
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 70 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -70 } }
+				gpt_merc_riot_failed_negotiation_effect = yes
+			}
+			5 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -70 } }
+				gpt_rivalry_merc_negotiation_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}		
+
+	option = {
+		name = gpt_mercenary_pillage_option_2
+		stress_impact = {
+			greedy = 12
+			zealous = 8
+			brave = 8
+		}
+		stress_impact = {
+			craven = -6
+			content = -6
+		}
+		pay_short_term_gold = {
+			target = scope:saved_mercenary
+			gold = gpt_merc_riot_gold
+		}
+	}
+
+	option = {
+		trigger = { dread >= 40 }
+		name = gpt_mercenary_pillage_option_3
+		stress_impact = {
+			compassionate = 12
+			forgiving = 16
+			lazy = 12
+		}
+		stress_impact = {
+			sadistic = -6
+			vengeful = -8
+		}
+		add_dread = 10
+		add_tyranny = 12
+		scope:saved_mercenary = {
+			add_opinion = {
+				modifier = irritated_opinion
+				target = root
+				opinion = -20
+			}
+		}
+	}
+
+	option = {
+		name = gpt_mercenary_pillage_option_4
+		stress_impact = {
+			vengeful = 12
+			wrathful = 8
+			paranoid = 6
+		}
+		stress_impact = {
+			lazy = -6
+			arbitrary = -6
+		}
+		gpt_merc_riot_negative_effect = yes
+	}
+}
+gpt_negotiate.0072 = {
+	type = character_event
+	title = gpt_mercenary_desecration_title_1
+	desc = gpt_mercenary_desecration_desc_1
+	theme = war
+ #	window = big_event_window
+
+	right_portrait = {
+		character = scope:saved_mercenary
+		triggered_animation = { trigger = { scope:saved_mercenary.ai_greed > 20 } animation = menacing }
+		triggered_animation = { trigger = { scope:saved_mercenary.ai_greed > -20 } animation = steward }
+		triggered_animation = { trigger = { scope:saved_mercenary.ai_greed <= -20 } animation = wedding_drunk }
+	}
+
+	immediate = {
+		scope:saved_mercenary = {
+			add_character_flag = { flag = gpt_merc_riot_cd years = 4 }
+		}
+	}
+
+	option = {
+		name = gpt_mercenary_pillage_option_1
+		stress_impact = {
+			craven = 12
+			shy = 8
+			trusting = 8
+		}
+		stress_impact = {
+			brave = -6
+			honest = -6
+		}
+		random_list = {
+			50 = {
+				modifier = { add = 5 ai_boldness > 20 }
+				modifier = { add = 5 ai_boldness > 70 }
+				modifier = { add = -5 ai_boldness < -20 }
+				modifier = { add = -5 ai_boldness < -70 }
+				modifier = { add = stewardship }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -70 } }
+				gpt_merc_riot_sucessful_negotiation_effect = yes
+			}
+			50 = {
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 70 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -70 } }
+				gpt_merc_riot_failed_negotiation_effect = yes
+			}
+			5 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -70 } }
+				gpt_rivalry_merc_negotiation_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}		
+
+	option = {
+		name = gpt_mercenary_pillage_option_2
+		stress_impact = {
+			greedy = 12
+			zealous = 8
+			brave = 8
+		}
+		stress_impact = {
+			craven = -6
+			content = -6
+		}
+		pay_short_term_gold = {
+			target = scope:saved_mercenary
+			gold = gpt_merc_riot_gold
+		}
+	}
+
+	option = {
+		trigger = { dread >= 40 }
+		name = gpt_mercenary_pillage_option_3
+		stress_impact = {
+			compassionate = 12
+			forgiving = 16
+			lazy = 12
+		}
+		stress_impact = {
+			sadistic = -6
+			vengeful = -8
+		}
+		add_dread = 10
+		add_tyranny = 12
+		scope:saved_mercenary = {
+			add_opinion = {
+				modifier = irritated_opinion
+				target = root
+				opinion = -20
+			}
+		}
+	}
+
+	option = {
+		name = gpt_mercenary_pillage_option_4
+		stress_impact = {
+			vengeful = 12
+			wrathful = 8
+			paranoid = 6
+		}
+		stress_impact = {
+			lazy = -6
+			arbitrary = -6
+		}
+		gpt_merc_riot_negative_effect = yes
+	}
+}
+gpt_negotiate.0073 = {
+	type = character_event
+	title = gpt_mercenary_desecration_title_2
+	desc = gpt_mercenary_desecration_desc_2
+	theme = war
+ #	window = big_event_window
+
+	right_portrait = {
+		character = scope:saved_mercenary
+		triggered_animation = { trigger = { scope:saved_mercenary.ai_greed > 20 } animation = menacing }
+		triggered_animation = { trigger = { scope:saved_mercenary.ai_greed > -20 } animation = steward }
+		triggered_animation = { trigger = { scope:saved_mercenary.ai_greed <= -20 } animation = wedding_drunk }
+	}
+
+	immediate = {
+		scope:saved_mercenary = {
+			add_character_flag = { flag = gpt_merc_riot_cd years = 4 }
+		}
+	}
+
+	option = {
+		name = gpt_mercenary_pillage_option_1
+		stress_impact = {
+			craven = 12
+			shy = 8
+			trusting = 8
+		}
+		stress_impact = {
+			brave = -6
+			honest = -6
+		}
+		random_list = {
+			50 = {
+				modifier = { add = 5 ai_boldness > 20 }
+				modifier = { add = 5 ai_boldness > 70 }
+				modifier = { add = -5 ai_boldness < -20 }
+				modifier = { add = -5 ai_boldness < -70 }
+				modifier = { add = stewardship }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -70 } }
+				gpt_merc_riot_sucessful_negotiation_effect = yes
+			}
+			50 = {
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 70 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -70 } }
+				gpt_merc_riot_failed_negotiation_effect = yes
+			}
+			5 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -70 } }
+				gpt_rivalry_merc_negotiation_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}		
+
+	option = {
+		name = gpt_mercenary_pillage_option_2
+		stress_impact = {
+			greedy = 12
+			zealous = 8
+			brave = 8
+		}
+		stress_impact = {
+			craven = -6
+			content = -6
+		}
+		pay_short_term_gold = {
+			target = scope:saved_mercenary
+			gold = gpt_merc_riot_gold
+		}
+	}
+
+	option = {
+		trigger = { dread >= 40 }
+		name = gpt_mercenary_pillage_option_3
+		stress_impact = {
+			compassionate = 12
+			forgiving = 16
+			lazy = 12
+		}
+		stress_impact = {
+			sadistic = -6
+			vengeful = -8
+		}
+		add_dread = 10
+		add_tyranny = 12
+		scope:saved_mercenary = {
+			add_opinion = {
+				modifier = irritated_opinion
+				target = root
+				opinion = -20
+			}
+		}
+	}
+
+	option = {
+		name = gpt_mercenary_pillage_option_4
+		stress_impact = {
+			vengeful = 12
+			wrathful = 8
+			paranoid = 6
+		}
+		stress_impact = {
+			lazy = -6
+			arbitrary = -6
+		}
+		gpt_merc_riot_negative_effect = yes
+	}
+}
+gpt_negotiate.0074 = {
+	type = character_event
+	title = gpt_mercenary_desecration_title_3
+	desc = gpt_mercenary_desecration_desc_3
+	theme = war
+ #	window = big_event_window
+
+	right_portrait = {
+		character = scope:saved_mercenary
+		triggered_animation = { trigger = { scope:saved_mercenary.ai_greed > 20 } animation = menacing }
+		triggered_animation = { trigger = { scope:saved_mercenary.ai_greed > -20 } animation = steward }
+		triggered_animation = { trigger = { scope:saved_mercenary.ai_greed <= -20 } animation = wedding_drunk }
+	}
+
+	immediate = {
+		scope:saved_mercenary = {
+			add_character_flag = { flag = gpt_merc_riot_cd years = 4 }
+		}
+	}
+
+	option = {
+		name = gpt_mercenary_pillage_option_1
+		stress_impact = {
+			craven = 12
+			shy = 8
+			trusting = 8
+		}
+		stress_impact = {
+			brave = -6
+			honest = -6
+		}
+		random_list = {
+			50 = {
+				modifier = { add = 5 ai_boldness > 20 }
+				modifier = { add = 5 ai_boldness > 70 }
+				modifier = { add = -5 ai_boldness < -20 }
+				modifier = { add = -5 ai_boldness < -70 }
+				modifier = { add = stewardship }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_greed > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_greed < -70 } }
+				gpt_merc_riot_sucessful_negotiation_effect = yes
+			}
+			50 = {
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_honor > 70 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_honor < -70 } }
+				gpt_merc_riot_failed_negotiation_effect = yes
+			}
+			5 = {
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 20 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 45 } }
+				modifier = { add = 5 scope:saved_mercenary = { ai_vengefulness > 70 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -20 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -45 } }
+				modifier = { add = -5 scope:saved_mercenary = { ai_vengefulness < -70 } }
+				gpt_rivalry_merc_negotiation_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_hook
+			}
+			remove_character_flag = gpt_confront_hook
+		}
+		if = {
+			limit = {
+				has_character_flag = gpt_confront_gift
+			}
+			remove_character_flag = gpt_confront_gift
+		}
+	}		
+
+	option = {
+		name = gpt_mercenary_pillage_option_2
+		stress_impact = {
+			greedy = 12
+			zealous = 8
+			brave = 8
+		}
+		stress_impact = {
+			craven = -6
+			content = -6
+		}
+		pay_short_term_gold = {
+			target = scope:saved_mercenary
+			gold = gpt_merc_riot_gold
+		}
+	}
+
+	option = {
+		trigger = { dread >= 40 }
+		name = gpt_mercenary_pillage_option_3
+		stress_impact = {
+			compassionate = 12
+			forgiving = 16
+			lazy = 12
+		}
+		stress_impact = {
+			sadistic = -6
+			vengeful = -8
+		}
+		add_dread = 10
+		add_tyranny = 12
+		scope:saved_mercenary = {
+			add_opinion = {
+				modifier = irritated_opinion
+				target = root
+				opinion = -20
+			}
+		}
+	}
+
+	option = {
+		name = gpt_mercenary_pillage_option_4
+		stress_impact = {
+			vengeful = 12
+			wrathful = 8
+			paranoid = 6
+		}
+		stress_impact = {
+			lazy = -6
+			arbitrary = -6
+		}
+		gpt_merc_riot_negative_effect = yes
+	}
+}

@@ -1,0 +1,130 @@
+﻿
+triple_max_military_strength = {
+	value = {
+		add = max_military_strength
+		multiply = 3
+	}
+}
+
+eighty_percent_of_max_military_strength = {
+	value = {
+		add = max_military_strength
+		multiply = 0.8
+	}
+}
+
+sixty_percent_of_max_military_strength = {
+	value = {
+		add = max_military_strength
+		multiply = 0.6
+	}
+}
+
+gpt_merc_pay_short_term_gold = {
+	value = {
+		value = root.monthly_character_income
+		multiply = 5
+		if = { limit = { root = { any_hired_mercenary = { count = 2 } } } multiply = 0.6 }
+		if = { limit = { root = { any_hired_mercenary = { count = 3 } } } multiply = 0.6 }
+		if = { limit = { root = { any_hired_mercenary = { count = 4 } } } multiply = 0.6 }
+		if = { limit = { root = { any_hired_mercenary = { count = 5 } } } multiply = 0.6 }
+		if = { limit = { root = { any_hired_mercenary = { count = 6 } } } multiply = 0.6 }
+		min = 50
+		if = { limit = { monthly_character_income > 160 } multiply = 0.25 }
+		else_if = { limit = { monthly_character_income > 150 } multiply = 0.27 }
+		else_if = { limit = { monthly_character_income > 140 } multiply = 0.31 }
+		else_if = { limit = { monthly_character_income > 130 } multiply = 0.34 }
+		else_if = { limit = { monthly_character_income > 120 } multiply = 0.37 }
+		else_if = { limit = { monthly_character_income > 110 } multiply = 0.4 }
+		else_if = { limit = { monthly_character_income > 100 } multiply = 0.43 }
+		else_if = { limit = { monthly_character_income > 90 } multiply = 0.46 }
+		else_if = { limit = { monthly_character_income > 80 } multiply = 0.52 }
+		else_if = { limit = { monthly_character_income > 70 } multiply = 0.58 }
+		else_if = { limit = { monthly_character_income > 60 } multiply = 0.64 }
+		else_if = { limit = { monthly_character_income > 50 } multiply = 0.7 }
+		else_if = { limit = { monthly_character_income > 40 } multiply = 0.76 }
+		else_if = { limit = { monthly_character_income > 30 } multiply = 0.82 }
+		else_if = { limit = { monthly_character_income > 20 } multiply = 0.88 }
+		else_if = { limit = { monthly_character_income > 10 } multiply = 0.94 }
+		else = { }
+		if = { limit = { root = { is_independent_ruler = no } } divide = 2 }
+	}
+}
+
+gpt_raid_pay_short_term_gold = {
+	value = {
+		value = root.monthly_character_income
+		multiply = 5
+		min = 50
+		if = { limit = { root.monthly_character_income > 160 } multiply = 0.25 }
+		else_if = { limit = { root.monthly_character_income > 150 } multiply = 0.27 }
+		else_if = { limit = { root.monthly_character_income > 140 } multiply = 0.31 }
+		else_if = { limit = { root.monthly_character_income > 130 } multiply = 0.34 }
+		else_if = { limit = { root.monthly_character_income > 120 } multiply = 0.37 }
+		else_if = { limit = { root.monthly_character_income > 110 } multiply = 0.4 }
+		else_if = { limit = { root.monthly_character_income > 100 } multiply = 0.43 }
+		else_if = { limit = { root.monthly_character_income > 90 } multiply = 0.46 }
+		else_if = { limit = { root.monthly_character_income > 80 } multiply = 0.52 }
+		else_if = { limit = { root.monthly_character_income > 70 } multiply = 0.58 }
+		else_if = { limit = { root.monthly_character_income > 60 } multiply = 0.64 }
+		else_if = { limit = { root.monthly_character_income > 50 } multiply = 0.7 }
+		else_if = { limit = { root.monthly_character_income > 40 } multiply = 0.76 }
+		else_if = { limit = { root.monthly_character_income > 30 } multiply = 0.82 }
+		else_if = { limit = { root.monthly_character_income > 20 } multiply = 0.88 }
+		else_if = { limit = { root.monthly_character_income > 10 } multiply = 0.94 }
+		else = { }
+		if = { limit = { root = { is_independent_ruler = no } } divide = 2 }
+	}
+}
+
+gpt_merc_riot_gold = {
+	value = monthly_character_income
+	multiply = 3
+	min = 35
+	if = { limit = { monthly_character_income > 160 } multiply = 0.25 }
+	else_if = { limit = { monthly_character_income > 150 } multiply = 0.27 }
+	else_if = { limit = { monthly_character_income > 140 } multiply = 0.31 }
+	else_if = { limit = { monthly_character_income > 130 } multiply = 0.34 }
+	else_if = { limit = { monthly_character_income > 120 } multiply = 0.37 }
+	else_if = { limit = { monthly_character_income > 110 } multiply = 0.4 }
+	else_if = { limit = { monthly_character_income > 100 } multiply = 0.43 }
+	else_if = { limit = { monthly_character_income > 90 } multiply = 0.46 }
+	else_if = { limit = { monthly_character_income > 80 } multiply = 0.52 }
+	else_if = { limit = { monthly_character_income > 70 } multiply = 0.58 }
+	else_if = { limit = { monthly_character_income > 60 } multiply = 0.64 }
+	else_if = { limit = { monthly_character_income > 50 } multiply = 0.7 }
+	else_if = { limit = { monthly_character_income > 40 } multiply = 0.76 }
+	else_if = { limit = { monthly_character_income > 30 } multiply = 0.82 }
+	else_if = { limit = { monthly_character_income > 20 } multiply = 0.88 }
+	else_if = { limit = { monthly_character_income > 10 } multiply = 0.94 }
+	else = { }
+}
+
+gpt_raider_max_military_strength = {
+	value = {
+		value = scope:raider.max_military_strength
+		multiply = 0.75
+	}
+}
+
+#gpt_merc_pay_short_term_gold = {
+#	value = {
+#		value = root.max_military_strength
+#		if = { limit = { root.highest_held_title_tier = 2 } divide = 3 }
+#		if = { limit = { root.highest_held_title_tier = 3 } divide = 4 }
+#		if = { limit = { root.highest_held_title_tier = 4 } divide = 5 }
+#		if = { limit = { root.highest_held_title_tier = 5 } divide = 6 }
+#		if = { limit = { root = { any_hired_mercenary = { count = 2 } } } multiply = 0.6 }
+#		if = { limit = { root = { any_hired_mercenary = { count = 3 } } } multiply = 0.6 }
+#		if = { limit = { root = { any_hired_mercenary = { count = 4 } } } multiply = 0.6 }
+#		if = { limit = { root = { any_hired_mercenary = { count = 5 } } } multiply = 0.6 }
+#		if = { limit = { root = { any_hired_mercenary = { count = 6 } } } multiply = 0.6 }
+#		multiply = 1.5
+#		min = {
+#			value = root.monthly_character_income
+#			multiply = 6
+#			min = 80
+#		}
+#		if = { limit = { root = { is_independent_ruler = no } } divide = 2 }
+#	}
+#}
