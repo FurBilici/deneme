@@ -1,0 +1,173 @@
+﻿l_english:
+ mfb_blademaster_message.t:0 "Experienced Duelist"
+ mfb_blademaster_message:0 "You defeated your opponent in the duel, displaying your dueling prowess to everyone."
+
+ mfb_tourney_participant_message.t:0 "Remarkable Prowess"
+ mfb_tourney_participant_message:0 "You led the charge in the battle and displayed remarkable prowess."
+ 
+ mfb_tourney_participant_xp_message.t:0 "Improved Prowess"
+ mfb_tourney_participant_xp_message:0 "You sharpened your skills in warfare and personal combat during the battle."
+
+ mfb_commander_trait_message.t:0 "Mastered a New Tactic"
+ mfb_commander_trait_message:0 "You mastered a new tactic as you led your forces to victory, further enhancing your command skills."
+ 
+ mfb_gold_message.t:0 "Spoils of War"
+ mfb_gold_message:0 "After the battle, you swiftly gathered what spoils remained on the field."
+
+ mfb_friend_message.t:0 "Forged in Battle"
+ mfb_friend_message:0 "Through shared hardship on the battlefield, you formed a bond with [mfb_friend_candidate.GetShortUIName]."
+
+ mfb_martial_lifestyle_xp_message.t:0 "Lessons of War"
+ mfb_martial_lifestyle_xp_message:0 "Firsthand experience in battle taught you valuable lessons."
+
+ mfb_hook_message.t:0 "A Timely Favor"
+ mfb_hook_message:0 "You lent [mfb_hook_candidate.GetShortUIName] a hand in their time of need during the fight, and [mfb_hook_candidate.GetSheHe] hasn’t forgotten it."
+ 
+ mfb_duel_player_killed_message.t:0 "Slain by Duel Opponent"
+ mfb_duel_player_killed_message:0 "You were slain by [sc_victor.GetShortUIName] in the duel!"
+ 
+ mfb_duel_enemy_killed_message.t:0 "Duel Opponent Slain"
+ mfb_duel_enemy_killed_message:0 "You slew [sc_loser.GetShortUIName] in the duel!"
+ 
+ mfb_duel_player_defeated_message.t:0 "Defeated by Duel Opponent"
+ mfb_duel_player_defeated_message:0 "You were defeated by [sc_victor.GetShortUIName] in the duel!"
+ 
+ mfb_duel_enemy_defeated_message.t:0 "Duel Opponent Defeated"
+ mfb_duel_enemy_defeated_message:0 "You defeated [sc_loser.GetShortUIName] in the duel!"
+ 
+ mfb_duel_player_fled_message.t:0 "Fled from Duel Opponent"
+ mfb_duel_player_fled_message:0 "You fled from [sc_victor.GetShortUIName] after the duel!"
+ 
+ mfb_duel_enemy_fled_message.t:0 "Duel Opponent Fled"
+ mfb_duel_enemy_fled_message:0 "[sc_loser.GetShortUIName] fled from you after the duel!"
+ 
+ mfb_duel_player_captured_message.t:0 "Captured by Duel Opponent"
+ mfb_duel_player_captured_message:0 "You were captured by [sc_victor.GetShortUIName] after the duel!"
+ 
+ mfb_duel_player_executed_message.t:0 "Executed by Duel Opponent"
+ mfb_duel_player_executed_message:0 "You were executed by [sc_victor.GetShortUIName] after the duel!"
+ 
+ mfb_duel_player_released_message.t:0 "Released by Duel Opponent"
+ mfb_duel_player_released_message:0 "You were released by [sc_victor.GetShortUIName] after the duel!"
+ 
+ mfb_duel_someone_captured_enemy_message.t:0 "Enemy Combatant Captured"
+ mfb_duel_someone_captured_enemy_message:0 "[sc_victor.GetShortUIName] captured [sc_loser.GetShortUIName] in the duel!"
+ 
+ 
+ mfb_duel_killer_friendly_player:0 "You slew [TARGET_CHARACTER.GetShortUINameNoTooltip] in the duel!"
+ mfb_duel_killer_friendly:0 "[CHARACTER.GetShortUINameNoTooltip] slew [TARGET_CHARACTER.GetShortUINameNoTooltip] in the duel!"
+ mfb_duel_killer_enemy_player:0 "You were slain by [CHARACTER.GetShortUINameNoTooltip] in the duel!"
+ mfb_duel_killer_enemy:0 "[TARGET_CHARACTER.GetShortUINameNoTooltip] was slain by [CHARACTER.GetShortUINameNoTooltip] in the duel!"
+ 
+ mfb_duel_victor_friendly_player:0 "You defeated [TARGET_CHARACTER.GetShortUINameNoTooltip] in the duel!"
+ mfb_duel_victor_friendly:0 "[CHARACTER.GetShortUINameNoTooltip] defeated [TARGET_CHARACTER.GetShortUINameNoTooltip] in the duel!"
+ mfb_duel_victor_enemy_player:0 "You were defeated by [CHARACTER.GetShortUINameNoTooltip] in the duel!"
+ mfb_duel_victor_enemy:0 "[TARGET_CHARACTER.GetShortUINameNoTooltip] was defeated by [CHARACTER.GetShortUINameNoTooltip] in the duel!"
+ 
+ 
+ mfb_duel_victory_modifier:0 "Duel Victory"
+ 
+ 
+ mfb_escape_tooltip:0 "You manage to escape without any injuries"
+ mfb_duel_tooltip:0 "[mfb_enemy_combatant.GetTitledFirstName] and you have a [single_combat_duel|E]"
+ mfb_release_tooltip:0 "You release [mfb_enemy_combatant.GetTitledFirstName]"
+ 
+ mfb_duel.0001.t:0 "The Battle of [mfb_battle_location.GetName]"
+ mfb_duel.0001.desc:0 "The dust settles. Across the field, about a hundred paces away, you spot a lone enemy. [mfb_enemy_combatant.GetHerHis|U] equipment marks [mfb_enemy_combatant.GetHerHim] as a knight or commander, not a common soldier.\n\n[mfb_enemy_combatant.GetHerHis|U] attention is fixed elsewhere. [mfb_enemy_combatant.GetSheHe|U] hasn't seen you.\n\nThe field feels suddenly empty, except for you and [mfb_enemy_combatant.GetHerHim]. Your pulse quickens."
+ mfb_duel.0001.a:0 "I will duel that bastard myself!"
+ mfb_duel.0001.b:0 "No! I need to hold back."
+ 
+ mfb_duel.0002.t:0 "$mfb_duel.0001.t$"
+ mfb_duel.0002.desc:0 "As the dust settles, you catch your breath. Across the field, maybe a hundred paces away, stands a lone enemy. [mfb_enemy_combatant.GetHerHis|U] armor and bearing aren't those of a common soldier – [mfb_enemy_combatant.GetSheHe] looks like a knight or commander.\n\nYou feel [mfb_enemy_combatant.GetHerHis] gaze meet yours across the distance. A sudden, sharp tension cuts through the chaos. For a moment, it feels like only the two of you exist on this field. Your heart pounds."
+ mfb_duel.0002.a:0 "This ends between us!"
+ mfb_duel.0002.b:0 "No! I can't take that risk now."
+ 
+ mfb_duel.0003.t:0 "$mfb_duel.0001.t$"
+ mfb_duel.0003.desc:0 "The battlefield noise fades for a heartbeat. You take a much-needed breath, the immediate chaos subsiding just for a second.\n\nSuddenly, a brutal impact throws you off balance! Pain flares as steel glances off your armor, or perhaps finds a gap.\n\nYou stagger, turning to face your attacker. An enemy stands before you, armor marking [mfb_enemy_combatant.GetHerHim] as a knight or commander — [mfb_enemy_combatant.GetSheHe] caught you utterly unaware during the lull.\n\n[mfb_enemy_combatant.GetHerHis|U] weapon is already raised for another strike."
+ mfb_duel.0003.a:0 "Damn it! I'll finish this myself!"
+ mfb_duel.0003.b:0 "It’s too dangerous!"
+ 
+ mfb_duel.0012.t:0 "[mfb_enemy_combatant.GetFirstName]'s Fate"
+ mfb_duel.0012.desc:0 "The dust of the fierce duel settles. Your defeated opponent lies at your mercy, disarmed and broken. Their life is now in your hands.\n\nAs the victor, the choice is yours: decide their fate. Will you bind them and claim them as spoils of war? Will you end their life with your blade, delivering a decisive end to this duel? Or will you show mercy and grant them freedom?\n\nAll eyes are upon you, awaiting your judgment."
+ mfb_duel.0012.a:0 "Bind [mfb_enemy_combatant.GetHerHim]! [mfb_enemy_combatant.GetSheHe|U]'s my prisoner now."
+ mfb_duel.0012.b:0 "Off with [mfb_enemy_combatant.GetHerHis] head! End this."
+ mfb_duel.0012.c:0 "Let [mfb_enemy_combatant.GetHerHim] go. Be gone."
+ 
+ 
+ rule_mfb_event_chance_game_rule: "@command_modifier_icon! #Bold Battle Events#!: Battle Event Chance"
+ setting_mfb_event_chance_off: "#high Off#!"
+ setting_mfb_event_chance_off_desc: "The chance of battle events is set to 0%."
+ setting_mfb_event_chance_5: "#high 5%#!"
+ setting_mfb_event_chance_5_desc: "The chance of battle events is set to 5%."
+ setting_mfb_event_chance_10: "#high 10%#!"
+ setting_mfb_event_chance_10_desc: "The chance of battle events is set to 10%."
+ setting_mfb_event_chance_15: "#high 15%#!"
+ setting_mfb_event_chance_15_desc: "The chance of battle events is set to 15%."
+ setting_mfb_event_chance_20: "#high 20%#!"
+ setting_mfb_event_chance_20_desc: "The chance of battle events is set to 20%."
+ setting_mfb_event_chance_default: "25%"
+ setting_mfb_event_chance_default_desc: "The chance of battle events is set to the default value."
+ setting_mfb_event_chance_33: "#high 33%#!"
+ setting_mfb_event_chance_33_desc: "The chance of battle events is set to 33%."
+ setting_mfb_event_chance_50: "#high 50%#!"
+ setting_mfb_event_chance_50_desc: "The chance of battle events is set to 50%."
+ setting_mfb_event_chance_75: "#high 75%#!"
+ setting_mfb_event_chance_75_desc: "The chance of battle events is set to 75%."
+ setting_mfb_event_chance_100: "#high 100%#!"
+ setting_mfb_event_chance_100_desc: "The chance of battle events is set to 100%."
+ 
+ rule_mfb_hastiluder_chance_game_rule: "@command_modifier_icon! #Bold Battle Events#!: Hastiluder Event Chance"
+ setting_mfb_hastiluder_chance_off: "#high Off#!"
+ setting_mfb_hastiluder_chance_off_desc: "The chance of hastiluder events is set to 0%."
+ setting_mfb_hastiluder_chance_quarter_low: "#high 25%#!"
+ setting_mfb_hastiluder_chance_quarter_low_desc: "The chance of hastiluder events is reduced to 25% of the default value."
+ setting_mfb_hastiluder_chance_very_low: "#high 50%#!"
+ setting_mfb_hastiluder_chance_very_low_desc: "The chance of hastiluder events is reduced to 50% of the default value."
+ setting_mfb_hastiluder_chance_low: "#high 75%#!"
+ setting_mfb_hastiluder_chance_low_desc: "The chance of hastiluder events is reduced to 75% of the default value."
+ setting_mfb_hastiluder_chance_default: "100%"
+ setting_mfb_hastiluder_chance_default_desc: "The chance of hastiluder events is set to the default value."
+ setting_mfb_hastiluder_chance_high: "#high 150%#!"
+ setting_mfb_hastiluder_chance_high_desc: "The chance of hastiluder events is increased to 150% of the default value."
+ setting_mfb_hastiluder_chance_very_high: "#high 200%#!"
+ setting_mfb_hastiluder_chance_very_high_desc: "The chance of hastiluder events is increased to 200% of the default value."
+
+ rule_mfb_commander_trait_chance_game_rule: "@command_modifier_icon! #Bold Battle Events#!: Commander Trait Event Chance"
+ setting_mfb_commander_trait_chance_off: "#high Off#!"
+ setting_mfb_commander_trait_chance_off_desc: "The chance of commander trait events is set to 0%."
+ setting_mfb_commander_trait_chance_quarter_low: "#high 25%#!"
+ setting_mfb_commander_trait_chance_quarter_low_desc: "The chance of commander trait events is reduced to 25% of the default value."
+ setting_mfb_commander_trait_chance_very_low: "#high 50%#!"
+ setting_mfb_commander_trait_chance_very_low_desc: "The chance of commander trait events is reduced to 50% of the default value."
+ setting_mfb_commander_trait_chance_low: "#high 75%#!"
+ setting_mfb_commander_trait_chance_low_desc: "The chance of commander trait events is reduced to 75% of the default value."
+ setting_mfb_commander_trait_chance_default: "100%"
+ setting_mfb_commander_trait_chance_default_desc: "The chance of commander trait events is set to the default value."
+ setting_mfb_commander_trait_chance_high: "#high 150%#!"
+ setting_mfb_commander_trait_chance_high_desc: "The chance of commander trait events is increased to 150% of the default value."
+ setting_mfb_commander_trait_chance_very_high: "#high 200%#!"
+ setting_mfb_commander_trait_chance_very_high_desc: "The chance of commander trait events is increased to 200% of the default value."
+
+ rule_mfb_single_combat_chance_game_rule: "@command_modifier_icon! #Bold Battle Events#!: Duel Event Chance"
+ setting_mfb_single_combat_chance_off: "#high Off#!"
+ setting_mfb_single_combat_chance_off_desc: "The chance of duels during battle is set to 0%."
+ setting_mfb_single_combat_chance_quarter_low: "#high 25%#!"
+ setting_mfb_single_combat_chance_quarter_low_desc: "The chance of duels during battle is reduced to 25% of the default value."
+ setting_mfb_single_combat_chance_very_low: "#high 50%#!"
+ setting_mfb_single_combat_chance_very_low_desc: "The chance of duels during battle is reduced to 50% of the default value."
+ setting_mfb_single_combat_chance_low: "#high 75%#!"
+ setting_mfb_single_combat_chance_low_desc: "The chance of duels during battle is reduced to 75% of the default value."
+ setting_mfb_single_combat_chance_default: "100%"
+ setting_mfb_single_combat_chance_default_desc: "The chance of duels during battle is set to the default value."
+ setting_mfb_single_combat_chance_high: "#high 150%#!"
+ setting_mfb_single_combat_chance_high_desc: "The chance of duels during battle is increased to 150% of the default value."
+ setting_mfb_single_combat_chance_very_high: "#high 200%#!"
+ setting_mfb_single_combat_chance_very_high_desc: "The chance of duels during battle is increased to 200% of the default value."
+ 
+ 
+ message_filter_mfb_general_events: "@catch_all_icon! Battle Events: Event Outcomes"
+ message_filter_mfb_general_events_desc: "Notifications of battle event outcomes and related actions"
+ message_filter_mfb_combat_casualties: "@command_modifier_icon! Battle Events: Duel Casualties"
+ message_filter_mfb_combat_casualties_desc: "Characters slain in [single_combat_duel|E]s"
+ message_filter_mfb_combat_prisoners: "@command_modifier_icon! Battle Events: Duel Captives"
+ message_filter_mfb_combat_prisoners_desc: "Prisoners captured in [single_combat_duel|E]"

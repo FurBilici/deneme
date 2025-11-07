@@ -1,0 +1,4 @@
+﻿mfb_duel_victory_modifier = {
+	icon = prowess_positive
+	advantage = 5
+}

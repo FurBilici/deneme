@@ -1,0 +1,62 @@
+﻿mfb_event_good_with_text = {
+	icon = "war"
+	title = event_message_title
+	desc = event_message_effect_and_text
+	tooltip = event_message_effect
+	style = good
+	message_filter_type = mfb_general_events
+}
+
+mfb_event_good = {
+	icon = "war"
+	title = event_message_title
+	desc = event_message_text
+	tooltip = event_message_effect
+	style = good
+	message_filter_type = mfb_general_events
+}
+
+mfb_duel_good = {
+	icon = "war"
+	title = event_message_title
+	desc = event_message_text
+	tooltip = event_message_effect
+	style = good
+	message_filter_type = mfb_combat_casualties
+}
+
+mfb_duel_good_with_text = {
+	icon = "war"
+	title = event_message_title
+	desc = event_message_effect_and_text
+	tooltip = event_message_effect
+	style = good
+	message_filter_type = mfb_combat_casualties
+}
+
+mfb_duel_bad = {
+	icon = "war"
+	title = event_message_title
+	desc = event_message_text
+	tooltip = event_message_effect
+	style = bad
+	message_filter_type = mfb_combat_casualties
+}
+
+mfb_duel_bad_with_text = {
+	icon = "war"
+	title = event_message_title
+	desc = event_message_effect_and_text
+	tooltip = event_message_effect
+	style = bad
+	message_filter_type = mfb_combat_casualties
+}
+
+mfb_duel_captured = {
+	icon = "prison"
+	title = event_message_title
+	desc = event_message_text
+	tooltip = event_message_effect
+	style = good
+	message_filter_type = mfb_combat_prisoners
+}

@@ -1,0 +1,46 @@
+﻿mfb_event_chance_game_rule = {
+	default = mfb_event_chance_default
+	mfb_event_chance_off = { flag = GG_can_change_rule }
+	mfb_event_chance_5 = { flag = GG_can_change_rule }
+	mfb_event_chance_10 = { flag = GG_can_change_rule }
+	mfb_event_chance_15 = { flag = GG_can_change_rule }
+	mfb_event_chance_20 = { flag = GG_can_change_rule }
+	mfb_event_chance_default = { flag = GG_can_change_rule }
+	mfb_event_chance_33 = { flag = GG_can_change_rule }
+	mfb_event_chance_50 = { flag = GG_can_change_rule }
+	mfb_event_chance_75 = { flag = GG_can_change_rule }
+	mfb_event_chance_100 = { flag = GG_can_change_rule }
+}
+
+mfb_hastiluder_chance_game_rule = {
+	default = mfb_hastiluder_chance_default
+	mfb_hastiluder_chance_off = { flag = GG_can_change_rule }
+	mfb_hastiluder_chance_quarter_low = { flag = GG_can_change_rule }
+	mfb_hastiluder_chance_very_low = { flag = GG_can_change_rule }
+	mfb_hastiluder_chance_low = { flag = GG_can_change_rule }
+	mfb_hastiluder_chance_default = { flag = GG_can_change_rule }
+	mfb_hastiluder_chance_high = { flag = GG_can_change_rule }
+	mfb_hastiluder_chance_very_high = { flag = GG_can_change_rule }
+}
+
+mfb_commander_trait_chance_game_rule = {
+	default = mfb_commander_trait_chance_default
+	mfb_commander_trait_chance_off = { flag = GG_can_change_rule }
+	mfb_commander_trait_chance_quarter_low = { flag = GG_can_change_rule }
+	mfb_commander_trait_chance_very_low = { flag = GG_can_change_rule }
+	mfb_commander_trait_chance_low = { flag = GG_can_change_rule }
+	mfb_commander_trait_chance_default = { flag = GG_can_change_rule }
+	mfb_commander_trait_chance_high = { flag = GG_can_change_rule }
+	mfb_commander_trait_chance_very_high = { flag = GG_can_change_rule }
+}
+
+mfb_single_combat_chance_game_rule = {
+	default = mfb_single_combat_chance_default
+	mfb_single_combat_chance_off = { flag = GG_can_change_rule }
+	mfb_single_combat_chance_quarter_low = { flag = GG_can_change_rule }
+	mfb_single_combat_chance_very_low = { flag = GG_can_change_rule }
+	mfb_single_combat_chance_low = { flag = GG_can_change_rule }
+	mfb_single_combat_chance_default = { flag = GG_can_change_rule }
+	mfb_single_combat_chance_high = { flag = GG_can_change_rule }
+	mfb_single_combat_chance_very_high = { flag = GG_can_change_rule }
+}

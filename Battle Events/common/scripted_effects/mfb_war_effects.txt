@@ -1,0 +1,291 @@
+﻿mfb_duel_initiate_effect = {
+	scope:combat_side.enemy_side = {
+		every_side_commander = {
+			limit = { can_start_single_combat_banned_checks_trigger = no }
+			add_to_temporary_list = mfb_enemies
+		}
+		every_side_knight = { add_to_temporary_list = mfb_enemies }
+	}
+	random_in_list = {
+		list = mfb_enemies
+		limit = { 
+			this = { is_ai = yes } 
+		}
+		save_scope_as = mfb_enemy_combatant
+	}
+	
+	if = {
+		limit = { exists = scope:mfb_enemy_combatant }
+		add_character_flag = { 
+			flag = mfb_duel_cooldown
+			days = 60 
+		}
+		random_list = {
+			4 = { trigger_event = mfb_duel.0001 }
+			2 = { trigger_event = mfb_duel.0002 }
+			1 = { trigger_event = mfb_duel.0003 }
+		}
+	}
+}
+
+mfb_add_hastiluder_xp_message_effect = {
+	send_interface_message = {
+		type = mfb_event_good_with_text
+		title = mfb_tourney_participant_xp_message.t
+		desc = mfb_tourney_participant_xp_message
+		left_icon = this
+		add_trait_xp = {
+			trait = tourney_participant
+			track = $TRACK$
+			value = tournament_hastiludes_xp_gain_$AMOUNT$_value
+		}
+	}
+}
+
+mfb_add_hastiluder_xp_effect = {
+	random_list = {
+		1 = {
+			trigger = {
+				has_trait_xp = {
+					trait = tourney_participant
+					track = foot
+					value < 100
+				}
+			}
+			mfb_add_hastiluder_xp_message_effect = { 
+				TRACK = foot 
+				AMOUNT = $AMOUNT$ 
+			}
+		}
+		1 = {
+			trigger = {
+				has_trait_xp = {
+					trait = tourney_participant
+					track = horse
+					value < 100
+				}
+			}
+			mfb_add_hastiluder_xp_message_effect = { 
+				TRACK = horse 
+				AMOUNT = $AMOUNT$ 
+			}
+		}
+		1 = {
+			trigger = {
+				has_trait_xp = {
+					trait = tourney_participant
+					track = bow
+					value < 100
+				}
+			}
+			mfb_add_hastiluder_xp_message_effect = { 
+				TRACK = bow 
+				AMOUNT = $AMOUNT$ 
+			}
+		}
+		1 = {
+			trigger = {
+				has_trait_xp = {
+					trait = tourney_participant
+					track = wit
+					value < 100
+				}
+			}
+			mfb_add_hastiluder_xp_message_effect = { 
+				TRACK = wit 
+				AMOUNT = $AMOUNT$
+			}
+		}
+	}
+}
+
+mfb_hastiluder_leveling_effect = {
+	if = {
+		limit = { 
+			NOT = { has_character_flag = mfb_hastiluder_cooldown }
+		}
+		random = {
+			chance = 0
+			modifier = { 
+				add = {
+					value = prowess
+					multiply = 2
+				}
+			}
+			modifier = { factor = mfb_hastiluder_chance_value }
+			add_character_flag = {
+				flag = mfb_hastiluder_cooldown
+				days = 60
+			}
+			if = {
+				limit = { has_trait = tourney_participant }
+				mfb_add_hastiluder_xp_effect = { AMOUNT = $AMOUNT$ }
+			}
+			else = {
+				send_interface_message = {
+					type = mfb_event_good_with_text
+					title = mfb_tourney_participant_message.t
+					desc = mfb_tourney_participant_message
+					left_icon = this
+					add_trait = tourney_participant
+				}
+			}
+		}
+	}
+}
+
+mfb_add_commander_trait_effect = {
+	if = {
+		limit = {
+			NOT = { has_character_flag = mfb_commander_trait_cooldown }
+		}
+		random = {
+			chance = 0
+			modifier = {
+				add = { 
+					value = martial
+					multiply = 0.5
+				}
+			}
+			modifier = {
+				add = { 
+					value = martial
+					multiply = 0.25
+				}
+				culture = { has_cultural_parameter = commanders_likelier_to_gain_commander_traits }
+			}
+			modifier = {
+				factor = 0.6
+				number_of_commander_traits >= 1
+			}
+			modifier = {
+				factor = 0.7
+				number_of_commander_traits >= 2
+			}
+			modifier = {
+				factor = 0.8
+				number_of_commander_traits >= 3
+			}
+			modifier = { factor = mfb_commander_trait_chance_value }
+			add_character_flag = { 
+				flag = mfb_commander_trait_cooldown
+				days = 365 
+			}
+			send_interface_message = {
+				type = mfb_event_good
+				title = mfb_commander_trait_message.t
+				desc = mfb_commander_trait_message
+				left_icon = this
+			}
+			wanderer_give_random_commander_trait_effect = yes
+		}
+	}
+}
+
+mfb_event_initiate_effect = {
+	if = {
+		limit = { 
+			NOT = { has_character_flag = mfb_event_cooldown }
+		}
+		random = {
+			chance = mfb_event_chance_value
+			add_character_flag = {
+				flag = mfb_event_cooldown
+				days = 60
+			}
+			random_list = {
+				1 = {
+					send_interface_message = {
+						type = mfb_event_good_with_text
+						title = mfb_gold_message.t
+						desc = mfb_gold_message
+						left_icon = this
+						add_gold = { 10 50 }
+					}
+				}
+				1 = {
+					send_interface_message = {
+						type = mfb_event_good_with_text
+						title = mfb_martial_lifestyle_xp_message.t
+						desc = mfb_martial_lifestyle_xp_message
+						left_icon = this
+						add_martial_lifestyle_xp = medium_lifestyle_experience
+					}
+				}
+				1 = {
+					save_temporary_scope_as = mfb_commander
+					root = {
+						every_side_knight = { add_to_temporary_list = mfb_hook_candidates }
+					}
+					random_in_list = {
+						list = mfb_hook_candidates
+						limit = { 
+							save_temporary_scope_as = mfb_target
+							scope:mfb_commander = { 
+								can_add_hook = {
+									target = scope:mfb_target
+									type = favor_hook
+								}
+							}
+						}
+						save_temporary_scope_as = mfb_hook_candidate
+					}
+					
+					if = {
+						limit = { exists = scope:mfb_hook_candidate }
+						send_interface_message = {
+							type = mfb_event_good_with_text
+							title = mfb_hook_message.t
+							desc = mfb_hook_message
+							left_icon = this
+							right_icon = scope:mfb_hook_candidate
+							add_hook = {
+								type = favor_hook
+								target = scope:mfb_hook_candidate
+							}
+						}
+					}
+				}
+				1 = {
+					save_temporary_scope_as = mfb_commander
+					root = {
+						every_side_knight = { add_to_temporary_list = mfb_friend_candidates }
+					}
+					random_in_list = {
+						list = mfb_friend_candidates
+						limit = {
+							save_temporary_scope_as = mfb_target
+							scope:mfb_commander = {
+								can_set_relation_friend_trigger = { CHARACTER = scope:mfb_target }
+							}
+						}
+						save_temporary_scope_as = mfb_friend_candidate
+					}
+					
+					if = {
+						limit = { exists = scope:mfb_friend_candidate }
+						if = {
+							limit = {
+								NOT = { has_relation_potential_friend = scope:mfb_friend_candidate }
+							}
+							set_relation_potential_friend = scope:mfb_friend_candidate
+						}
+						
+						send_interface_message = {
+							type = mfb_event_good_with_text
+							title = mfb_friend_message.t
+							desc = mfb_friend_message
+							left_icon = this
+							right_icon = scope:mfb_friend_candidate
+							progress_towards_friend_effect = {
+								CHARACTER = scope:mfb_friend_candidate
+								OPINION = default_friend_opinion
+								REASON = friend_common_ground
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

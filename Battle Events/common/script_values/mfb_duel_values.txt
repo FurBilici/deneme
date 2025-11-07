@@ -1,0 +1,79 @@
+﻿mfb_knight_prestige_gain_on_kill = {
+	value = medium_prestige_gain
+	if = {
+		limit = {
+			exists = scope:sc_loser.primary_title
+			scope:sc_loser.primary_title.tier > 0
+		}
+		multiply = scope:sc_loser.primary_title.tier
+	}
+	if = {
+		limit = {
+			exists = scope:sc_loser
+			scope:sc_loser = { 
+				is_lowborn = yes 
+			}
+		}
+		divide = 2
+	}
+}
+
+mfb_knight_prestige_gain_on_victory = {
+	value = minor_prestige_gain
+	if = {
+		limit = {
+			exists = scope:sc_loser.primary_title
+			scope:sc_loser.primary_title.tier > 0
+		}
+		multiply = scope:sc_loser.primary_title.tier
+	}
+	if = {
+		limit = {
+			exists = scope:sc_loser
+			scope:sc_loser = { 
+				is_lowborn = yes 
+			}
+		}
+		divide = 2
+	}
+}
+
+mfb_knight_legitimacy_gain_on_kill = {
+	value = miniscule_legitimacy_gain
+	if = {
+		limit = {
+			exists = scope:sc_loser.primary_title
+			scope:sc_loser.primary_title.tier > 0
+		}
+		multiply = scope:sc_loser.primary_title.tier
+	}
+	if = {
+		limit = {
+			exists = scope:sc_loser
+			scope:sc_loser = { 
+				is_lowborn = yes 
+			}
+		}
+		divide = 2
+	}
+}
+
+mfb_knight_legitimacy_gain_on_victory = {
+	value = 10
+	if = {
+		limit = {
+			exists = scope:sc_loser.primary_title
+			scope:sc_loser.primary_title.tier > 0
+		}
+		multiply = scope:sc_loser.primary_title.tier
+	}
+	if = {
+		limit = {
+			exists = scope:sc_loser
+			scope:sc_loser = { 
+				is_lowborn = yes 
+			}
+		}
+		divide = 2
+	}
+}

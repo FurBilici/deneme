@@ -1,0 +1,709 @@
+﻿namespace = mfb_duel
+
+scripted_effect mfb_maimed_in_battle_effect = {
+	random_list = {
+		4 = {
+			trigger = {
+				NOT = { has_trait = one_legged }
+			}
+			add_trait_force_tooltip = one_legged
+			increase_wounds_effect = { REASON = duel }
+		}
+		2 = {
+			trigger = {
+				NOT = { has_trait = disfigured }
+			}
+			add_trait_force_tooltip = disfigured
+			increase_wounds_effect = { REASON = duel }
+			epilepsy_brain_trauma_risk_effect = { CHANCE = 5 }
+		}
+		4 = {
+			trigger = {
+				NOT = { has_trait = one_eyed }
+			}
+			add_trait_force_tooltip = one_eyed
+			increase_wounds_effect = { REASON = duel }
+			epilepsy_brain_trauma_risk_effect = { CHANCE = 5 }
+		}
+		4 = {
+			trigger = {
+				NOT = { has_trait = maimed }
+			}
+			apply_maimed_trait_and_modifier_effect = yes
+			increase_wounds_effect = { REASON = duel }
+			epilepsy_brain_trauma_risk_effect = { CHANCE = 5 }
+		}
+	}
+}
+
+mfb_duel.0001 = {
+	type = character_event
+	title = mfb_duel.0001.t
+	desc = mfb_duel.0001.desc
+	theme = battle
+	
+	left_portrait = { 
+		character = root
+		scripted_animation = duel_wield_weapon
+	}
+	lower_right_portrait = scope:mfb_enemy_combatant
+	
+	trigger = { exists = root }
+	
+	immediate = {
+		location = { save_scope_as = mfb_battle_location }
+	}
+	
+	option = {
+		name = mfb_duel.0001.a
+		trait = brave
+		custom_tooltip = mfb_duel_tooltip
+		
+		stress_impact = {
+			brave = medium_stress_impact_loss
+			craven = major_stress_impact_gain
+		}
+		configure_start_single_combat_effect = {
+			SC_INITIATOR = root
+			SC_ATTACKER = root
+			SC_DEFENDER = scope:mfb_enemy_combatant
+			FATALITY = practice
+			FIXED = no
+			LOCALE = battlefield
+			OUTPUT_EVENT = mfb_duel.0010
+			INVALIDATION_EVENT = single_combat.1006
+		}
+		
+		ai_chance = {
+			base = 25
+			modifier = {
+				add = 25
+				has_trait = brave
+			}
+			modifier = {
+				factor = 0
+				has_trait = craven
+			}
+		}
+	}
+	option = {
+		name = mfb_duel.0001.b
+		trait = craven
+		
+		stress_impact = {
+			brave = major_stress_impact_gain
+			craven = medium_stress_impact_loss
+		}
+		
+		ai_chance = {
+			base = 75
+			modifier = {
+				add = -25
+				has_trait = brave
+			}
+			modifier = {
+				factor = 0
+				has_trait = brave
+				prowess_for_combat_event_opponent >= scope:mfb_enemy_combatant.prowess
+			}
+		}
+	}
+}
+
+mfb_duel.0002 = {
+	type = character_event
+	title = mfb_duel.0002.t
+	desc = mfb_duel.0002.desc
+	theme = battle
+	
+	left_portrait = { 
+		character = root
+		scripted_animation = duel_wield_weapon
+	}
+	right_portrait = {
+		character = scope:mfb_enemy_combatant
+		scripted_animation = duel_wield_weapon
+	}
+	
+	trigger = { exists = root }
+	
+	immediate = {
+		location = { save_scope_as = mfb_battle_location }
+	}
+	
+	option = {
+		name = mfb_duel.0002.a
+		trait = brave
+		custom_tooltip = mfb_duel_tooltip
+		
+		stress_impact = {
+			brave = medium_stress_impact_loss
+			craven = major_stress_impact_gain
+		}
+		configure_start_single_combat_effect = {
+			SC_INITIATOR = root
+			SC_ATTACKER = root
+			SC_DEFENDER = scope:mfb_enemy_combatant
+			FATALITY = practice
+			FIXED = no
+			LOCALE = battlefield
+			OUTPUT_EVENT = mfb_duel.0010
+			INVALIDATION_EVENT = single_combat.1006
+		}
+		
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 0
+				has_trait = craven
+			}
+		}
+	}
+	option = {
+		name = mfb_duel.0002.b
+		trait = craven
+		
+		stress_impact = {
+			brave = major_stress_impact_gain
+			craven = medium_stress_impact_loss
+		}
+		duel = {
+			skill = prowess
+			target = scope:mfb_enemy_combatant
+			50 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 2.5
+				}
+				custom_tooltip = mfb_escape_tooltip
+			}
+			50 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -2.5
+				}
+				increase_wounds_effect = { REASON = duel } 
+			}
+		}
+		
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 0
+				OR = {
+					has_trait = brave
+					AND = {
+						NOT = { has_trait = craven }
+						prowess_for_combat_event_opponent >= scope:mfb_enemy_combatant.prowess
+					}
+				}
+			}
+		}
+	}
+}
+
+mfb_duel.0003 = {
+	type = character_event
+	title = mfb_duel.0003.t
+	desc = mfb_duel.0003.desc
+	theme = battle
+	
+	left_portrait = { 
+		character = root
+		animation = severelywounded 
+	}
+	right_portrait = {
+		character = scope:mfb_enemy_combatant
+		scripted_animation = duel_wield_weapon
+	}
+	
+	trigger = { exists = root }
+	
+	immediate = {
+		location = { save_scope_as = mfb_battle_location }
+	}
+	
+	option = {
+		name = mfb_duel.0003.a
+		trait = brave
+		custom_tooltip = mfb_duel_tooltip
+		
+		stress_impact = {
+			brave = medium_stress_impact_loss
+			craven = major_stress_impact_gain
+		}
+		configure_start_single_combat_effect = {
+			SC_INITIATOR = root
+			SC_ATTACKER = root
+			SC_DEFENDER = scope:mfb_enemy_combatant
+			FATALITY = practice
+			FIXED = no
+			LOCALE = battlefield
+			OUTPUT_EVENT = mfb_duel.0010
+			INVALIDATION_EVENT = single_combat.1006
+		}
+		
+		ai_chance = {
+			base = 75
+			modifier = {
+				factor = 0
+				has_trait = craven
+			}
+		}
+	}
+	option = {
+		name = mfb_duel.0003.b
+		trait = craven
+		
+		stress_impact = {
+			brave = major_stress_impact_gain
+			craven = medium_stress_impact_loss
+		}
+		duel = {
+			skill = prowess
+			target = scope:mfb_enemy_combatant
+			50 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 2.5
+				}
+				custom_tooltip = mfb_escape_tooltip
+			}
+			50 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -2.5
+				}
+				mfb_maimed_in_battle_effect = yes
+			}
+		}
+		
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0
+				OR = {
+					has_trait = brave
+					AND = {
+						NOT = { has_trait = craven }
+						prowess_for_combat_event_opponent >= scope:mfb_enemy_combatant.prowess
+					}
+				}
+			}
+		}
+	}
+}
+
+scripted_effect mfb_duel_participant_blademaster_xp_effect = {
+	if = {
+		limit = { has_trait = lifestyle_blademaster }
+		add_trait_xp = {
+			trait = lifestyle_blademaster
+			value = lifestyle_blademaster_xp_gain_minor_value
+		}
+	}
+}
+
+scripted_effect mfb_duel_victor_effect = {
+	if = {
+		limit = { 
+			NOT = { has_trait = lifestyle_blademaster } 
+		}
+		random = {
+			chance = 0
+			modifier = {
+				add = {
+					value = prowess
+					multiply = 2.5
+				}
+			}
+			send_interface_message = {
+				type = mfb_event_good_with_text
+				title = mfb_blademaster_message.t
+				desc = mfb_blademaster_message
+				left_icon = root
+				add_trait = lifestyle_blademaster
+			}
+		}
+	}
+}
+
+# Duel Result Setup
+mfb_duel.0010 = {
+	hidden = yes
+	
+	trigger = { exists = root }
+	
+	immediate = {
+		if = {
+			limit = { root = scope:sc_victor }
+			scope:combat_side = {
+				side_primary_participant = { save_scope_as = mfb_primary_attacker }
+				enemy_side.side_primary_participant = { save_scope_as = mfb_primary_defender }
+			}
+		}
+		else = {
+			scope:combat_side = {
+				side_primary_participant = { save_scope_as = mfb_primary_defender }
+				enemy_side.side_primary_participant = { save_scope_as = mfb_primary_attacker }
+			}
+		}
+	
+		scope:sc_loser = {
+			mfb_duel_participant_blademaster_xp_effect = yes
+			trigger_event = mfb_duel.0011
+		}
+		scope:sc_victor = {
+			mfb_duel_participant_blademaster_xp_effect = yes
+			mfb_duel_victor_effect = yes
+		}
+	}
+}
+
+scripted_effect mfb_duel_kill_effect = {
+	$KILLER$ = {
+		scope:combat_side = {
+			battle_event = {
+				key = "mfb_duel_killer"
+				left_portrait = $KILLER$
+				right_portrait = $TARGET$
+				target_right = yes
+			}
+		}
+		random_list = {
+			5 = {
+				send_interface_message = {
+					type = mfb_duel_good_with_text
+					title = mfb_duel_enemy_killed_message.t
+					desc = mfb_duel_enemy_killed_message
+					left_icon = $KILLER$
+					right_icon = $TARGET$
+					add_prestige = mfb_knight_prestige_gain_on_kill
+					
+					if = {
+						limit = { is_valid_for_legitimacy_change = yes }
+						add_legitimacy = mfb_knight_legitimacy_gain_on_kill
+						
+						if = {
+							limit = { has_ce1_dlc_trigger = yes }
+							legend_seed_great_deed_title_effect = { TITLE = $KILLER$.primary_title }
+						}
+					}
+					
+					add_character_modifier = {
+						modifier = mfb_duel_victory_modifier
+						months = 1
+					}
+				}
+			}
+			95 = {
+				send_interface_message = {
+					type = mfb_duel_good_with_text
+					title = mfb_duel_enemy_killed_message.t
+					desc = mfb_duel_enemy_killed_message
+					left_icon = $KILLER$
+					right_icon = $TARGET$
+					add_prestige = mfb_knight_prestige_gain_on_kill
+					
+					if = {
+						limit = { is_valid_for_legitimacy_change = yes }
+						add_legitimacy = mfb_knight_legitimacy_gain_on_kill
+					}
+					
+					add_character_modifier = {
+						modifier = mfb_duel_victory_modifier
+						months = 1
+					}
+				}
+			}
+		}
+	}
+	$TARGET$ = {
+		send_interface_message = {
+			type = mfb_duel_bad
+			title = mfb_duel_player_killed_message.t
+			desc = mfb_duel_player_killed_message
+			left_icon = $TARGET$
+			right_icon = $KILLER$
+		}
+		death = {
+			killer = $KILLER$
+			death_reason = death_duel
+		}
+	}
+}
+
+# Duel Result
+mfb_duel.0011 = {
+	hidden = yes
+
+	trigger = {
+		exists = root
+		is_alive = yes
+		is_imprisoned = no
+	}
+
+	immediate = {
+		random_list = {
+			60 = { # Death
+				modifier = {
+					factor = 0.5
+					has_trait = craven
+				}
+				modifier = {
+					factor = 2
+					has_trait = brave
+				}
+				mfb_duel_kill_effect = { 
+					KILLER = scope:sc_victor 
+					TARGET = scope:sc_loser 
+				}
+			}
+			40 = { # Scope:sc_victor's choice
+				modifier = {
+					add = 50
+					has_perk = stalwart_leader_perk
+					is_ai = no
+				}
+				modifier = {
+					add = 15
+					has_perk = stalwart_leader_perk
+					is_ai = yes
+				}
+				modifier = {
+					add = 50
+					exists = dynasty
+					dynasty = { has_dynasty_perk = warfare_legacy_3 }
+				}
+				scope:sc_victor = {
+					scope:combat_side = {
+						battle_event = {
+							key = "mfb_duel_victor"
+							left_portrait = scope:sc_victor
+							right_portrait = scope:sc_loser
+							target_right = yes
+						}
+					}
+					send_interface_message = {
+						type = mfb_duel_good_with_text
+						title = mfb_duel_enemy_defeated_message.t
+						desc = mfb_duel_enemy_defeated_message
+						left_icon = scope:sc_victor
+						right_icon = scope:sc_loser
+						add_prestige = mfb_knight_prestige_gain_on_victory
+						
+						if = {
+							limit = { is_valid_for_legitimacy_change = yes }
+							add_legitimacy = mfb_knight_legitimacy_gain_on_victory
+						}
+						
+						add_character_modifier = {
+							modifier = mfb_duel_victory_modifier
+							months = 1
+						}
+					}
+				}
+				random_list = {
+					85 = { 
+						increase_wounds_no_death_effect = { REASON = duel } 
+					}
+					15 = { 
+						mfb_maimed_in_battle_effect = yes 
+					}
+				}
+				random_list = {
+					60 = {
+						scope:sc_victor = { trigger_event = mfb_duel.0012 }
+					}
+					40 = {
+						scope:sc_victor = {
+							send_interface_message = {
+								type = mfb_duel_bad
+								title = mfb_duel_enemy_fled_message.t
+								desc = mfb_duel_enemy_fled_message
+								left_icon = scope:sc_victor
+								right_icon = scope:sc_loser
+							}
+						}
+						send_interface_message = {
+							type = mfb_duel_good
+							title = mfb_duel_player_fled_message.t
+							desc = mfb_duel_player_fled_message
+							left_icon = scope:sc_loser
+							right_icon = scope:sc_victor
+						}
+						progress_towards_rival_effect = {
+							REASON = rival_duel_vengeance
+							CHARACTER = scope:sc_victor
+							OPINION = default_rival_opinion
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+scripted_effect mfb_imprison_effect = {
+	scope:mfb_primary_attacker = {
+		imprison = {
+			target = scope:sc_loser
+			type = house_arrest
+		}
+		
+		if = {
+			limit = {
+				NOT = { scope:sc_victor = scope:mfb_primary_attacker }
+			}
+			send_interface_message = {
+				type = mfb_duel_captured
+				title = mfb_duel_someone_captured_enemy_message.t
+				desc = mfb_duel_someone_captured_enemy_message
+				left_icon = scope:sc_victor
+				right_icon = scope:sc_loser
+			}
+		}
+		
+		if = {
+			limit = {
+				is_in_army = yes 
+				scope:sc_loser = {
+					is_imprisoned_by = scope:mfb_primary_attacker
+					has_relation_rival = scope:mfb_primary_attacker
+				}
+			}
+			scope:sc_loser = { add_to_list = captured_rivals }
+			location = { save_scope_as = combat_location }
+			scope:mfb_primary_attacker = { save_scope_as = primary_combat_winner }
+			scope:mfb_primary_defender = { save_scope_as = primary_combat_loser }
+			trigger_event = bp1_yearly.8060
+		}
+	}
+	scope:sc_loser = {
+		add_character_flag = { 
+			flag = block_imprisonment_event 
+			days = 1 
+		}
+	}
+}
+
+# scope:sc_victor's choice 
+mfb_duel.0012 = {
+	type = character_event
+	title = mfb_duel.0012.t
+	desc = mfb_duel.0012.desc
+	theme = battle
+	
+	left_portrait = { 
+		character = root
+		scripted_animation = duel_celebrate
+	}
+	right_portrait = {
+		character = scope:sc_loser
+		animation = random_weapon_yield
+	}
+	
+	trigger = { exists = root }
+	
+	option = {
+		name = mfb_duel.0012.a
+		
+		scope:sc_loser = {
+			send_interface_message = {
+				type = mfb_duel_bad
+				title = mfb_duel_player_captured_message.t
+				desc = mfb_duel_player_captured_message
+				left_icon = scope:sc_loser
+				right_icon = scope:sc_victor
+			}
+			mfb_imprison_effect = yes
+			progress_towards_rival_effect = {
+				REASON = rival_duel_vengeance
+				CHARACTER = scope:sc_victor
+				OPINION = default_rival_opinion
+			}
+		}
+		
+		ai_chance = {
+			base = 70
+		}
+	}
+	option = {
+		name = mfb_duel.0012.b
+		
+		scope:sc_loser = {
+			send_interface_message = {
+				type = mfb_duel_bad
+				title = mfb_duel_player_executed_message.t
+				desc = mfb_duel_player_executed_message
+				left_icon = scope:sc_loser
+				right_icon = scope:sc_victor
+			}
+			death = {
+				killer = scope:sc_victor
+				death_reason = death_duel
+			}
+		}
+		execute_opinion_effect = {
+			VICTIM = scope:sc_loser
+			EXECUTIONER = scope:sc_victor
+		}
+		
+		ai_chance = {
+			base = 20
+			modifier = {
+				factor = 0
+				OR = {
+					has_trait = generous
+					has_relation_friend = scope:sc_loser
+					has_relation_best_friend = scope:sc_loser
+				}
+			}
+		}
+	}
+	option = {
+		name = mfb_duel.0012.c
+		custom_tooltip = mfb_release_tooltip
+		
+		if = {
+			limit = {
+				can_add_hook = {
+					target = scope:sc_loser
+					type = favor_hook
+				}
+			}
+			add_hook = {
+				type = favor_hook
+				target = scope:sc_loser
+			}
+		}
+
+		scope:sc_loser = {
+			send_interface_message = {
+				type = mfb_duel_good
+				title = mfb_duel_player_released_message.t
+				desc = mfb_duel_player_released_message
+				left_icon = scope:sc_loser
+				right_icon = scope:sc_victor
+			}
+			progress_towards_friend_effect = {
+				REASON = friend_saved_life
+				CHARACTER = scope:sc_victor
+				OPINION = default_friend_opinion
+			}
+		}
+		
+		ai_chance = {
+			base = 10
+			modifier = {
+				factor = 0
+				OR = {
+					has_trait = sadistic
+					has_trait = wrathful
+					has_relation_rival = scope:sc_loser
+					has_relation_nemesis = scope:sc_loser
+				}
+			}
+		}
+	}
+}

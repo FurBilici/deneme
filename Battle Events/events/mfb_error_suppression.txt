@@ -1,0 +1,10 @@
+﻿namespace = mfb_error_supression
+
+mfb_error_supression.0001 = {
+	hidden = yes
+	orphan = yes
+	
+	trigger = {
+		exists = global_var:mfb_is_loaded
+	}
+}

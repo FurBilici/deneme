@@ -1,0 +1,131 @@
+﻿mfb_event_chance_value = {
+	if = {
+		limit = { has_game_rule = mfb_event_chance_5 }
+		value = 5
+	}
+	else_if = {
+		limit = { has_game_rule = mfb_event_chance_10 }
+		value = 10
+	}
+	else_if = {
+		limit = { has_game_rule = mfb_event_chance_15 }
+		value = 15
+	}
+	else_if = {
+		limit = { has_game_rule = mfb_event_chance_20 }
+		value = 20
+	}
+	else_if = {
+		limit = { has_game_rule = mfb_event_chance_33 }
+		value = 33
+	}
+	else_if = {
+		limit = { has_game_rule = mfb_event_chance_50 }
+		value = 50
+	}
+	else_if = {
+		limit = { has_game_rule = mfb_event_chance_75 }
+		value = 75
+	}
+	else_if = {
+		limit = { has_game_rule = mfb_event_chance_100 }
+		value = 100
+	}
+	else_if = {
+		limit = { has_game_rule = mfb_event_chance_off }
+		value = 0
+	}
+	else = {
+		value = 25
+	}
+}
+
+mfb_hastiluder_chance_value = {
+	if = {
+		limit = { has_game_rule = mfb_hastiluder_chance_quarter_low }
+		value = 0.25
+	}
+	else_if = {
+		limit = { has_game_rule = mfb_hastiluder_chance_very_low }
+		value = 0.5
+	}
+	else_if = {
+		limit = { has_game_rule = mfb_hastiluder_chance_low }
+		value = 0.75
+	}
+	else_if = {
+		limit = { has_game_rule = mfb_hastiluder_chance_high }
+		value = 1.5
+	}
+	else_if = {
+		limit = { has_game_rule = mfb_hastiluder_chance_very_high }
+		value = 2
+	}
+	else_if = {
+		limit = { has_game_rule = mfb_hastiluder_chance_off }
+		value = 0
+	}
+	else = {
+		value = 1
+	}
+}
+
+mfb_commander_trait_chance_value = {
+	if = {
+		limit = { has_game_rule = mfb_commander_trait_chance_quarter_low }
+		value = 0.25
+	}
+	else_if = {
+		limit = { has_game_rule = mfb_commander_trait_chance_very_low }
+		value = 0.5
+	}
+	else_if = {
+		limit = { has_game_rule = mfb_commander_trait_chance_low }
+		value = 0.75
+	}
+	else_if = {
+		limit = { has_game_rule = mfb_commander_trait_chance_high }
+		value = 1.5
+	}
+	else_if = {
+		limit = { has_game_rule = mfb_commander_trait_chance_very_high }
+		value = 2
+	}
+	else_if = {
+		limit = { has_game_rule = mfb_commander_trait_chance_off }
+		value = 0
+	}
+	else = {
+		value = 1
+	}
+}
+
+mfb_single_combat_chance_value = {
+	if = {
+		limit = { has_game_rule = mfb_single_combat_chance_quarter_low }
+		value = 0.25
+	}
+	else_if = {
+		limit = { has_game_rule = mfb_single_combat_chance_very_low }
+		value = 0.5
+	}
+	else_if = {
+		limit = { has_game_rule = mfb_single_combat_chance_low }
+		value = 0.75
+	}
+	else_if = {
+		limit = { has_game_rule = mfb_single_combat_chance_high }
+		value = 1.5
+	}
+	else_if = {
+		limit = { has_game_rule = mfb_single_combat_chance_very_high }
+		value = 2
+	}
+	else_if = {
+		limit = { has_game_rule = mfb_single_combat_chance_off }
+		value = 0
+	}
+	else = {
+		value = 1
+	}
+}

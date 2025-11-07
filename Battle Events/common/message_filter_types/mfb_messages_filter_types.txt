@@ -1,0 +1,3 @@
+﻿mfb_general_events = { display = feed }
+mfb_combat_casualties = { display = feed }
+mfb_combat_prisoners = { display = feed }

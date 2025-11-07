@@ -1,0 +1,14 @@
+﻿on_game_start = {
+    on_actions = { 
+		mfb_setup
+	}
+}
+
+mfb_setup = {
+    effect = {
+		set_global_variable = { 
+			name = mfb_is_loaded 
+			value = yes 
+		}
+    }
+}

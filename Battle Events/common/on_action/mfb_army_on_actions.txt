@@ -1,0 +1,30 @@
+﻿on_combat_end_winner = {
+	on_actions = {
+		mfb_on_combat_end_winner
+	}
+}
+
+on_combat_end_loser = {
+	on_actions = {
+		mfb_on_combat_end_loser
+	}
+}
+
+mfb_on_combat_end_winner = {
+	effect = {
+		every_side_commander = {
+			mfb_add_commander_trait_effect = yes
+			mfb_hastiluder_leveling_effect = { AMOUNT = medium }
+			mfb_event_initiate_effect = yes
+		}
+	}
+}
+
+mfb_on_combat_end_loser = {
+	effect = {
+		every_side_commander = {
+			mfb_hastiluder_leveling_effect = { AMOUNT = minor }
+			mfb_event_initiate_effect = yes
+		}
+	}
+}
