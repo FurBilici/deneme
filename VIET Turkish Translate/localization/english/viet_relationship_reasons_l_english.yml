@@ -1,0 +1,7 @@
+﻿﻿l_english:
+
+ VIET_friend_reason_placeholder:0 "[CHARACTER.GetShortUIName|U] ve [TARGET_CHARACTER.GetShortUIName] birbirlerinin sohbetlerinden keyif almayı öğrendiler."
+ VIET_rival_reason_placeholder:0 "[CHARACTER.GetShortUIName|U] ve [TARGET_CHARACTER.GetShortUIName] bazı farklılıklar nedeniyle birbirlerinden hoşlanmamaya başladılar."
+ VIET_travel_argument_reason:0 "[CHARACTER.GetShortUIName|U] ve [TARGET_CHARACTER.GetShortUIName] [traveling|E] büyük bir tartışmaya girdiler."
+ VIET_travel_chat_reason:0 "[CHARACTER.GetShortUIName|U] ve [TARGET_CHARACTER.GetShortUIName], [traveling|E] sırasında harika, derin bir sohbet ettiler."
+ VIET_natural_philosophy_interest:0 "[CHARACTER.GetShortUIName|U] ve [TARGET_CHARACTER.GetShortUIName] doğal felsefe hakkında keyifli, entelektüel bir sohbet ettiler."

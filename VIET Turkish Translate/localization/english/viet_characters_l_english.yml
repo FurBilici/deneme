@@ -1,0 +1,15 @@
+﻿﻿l_english:
+ # Note to Chinese translators if you ever see this: Qi Ma is a reference to the character M'aiq the Liar from Elder Scrolls
+ # Feel free to translate "Qi Ma" to something silly or some kind of pun
+ dynn_RICE_qi_ma:0 "Qi"
+ RICE_name_ma:0 "Ma"
+ RICE_nick_the_liar:0 "Yalancı"
+ RICE_nick_the_liar_desc:1 "[CHARACTER.GetShortUINameNoTooltipNoFormat|U] çok şey bilir, birazını söyler. [CHARACTER.GetShortUINameNoTooltipNoFormat|U] başkalarının bilmediği birçok şeyi bilir."
+ VIET_name_dreamer:0 "Hayalperest"
+ VIET_nick_crow_lord:0 "Kargaların Efendisi"
+ VIET_nick_crow_lord_desc:1 "Kargalar [CHARACTER.GetShortUINameNoTooltipNoFormat]'ya çekiliyor gibi görünüyor. [CharYouSheHe(CHARACTER)]'in [CharHaveHas(CHARACTER)] korkutucu, karanlık, gizemli güçleri olduğu söyleniyor; bunun nedeni [CharYourHerHis(CHARACTER)] ile bu kargaların dostluğudur."
+ VIET_nick_crow_lady:0 "Kargaların Hanımı"
+ VIET_nick_crow_lady_desc:0 "$VIET_nick_crow_lord_desc$"
+ dynn_VIET_dreamer:0 "無"
+ VIET_nick_runs_in_circles:0 "Dönüp durmak"
+ VIET_nick_runs_in_circles_desc:0 "[CHARACTER.GetShortUINameNoTooltipNoFormat|U] aklında doğru değil ve etrafta bağırarak koşuyor."Ni ni ni ni ni!""
