@@ -1,0 +1,5 @@
+﻿l_english:
+  unique_event.1000.t:0 "Deneme Etkinliği Başlığı"
+  unique_event.1000.desc:0 "Bu, benzersiz bir deneme etkinliğinin açıklamasıdır. İki seçenekten birini seçebilirsiniz."
+  unique_event.1000.a:0 "Prestij kazan"
+  unique_event.1000.b:0 "Stres kazan"

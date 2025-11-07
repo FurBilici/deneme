@@ -1,0 +1,21 @@
+namespace = unique_event
+
+unique_event.1000 = {
+    type = character_event
+    title = unique_event.1000.t
+    desc  = unique_event.1000.desc
+    theme = interaction
+
+    trigger = {
+        exists = root
+    }
+
+    option = {
+        name = unique_event.1000.a
+        add_prestige = 50
+    }
+    option = {
+        name = unique_event.1000.b
+        add_stress = 30
+    }
+}
