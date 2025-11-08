@@ -19,3 +19,44 @@ unique_event.1000 = {
         add_stress = 30
     }
 }
+
+# Event for war victory
+unique_event.2000 = {
+    type = character_event
+    title = unique_event.2000.t
+    desc  = unique_event.2000.desc
+    theme = war
+
+    # No additional trigger here; event is called via on_action after war is won
+
+    option = {
+        name = unique_event.2000.a
+        add_prestige = 100
+        add_gold = 100
+        add_piety = 50
+    }
+    option = {
+        name = unique_event.2000.b
+        add_prestige = 50
+        add_stress = -25
+    }
+}
+
+# Event for war defeat
+unique_event.2010 = {
+    type = character_event
+    title = unique_event.2010.t
+    desc  = unique_event.2010.desc
+    theme = war
+
+    option = {
+        name = unique_event.2010.a
+        add_stress = 75
+        add_prestige = -50
+    }
+    option = {
+        name = unique_event.2010.b
+        add_stress = 50
+        add_gold = -100
+    }
+}

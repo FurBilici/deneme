@@ -1,0 +1,29 @@
+on_war_won_attacker = {
+    on_actions = { unique_event_war_resolution }
+}
+
+on_war_won_defender = {
+    on_actions = { unique_event_war_resolution }
+}
+
+# This on_action will run for both attacker and defender war win resolutions.
+# The base on_action definitions save the winning and losing characters as
+# scopes 'winner' and 'loser'. We call our custom events for each side.
+unique_event_war_resolution = {
+    effect = {
+        # Trigger victory event for the winning character if they are player-controlled
+        scope:winner = {
+            if = {
+                limit = { is_ai = no  is_alive = yes }
+                trigger_event = { id = unique_event.2000 }
+            }
+        }
+        # Trigger defeat event for the losing character if they are player-controlled
+        scope:loser = {
+            if = {
+                limit = { is_ai = no  is_alive = yes }
+                trigger_event = { id = unique_event.2010 }
+            }
+        }
+    }
+}

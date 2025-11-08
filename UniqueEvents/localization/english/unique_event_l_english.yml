@@ -3,3 +3,15 @@
   unique_event.1000.desc:0 "Bu, benzersiz bir deneme etkinliğinin açıklamasıdır. İki seçenekten birini seçebilirsiniz."
   unique_event.1000.a:0 "Prestij kazan"
   unique_event.1000.b:0 "Stres kazan"
+
+  # War victory event
+  unique_event.2000.t:0 "Zafer!"
+  unique_event.2000.desc:0 "Savaş sona erdi ve zafer sizin. Kutlamaya hazır mısınız?"
+  unique_event.2000.a:0 "Kutlamaları başlat (büyük prestij, altın ve dini şöhret kazan)"
+  unique_event.2000.b:0 "Sade bir kutlama (biraz prestij kazan, stres at)"
+
+  # War defeat event
+  unique_event.2010.t:0 "Yenilgi"
+  unique_event.2010.desc:0 "Savaş kaybedildi. Ümidinizi kaybetmeyin; gelecekte yeniden yükselebilirsiniz."
+  unique_event.2010.a:0 "Başınızı öne eğin (büyük stres, prestij kaybı)"
+  unique_event.2010.b:0 "Sorumluları suçlayın (stres artışı, altın kaybı)"
